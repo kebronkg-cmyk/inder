@@ -27,7 +27,7 @@ Indische Küche mitten in der Freisinger Altstadt: Tandoor-Gerichte und Naan aus
 ## Operating Context
 
 - Öffnungszeiten: Mo und Mi–So 11:30–14:00 und 17:30–22:00, Dienstag Ruhetag. Lieferung zu den Öffnungszeiten.
-- Reservierung: telefonisch (08161 4965102); die Seite bietet einen Reservier-Assistenten (Personen → Tag/Uhrzeit innerhalb der Öffnungszeiten → Name), der per Anruf, WhatsApp oder vorformulierter E-Mail abschließt. Kein Backend.
+- Reservierung: telefonisch (08161 4965102); die Seite bietet einen Reservier-Assistenten (Personen → Tag/Uhrzeit innerhalb der Öffnungszeiten → Name), der per Anruf oder vorformulierter E-Mail abschließt. Kein Backend.
 - Bestellung: bestehender Karvi-Shop `https://www.bombayrestaurant-freising.de/order_type` (0 % Provision) sowie iOS-/Android-App. Die Seite führt dorthin, sie ersetzt ihn nicht.
 
 ## Capabilities and Constraints

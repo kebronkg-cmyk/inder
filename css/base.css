@@ -94,7 +94,7 @@ p { text-wrap: pretty; }
 
 /* ═══════════ Einblenden beim Scrollen ═══════════
    Inhalt ist ohne JS sichtbar; erst .js-reveal versteckt ihn. */
-.js-reveal [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); transition-delay: var(--d, 0s); }
+.js-reveal [data-reveal] { opacity: .14; transform: translateY(16px); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); transition-delay: var(--d, 0s); }
 .js-reveal [data-reveal].is-in { opacity: 1; transform: none; }
 
 /* ═══════════ Status „Heute“ ═══════════ */
@@ -260,20 +260,17 @@ p { text-wrap: pretty; }
 .ansicht .vor { left: 12px; top: 50%; transform: translateY(-50%); }
 .ansicht .nach { right: 12px; top: 50%; transform: translateY(-50%); }
 
-/* ═══════════ Entwurfs-Umschalter (nur für die Abnahme) ═══════════ */
-.entwurf {
-  position: fixed; left: max(12px, env(safe-area-inset-left)); bottom: calc(12px + env(safe-area-inset-bottom) + var(--daumen-h, 0px)); z-index: 95;
-  display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: rgba(15, 10, 8, .82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  font-size: .74rem; font-weight: 700; opacity: .85;
-}
-.entwurf:hover, .entwurf:focus-within { opacity: 1; }
-.entwurf a { color: #f6ead6; text-decoration: none; padding: .45em .8em; border-radius: 999px; }
-.entwurf a[aria-current] { background: #f6ead6; color: #1a110c; }
+/* ═══════════ Entwurfs-Hinweis (nur für die Abnahme) ═══════════ */
+.entwurf-hinweis { font-size: .85rem; }
+.entwurf-hinweis a[aria-current] { font-weight: 700; text-decoration: none; }
+.kopf-nav .kopf-nav-entwurf { font-size: .82rem !important; opacity: .75; border-radius: 999px; box-shadow: inset 0 0 0 1px currentColor; padding: .3em .8em !important; margin-left: 6px; }
 
-@keyframes schritt-zurueck { from { opacity: 0; transform: translateX(-14px); } }
-.ist-gesperrt { overflow: hidden; }
-
-@media (max-width: 460px) {
-  .finder-treffer { grid-template-columns: 1fr; gap: 14px; }
-  .finder-bild, .finder-ohnebild { width: 110px; }
+/* ═══════════ Daumenleiste: Merkzettel statt schwebender Pille ═══════════ */
+.daumen-merk { display: grid; justify-items: center; align-content: center; gap: 2px; font-size: .78rem; font-weight: 700; color: inherit; position: relative; border-radius: 10px; }
+.daumen-merk .ico { width: 1.35rem; height: 1.35rem; }
+.daumen-zahl { position: absolute; top: 4px; left: calc(50% + 6px); min-width: 19px; height: 19px; padding: 0 5px; border-radius: 10px; background: var(--accent); color: var(--on-accent); font-size: .72rem; line-height: 19px; font-variant-numeric: tabular-nums; }
+@media (max-width: 900px) {
+  .merk-fab { display: none; }
+  .daumen { grid-template-columns: 1fr 1.25fr 1fr 1fr !important; color: var(--fg); }
+  .daumen-merk { color: var(--fg); }
 }

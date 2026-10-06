@@ -32,6 +32,9 @@
 
   /* Rosetten-Jaal: punktierte Rautenlinien, Rosetten an den Knoten */
   --jaal: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23f3e7d3' stroke-opacity='.16' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M48 4 92 48 48 92 4 48Z' stroke-dasharray='0 6.2'/%3E%3C/g%3E%3Cg fill='%23f3e7d3' fill-opacity='.17'%3E%3Cg id='r'%3E%3Ccircle cx='48' cy='48' r='3.4'/%3E%3Cellipse cx='48' cy='39' rx='2.6' ry='5'/%3E%3Cellipse cx='48' cy='57' rx='2.6' ry='5'/%3E%3Cellipse cx='39' cy='48' rx='5' ry='2.6'/%3E%3Cellipse cx='57' cy='48' rx='5' ry='2.6'/%3E%3Cellipse cx='41.6' cy='41.6' rx='2' ry='4' transform='rotate(-45 41.6 41.6)'/%3E%3Cellipse cx='54.4' cy='54.4' rx='2' ry='4' transform='rotate(-45 54.4 54.4)'/%3E%3Cellipse cx='54.4' cy='41.6' rx='2' ry='4' transform='rotate(45 54.4 41.6)'/%3E%3Cellipse cx='41.6' cy='54.4' rx='2' ry='4' transform='rotate(45 41.6 54.4)'/%3E%3C/g%3E%3Ccircle cx='0' cy='0' r='6'/%3E%3Ccircle cx='96' cy='0' r='6'/%3E%3Ccircle cx='0' cy='96' r='6'/%3E%3Ccircle cx='96' cy='96' r='6'/%3E%3Ccircle cx='48' cy='4' r='2'/%3E%3Ccircle cx='92' cy='48' r='2'/%3E%3Ccircle cx='48' cy='92' r='2'/%3E%3Ccircle cx='4' cy='48' r='2'/%3E%3C/g%3E%3C/svg%3E");
+  /* Dichter Jaal für Bühne und Lieblinge: Kohle-Rosetten mit Reserve-Blättern,
+     der Weißdruck um 1px versetzt wie beim echten Blockdruck */
+  --jaal-dicht: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23f3e7d3' stroke-opacity='.22' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M32 2 62 32 32 62 2 32Z' stroke-dasharray='0 4.6'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='9.5' fill='%2318100e' fill-opacity='.38'/%3E%3Cg fill='%23f3e7d3' fill-opacity='.36' transform='translate(.8 .6)'%3E%3Cellipse cx='32' cy='25.5' rx='2' ry='4'/%3E%3Cellipse cx='32' cy='38.5' rx='2' ry='4'/%3E%3Cellipse cx='25.5' cy='32' rx='4' ry='2'/%3E%3Cellipse cx='38.5' cy='32' rx='4' ry='2'/%3E%3Cellipse cx='27.4' cy='27.4' rx='1.5' ry='3' transform='rotate(-45 27.4 27.4)'/%3E%3Cellipse cx='36.6' cy='36.6' rx='1.5' ry='3' transform='rotate(-45 36.6 36.6)'/%3E%3Cellipse cx='36.6' cy='27.4' rx='1.5' ry='3' transform='rotate(45 36.6 27.4)'/%3E%3Cellipse cx='27.4' cy='36.6' rx='1.5' ry='3' transform='rotate(45 27.4 36.6)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='2.2' fill='%23edb23a' fill-opacity='.55'/%3E%3Cg fill='%2318100e' fill-opacity='.3'%3E%3Ccircle cx='0' cy='0' r='5'/%3E%3Ccircle cx='64' cy='0' r='5'/%3E%3Ccircle cx='0' cy='64' r='5'/%3E%3Ccircle cx='64' cy='64' r='5'/%3E%3C/g%3E%3Cg fill='%23f3e7d3' fill-opacity='.32'%3E%3Ccircle cx='0' cy='0' r='2'/%3E%3Ccircle cx='64' cy='0' r='2'/%3E%3Ccircle cx='0' cy='64' r='2'/%3E%3Ccircle cx='64' cy='64' r='2'/%3E%3C/g%3E%3C/svg%3E");
   /* Bordüre: zwei Punktreihen, dazwischen Krappkreise mit Reservering und Kleeblatt */
   --bordure: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='30' viewBox='0 0 44 30'%3E%3Crect width='44' height='30' fill='%2318100e'/%3E%3Cg fill='%23f3e7d3'%3E%3Ccircle cx='5.5' cy='3.5' r='1.5'/%3E%3Ccircle cx='16.5' cy='3.5' r='1.5'/%3E%3Ccircle cx='27.5' cy='3.5' r='1.5'/%3E%3Ccircle cx='38.5' cy='3.5' r='1.5'/%3E%3Ccircle cx='5.5' cy='26.5' r='1.5'/%3E%3Ccircle cx='16.5' cy='26.5' r='1.5'/%3E%3Ccircle cx='27.5' cy='26.5' r='1.5'/%3E%3Ccircle cx='38.5' cy='26.5' r='1.5'/%3E%3C/g%3E%3Ccircle cx='11' cy='15' r='6.2' fill='%238c2220' stroke='%23f3e7d3' stroke-width='1.6'/%3E%3Ccircle cx='11' cy='15' r='1.8' fill='%23edb23a'/%3E%3Cg fill='%2333508f'%3E%3Ccircle cx='33' cy='11.6' r='2.4'/%3E%3Ccircle cx='30' cy='17' r='2.4'/%3E%3Ccircle cx='36' cy='17' r='2.4'/%3E%3C/g%3E%3C/svg%3E");
   /* Stoffstruktur: feines, ruhendes Korn */
@@ -54,6 +57,8 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .feld::before { content: ""; position: absolute; inset: 0; z-index: -1; background-image: var(--korn); opacity: .55; mix-blend-mode: multiply; pointer-events: none; }
 .feld--krapp { background: var(--jaal) var(--krapp); }
 .feld--indigo { background: var(--jaal) var(--indigo); }
+.buehne.feld--krapp { background: var(--jaal-dicht) var(--krapp); }
+.lieblinge.feld--indigo { background: var(--jaal-dicht) var(--indigo); }
 .feld--kohle { background: var(--kohle); }
 .bordure { height: 30px; background: var(--bordure) center / 44px 30px repeat-x; }
 
@@ -120,23 +125,27 @@ h2 { font-size: clamp(2.3rem, 5.2vw, 4.4rem); letter-spacing: -0.01em; }
 .js .buehne-bild img { animation: bild-ruhe 2.2s var(--ease-out) .15s both; }
 @keyframes bild-ruhe { from { transform: scale(1.14); } }
 .hat-logo[data-logo-zeichnen] .logo-bogen { animation: bogen-zieh 1.1s var(--ease-in-out) .2s both; transform-origin: 50% 0; }
-@keyframes bogen-zieh { from { clip-path: inset(0 50% 0 50%); } to { clip-path: inset(0 0 0 0); } }
+@keyframes bogen-zieh { from { clip-path: inset(0 22% 0 22%); } to { clip-path: inset(0 0 0 0); } }
 .hat-logo[data-logo-zeichnen] .logo-kuppel { animation: kuppel-ein .8s var(--ease-out) .75s both; }
-@keyframes kuppel-ein { from { opacity: 0; transform: translateY(80px); } }
+@keyframes kuppel-ein { from { opacity: .45; transform: translateY(60px); } }
 .hat-logo[data-logo-zeichnen] .logo-wort { animation: wort-druck .7s var(--ease-out) .5s both; }
-@keyframes wort-druck { from { opacity: 0; filter: blur(14px); transform: scale(1.04); } }
+@keyframes wort-druck { 0% { opacity: .35; transform: scale(1.06); } 55% { opacity: 1; transform: scale(.985); } 100% { transform: none; } }
 .hat-logo[data-logo-zeichnen] svg { transform-box: fill-box; }
 .hat-logo[data-logo-zeichnen] .logo-wort, .hat-logo[data-logo-zeichnen] .logo-kuppel { transform-box: fill-box; transform-origin: 50% 50%; }
-.js [data-stempel] { animation: stempel .9s var(--ease-out) both; animation-delay: calc(.85s + var(--d, 0s)); }
-@keyframes stempel { from { opacity: 0; transform: translateY(14px); filter: blur(6px); } }
+.js [data-stempel] { animation: stempel .55s cubic-bezier(.3, 1.4, .5, 1) both; animation-delay: calc(.6s + var(--d, 0s)); transform-origin: 0 50%; }
+/* Ein Stempel: kurz größer, dann aufs Tuch gedrückt, Farbe zieht ein */
+@keyframes stempel { 0% { opacity: .2; transform: scale(1.05); } 60% { opacity: 1; transform: scale(.992); } 100% { opacity: 1; transform: none; } }
+.js-reveal [data-reveal] { transform: scale(1.03); transform-origin: 0 50%; }
+.js-reveal [data-reveal].is-in { transition-timing-function: cubic-bezier(.3, 1.3, .5, 1); transition-duration: .6s; }
 
 /* ═══════════ Gewürzband ═══════════ */
-.gewuerzband { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 0; background: var(--kohle); padding: 14px var(--gutter); border-block: 1px solid rgba(243,231,211,.12); }
-.gewuerzband span:not(.sr) { font-family: var(--font-display); font-size: clamp(1.05rem, 1.6vw, 1.35rem); color: var(--reserve); display: inline-flex; align-items: center; white-space: nowrap; }
-.gewuerzband span:not(.sr) + span::before { content: ""; width: 7px; height: 7px; margin: 0 clamp(12px, 1.6vw, 22px); border-radius: 50%; background: var(--kurkuma); box-shadow: 0 0 0 3px var(--kohle), 0 0 0 4.5px rgba(243,231,211,.5); }
+.gewuerzband { display: flex; justify-content: safe center; background: var(--kohle); padding: 14px var(--gutter); border-block: 1px solid rgba(243,231,211,.12); overflow-x: auto; scrollbar-width: none; }
+.gewuerzband::-webkit-scrollbar { display: none; }
+.gewuerzband span:not(.sr) { flex: none; font-family: var(--font-display); font-size: clamp(1.05rem, 1.5vw, 1.3rem); color: var(--reserve); display: inline-flex; align-items: center; white-space: nowrap; }
+.gewuerzband span:not(.sr):not(:last-child)::after { content: ""; width: 7px; height: 7px; margin: 0 clamp(12px, 1.5vw, 22px); border-radius: 50%; background: var(--kurkuma); box-shadow: 0 0 0 3px var(--kohle), 0 0 0 4.5px rgba(243,231,211,.5); }
 
 /* ═══════════ Lieblinge ═══════════ */
-.lieblinge { padding: clamp(80px, 11vw, 140px) 0 clamp(70px, 9vw, 120px); background-color: color-mix(in oklab, var(--farbe, var(--indigo)) 42%, var(--indigo)); transition: background-color 1s ease; }
+.lieblinge { padding: clamp(80px, 11vw, 140px) 0 clamp(70px, 9vw, 120px); }
 .lieblinge-kopf { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 64px; align-items: end; margin-bottom: clamp(36px, 5vw, 64px); }
 .lieblinge-kopf p { color: var(--reserve-2); max-width: 46ch; }
 .liebling { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); align-items: center; min-height: 560px; }
@@ -263,11 +272,11 @@ h2 { font-size: clamp(2.3rem, 5.2vw, 4.4rem); letter-spacing: -0.01em; }
 
 /* ═══════════ Stimmen ═══════════ */
 .stimmen { padding: clamp(80px, 10vw, 130px) 0; }
-.stimmen-kopf { display: flex; align-items: center; gap: clamp(20px, 4vw, 48px); flex-wrap: wrap; }
-.stimmen-note { font-family: var(--font-display); font-size: clamp(5rem, 13vw, 10rem); line-height: .8; color: var(--kurkuma); }
-.stimmen-kopf h2 { font-size: clamp(1.8rem, 3.4vw, 2.8rem); }
+.stimmen-kopf { max-width: 760px; }
+.stimmen-kopf h2 { font-size: clamp(2.2rem, 4.6vw, 3.8rem); }
+.stimmen-quelle .sterne { display: inline-flex; vertical-align: -4px; margin: 0 10px 0 0; }
 .sterne { display: flex; gap: 4px; color: var(--kurkuma); margin-top: 10px; }
-.sterne .ico { width: 1.5rem; height: 1.5rem; }
+.sterne .ico { width: 1.25rem; height: 1.25rem; }
 .sterne .halb { clip-path: inset(0 50% 0 0); }
 .stimmen-quelle, .stimmen-hinweis { color: var(--reserve-2); font-size: .92rem; margin-top: 6px; }
 .zitate { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 48px; }
@@ -311,7 +320,7 @@ h2 { font-size: clamp(2.3rem, 5.2vw, 4.4rem); letter-spacing: -0.01em; }
 }
 @media (max-width: 900px) {
   :root { --kopf-h: 64px; --daumen-h: 68px; }
-  .kopf-marke { opacity: 1; width: 104px; }
+  .kopf-marke { width: 104px; }
   .kopf-zeile { gap: 12px; }
   .kopf-menu { display: block; }
   .kopf-aktion .knopf { display: none; }
@@ -323,16 +332,16 @@ h2 { font-size: clamp(2.3rem, 5.2vw, 4.4rem); letter-spacing: -0.01em; }
   .kopf-nav-tel { display: flex !important; align-items: center; gap: 12px; font-family: var(--font-body) !important; font-size: 1.15rem !important; font-weight: 700; color: var(--kurkuma) !important; border: 0 !important; margin-top: 12px; }
 
   .buehne { padding-top: calc(var(--kopf-h) + 18px); padding-bottom: 48px; min-height: auto; }
-  .buehne-raster { grid-template-columns: minmax(0, 1fr) minmax(0, .72fr); grid-template-areas: "titel bild" "rest rest"; gap: 0 18px; align-items: end; }
-  .buehne-text { display: contents; }
-  .buehne-logo { display: none; }
-  .buehne-titel { grid-area: titel; font-size: clamp(1.9rem, 8.4vw, 3rem); align-self: center; }
-  .buehne-bild { grid-area: bild; width: 100%; }
-  .buehne-bild .bogen::before { inset: -9px; }
-  .buehne-bild .bogen::after { inset: -3px; }
-  .buehne-bild figcaption { display: none; }
-  .buehne-unter, .buehne-status, .buehne-handeln, .buehne-wege { grid-column: 1 / -1; }
-  .buehne-unter { margin-top: 26px; }
+  .buehne-raster { grid-template-columns: 1fr; gap: 0; }
+  .buehne-text { display: flex; flex-direction: column; }
+  .buehne-logo { width: min(72%, 320px); margin-bottom: 18px; }
+  .buehne-titel { font-size: clamp(2rem, 9vw, 3rem); max-width: 14ch; }
+  .buehne-unter { order: 5; margin-top: 28px; }
+  .buehne-status { order: 2; margin-top: 18px; }
+  .buehne-handeln { order: 3; }
+  .buehne-wege { order: 4; }
+  .buehne-bild { width: min(100%, 340px); justify-self: center; margin-top: 44px; }
+  .buehne-bild figcaption { margin-top: 18px; }
   .buehne-handeln .knopf { flex: 1 1 200px; }
   .lieblinge-kopf, .karte-kopf { grid-template-columns: 1fr; }
   .liebling { grid-template-columns: 1fr; min-height: 0; gap: 34px; }
@@ -351,7 +360,6 @@ h2 { font-size: clamp(2.3rem, 5.2vw, 4.4rem); letter-spacing: -0.01em; }
   .daumen a .ico { width: 1.35rem; height: 1.35rem; }
   .daumen .daumen-haupt { background: var(--kurkuma); color: var(--on-accent); }
   .merk-fab { bottom: calc(12px + var(--daumen-h) + env(safe-area-inset-bottom)); }
-  .entwurf { bottom: calc(14px + var(--daumen-h) + env(safe-area-inset-bottom)); }
   .kopf-aktion { margin-left: auto; }
 }
 @media (max-width: 620px) {

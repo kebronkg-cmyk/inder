@@ -37,7 +37,9 @@
   --font-body: "Anek Latin", "Segoe UI", system-ui, sans-serif;
 
   --stahl: conic-gradient(from 20deg, #7b8187, #dfe3e6 8%, #8a9096 20%, #f1f3f4 33%, #7e848a 47%, #d3d7da 60%, #858b91 74%, #edf0f1 87%, #7b8187);
-  --gehaemmert: radial-gradient(circle at 32% 30%, rgba(255, 214, 178, .2), rgba(255, 214, 178, 0) 46%), radial-gradient(circle at 70% 72%, rgba(40, 12, 2, .22), rgba(40, 12, 2, 0) 44%);
+  /* Gehämmertes Kupfer und Stahl: gerenderte Raster aus tools/materialien.py */
+  --kupfer-feld: linear-gradient(rgba(58, 20, 6, .4), rgba(58, 20, 6, .4)), url("../img/kupfer-gehaemmert.webp") 0 0 / 400px 400px;
+  --kupfer-feld-tief: linear-gradient(rgba(40, 12, 3, .58), rgba(40, 12, 3, .58)), url("../img/kupfer-gehaemmert.webp") 0 0 / 400px 400px;
   --korn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -56,7 +58,7 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .knopf--linie { color: var(--fg); box-shadow: inset 0 0 0 1.5px currentColor; }
 @media (hover: hover) { .knopf--linie:hover { background: rgba(239,230,216,.1); } }
 .knopf--klein { min-height: 42px; padding: .55em 1.1em; font-size: .95rem; }
-.rund { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 50%; background: var(--stahl); color: #22262a; box-shadow: inset 0 0 0 1px rgba(255,255,255,.6), 0 8px 18px -8px rgba(0,0,0,.7); transition: transform .16s var(--ease-out); }
+.rund { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 50%; background: url("../img/stahl-dabba.webp") center / 100% 100%; color: #22262a; box-shadow: inset 0 0 0 1px rgba(255,255,255,.6), 0 8px 18px -8px rgba(0,0,0,.7); transition: transform .16s var(--ease-out); }
 .rund:active { transform: scale(.94); }
 
 /* ═══════════ Kopf ═══════════ */
@@ -87,18 +89,22 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 @keyframes langsam { from { transform: scale(1.12); } to { transform: scale(1.02); } }
 .buehne-raum::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 48%, rgba(18,14,11,.55), rgba(18,14,11,.15) 70%), linear-gradient(to bottom, rgba(18,14,11,.7), rgba(18,14,11,0) 22%, rgba(18,14,11,0) 70%, var(--tawa)); }
 .buehne-inhalt { display: grid; justify-items: center; }
-.buehne-logo { width: min(560px, 82vw); color: var(--champagner); filter: drop-shadow(0 6px 30px rgba(0,0,0,.55)); }
+.buehne-logo-licht { filter: drop-shadow(0 2px 1px rgba(0,0,0,.6)) drop-shadow(0 10px 30px rgba(0,0,0,.55)); }
+.buehne-logo { width: min(560px, 82vw); color: var(--champagner); }
 .buehne-logo svg { width: 100%; height: auto; }
+/* Gebürsteter Stahl: das gerenderte Raster, ausgestanzt von der Logoform */
+.buehne-logo.hat-logo { background: url("../img/stahl-gebuerstet.webp") center / cover; -webkit-mask: url("../img/logo.svg") center / 100% 100% no-repeat; mask: url("../img/logo.svg") center / 100% 100% no-repeat; }
+.buehne-logo.hat-logo svg { visibility: hidden; }
 .buehne-titel { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.35rem, 2.3vw, 2rem); line-height: 1.25; max-width: 30ch; margin-top: clamp(18px, 3vw, 30px); text-wrap: balance; }
 .buehne-status { margin-top: 22px; justify-content: center; flex-wrap: wrap; row-gap: 2px; }
 .buehne-handeln { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 24px; }
-.buehne-raumtext { position: absolute; left: 0; right: 0; bottom: 28px; text-align: left; font-size: .9rem; color: var(--milch-2); }
-.js .buehne-logo, .js .buehne-titel, .js .buehne-status, .js .buehne-handeln { animation: auftauchen 1s var(--ease-out) both; }
-.js .buehne-logo { animation-delay: .9s; }
+.buehne-raumtext { position: absolute; left: 0; right: 0; bottom: 28px; text-align: center; font-size: .9rem; color: var(--milch-2); }
+.js .buehne-logo-licht, .js .buehne-titel, .js .buehne-status, .js .buehne-handeln { animation: auftauchen 1s var(--ease-out) both; }
+.js .buehne-logo-licht { animation-delay: .9s; }
 .js .buehne-titel { animation-delay: 1.15s; }
 .js .buehne-status { animation-delay: 1.3s; }
 .js .buehne-handeln { animation-delay: 1.4s; }
-@keyframes auftauchen { from { opacity: 0; transform: translateY(16px); filter: blur(8px); } }
+@keyframes auftauchen { from { opacity: .2; transform: translateY(12px); } }
 
 .status.is-open { color: #9fdba6; }
 .status.is-closed { color: var(--kurkuma); }
@@ -114,12 +120,8 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .thali-platz { position: relative; }
 .thali {
   position: relative; width: min(100%, 660px); aspect-ratio: 1; margin-inline: auto; border-radius: 50%; container-type: inline-size;
-  background:
-    radial-gradient(circle, transparent 0 59.5%, rgba(0,0,0,.28) 60%, rgba(255,255,255,.35) 61%, transparent 62.5%),
-    radial-gradient(circle, transparent 0 92%, rgba(255,255,255,.55) 93%, rgba(0,0,0,.4) 97%, rgba(0,0,0,.6) 100%),
-    repeating-radial-gradient(circle, rgba(255,255,255,.05) 0 1px, rgba(0,0,0,.05) 1px 3px),
-    var(--stahl);
-  box-shadow: 0 50px 90px -30px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.12);
+  background: url("../img/stahl-thali.webp") center / 100% 100% no-repeat;
+  box-shadow: 0 50px 90px -30px rgba(0,0,0,.9);
   touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none;
 }
 .thali.is-zug { cursor: grabbing; }
@@ -135,12 +137,13 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
   -webkit-tap-highlight-color: transparent;
 }
 .katori.is-fokus { --sk: 1.24; z-index: 3; }
-.katori-rand { position: relative; display: block; width: 100%; height: 100%; border-radius: 50%; padding: 1.5cqw; background: radial-gradient(circle, #9aa0a6 0 62%, transparent 63%), var(--stahl); box-shadow: 0 1.6cqw 2.4cqw -0.6cqw rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.55); }
-.katori-rand img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; pointer-events: none; }
-.katori-rand::after { content: ""; position: absolute; inset: 1.5cqw; border-radius: 50%; box-shadow: inset 0 0.6cqw 1.4cqw rgba(0,0,0,.45); pointer-events: none; }
+.katori-rand { position: relative; display: block; width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 1.6cqw 2.4cqw -0.6cqw rgba(0,0,0,.6); }
+.katori-rand img { position: absolute; inset: 6.5%; width: 87%; height: 87%; border-radius: 50%; object-fit: cover; pointer-events: none; }
+.katori-rand::before { content: ""; position: absolute; inset: 6.5%; border-radius: 50%; box-shadow: inset 0 0.8cqw 1.6cqw rgba(0,0,0,.55); z-index: 1; pointer-events: none; }
+.katori-rand::after { content: ""; position: absolute; inset: 0; background: url("../img/stahl-katori.webp") center / 100% 100% no-repeat; z-index: 2; pointer-events: none; }
 .katori:focus-visible { outline: none; }
 .katori:focus-visible .katori-rand { box-shadow: 0 0 0 3px var(--kurkuma), 0 1.6cqw 2.4cqw -0.6cqw rgba(0,0,0,.55); }
-.katori.is-fokus .katori-rand { box-shadow: 0 0 0 .5cqw var(--kurkuma), 0 3cqw 4cqw -1cqw rgba(0,0,0,.6); }
+.katori.is-fokus .katori-rand { box-shadow: 0 0 0 .55cqw var(--kurkuma), 0 3cqw 4cqw -1cqw rgba(0,0,0,.65); }
 .dampf { position: absolute; left: 0; right: 0; bottom: 62%; height: 70%; pointer-events: none; opacity: 0; transition: opacity .6s ease; }
 .is-fokus .dampf { opacity: 1; }
 .dampf i { position: absolute; bottom: 0; left: calc(30% + var(--x, 0%)); width: 9%; height: 70%; border-radius: 50%; background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,.55) 40%, rgba(255,255,255,0)); filter: blur(5px); animation: dampf 3.4s ease-in-out infinite; opacity: 0; }
@@ -148,12 +151,12 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .dampf i:nth-child(3) { --x: 34%; animation-delay: 2.2s; }
 @keyframes dampf { 0% { transform: translateY(20%) scaleX(1); opacity: 0; } 30% { opacity: .9; } 100% { transform: translateY(-60%) scaleX(2.2) skewX(12deg); opacity: 0; } }
 .thali-mitte { position: absolute; inset: 31.5%; border-radius: 50%; display: grid; place-items: center; text-align: center; pointer-events: none; }
-.thali-mitte span { font-family: var(--font-display); font-weight: 600; font-size: 3.7cqw; line-height: 1.05; color: #3a3e43; text-shadow: 0 1px 0 rgba(255,255,255,.7), 0 -1px 0 rgba(0,0,0,.25); max-width: 92%; display: grid; gap: .3em; }
-.thali-mitte small { font-family: var(--font-body); font-size: .5em; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+.thali-mitte span { font-family: var(--font-display); font-weight: 600; font-size: 3.7cqw; line-height: 1.05; color: #2f3337; text-shadow: 0 1px 0 rgba(255,255,255,.55), 0 -1px 0 rgba(0,0,0,.3); max-width: 92%; display: grid; gap: .3em; }
+.thali-mitte small { font-family: var(--font-body); font-size: .5em; font-weight: 600; letter-spacing: .06em; opacity: .75; }
 .thali-pfeile { display: flex; gap: 12px; justify-content: center; margin-top: 28px; }
 
-.thali-nr { color: var(--kupfer-hell); font-weight: 600; letter-spacing: .02em; }
-.thali-name { font-size: clamp(2.6rem, 5.4vw, 4.6rem); line-height: .98; margin-top: 6px; }
+.thali-name { font-size: clamp(2.6rem, 5.4vw, 4.6rem); line-height: .98; }
+.thali-karte { color: var(--milch-2); font-size: .95rem; }
 .thali-satz { margin-top: 18px; font-size: 1.12rem; max-width: 48ch; }
 .thali-fakten { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 20px; }
 .thali-fakten li { display: grid; line-height: 1.35; font-weight: 600; }
@@ -169,8 +172,7 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .thali-handeln .merk-knopf[aria-pressed="true"] { background: var(--milch); color: var(--tawa); }
 
 /* ═══════════ Masala-Dabba ═══════════ */
-.dabba-feld { position: relative; height: 210vh; background: var(--gehaemmert) 0 0 / 46px 46px, var(--gehaemmert) 23px 23px / 46px 46px, var(--kupfer); }
-.dabba-feld::before { content: ""; position: absolute; inset: 0; background: var(--korn); opacity: .35; mix-blend-mode: multiply; pointer-events: none; }
+.dabba-feld { position: relative; height: 210vh; background: var(--kupfer-feld); }
 .dabba-klebt { position: sticky; top: 0; height: 100vh; height: 100svh; display: grid; align-items: center; }
 .dabba-raster { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(28px, 6vw, 96px); align-items: center; padding-top: var(--kopf-h); }
 .dabba-text > p { margin-top: 18px; color: var(--milch-2); max-width: 44ch; }
@@ -182,50 +184,43 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .dabba {
   --p2: min(1, calc(var(--p, 0) * 2.6));
   position: relative; width: min(100%, 520px, 68vh); aspect-ratio: 1; border-radius: 50%; container-type: inline-size;
-  background: radial-gradient(circle, transparent 0 94%, rgba(255,255,255,.5) 95%, rgba(0,0,0,.5) 99%), repeating-radial-gradient(circle, rgba(255,255,255,.05) 0 1px, rgba(0,0,0,.06) 1px 3px), var(--stahl);
-  box-shadow: 0 40px 70px -26px rgba(0, 0, 0, .6);
+  background: url("../img/stahl-dabba.webp") center / 100% 100% no-repeat;
+  box-shadow: 0 40px 70px -26px rgba(0, 0, 0, .7);
 }
 .schale {
   --s: 28cqw; --w: calc((var(--i) - 1) * 60deg - 90deg);
   position: absolute; left: 50%; top: 50%; width: var(--s); height: var(--s); margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2); border-radius: 50%;
   transform: rotate(var(--w)) translateX(31.5cqw) rotate(calc(var(--w) * -1));
-  padding: 1.4cqw; background: var(--stahl); box-shadow: inset 0 0 0 1px rgba(255,255,255,.6), 0 1cqw 1.6cqw -0.4cqw rgba(0,0,0,.5);
+  box-shadow: 0 1cqw 1.6cqw -0.4cqw rgba(0,0,0,.55);
   transition: box-shadow .25s ease, translate .35s var(--ease-out);
 }
 .schale[style*="--i:0"] { transform: none; }
-.schale-gut { position: relative; display: block; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; box-shadow: inset 0 0.8cqw 1.6cqw rgba(0,0,0,.5); }
-.schale-gut::after { content: ""; position: absolute; inset: 0; background: var(--korn); opacity: .6; mix-blend-mode: multiply; }
-.schale-name { position: absolute; left: 50%; bottom: -2.2cqw; translate: -50% 0; padding: .2em .7em; border-radius: 999px; background: rgba(18,14,11,.82); color: var(--milch); font-size: clamp(.68rem, 2.6cqw, .85rem); font-weight: 600; white-space: nowrap; opacity: calc(var(--p2) * 1.4 - .4); }
+.schale-gut { position: absolute; inset: 7%; width: 86%; height: 86%; border-radius: 50%; object-fit: cover; }
+.schale::before { content: ""; position: absolute; inset: 7%; border-radius: 50%; box-shadow: inset 0 1cqw 1.8cqw rgba(0,0,0,.55); z-index: 1; }
+.schale::after { content: ""; position: absolute; inset: 0; background: url("../img/stahl-katori.webp") center / 100% 100% no-repeat; z-index: 2; pointer-events: none; }
+.schale-name { z-index: 3; position: absolute; left: 50%; bottom: -2.2cqw; translate: -50% 0; padding: .2em .7em; border-radius: 999px; background: rgba(18,14,11,.82); color: var(--milch); font-size: clamp(.68rem, 2.6cqw, .85rem); font-weight: 600; white-space: nowrap; opacity: calc(var(--p2) * 1.4 - .4); }
 @media (hover: hover) { .schale:hover { translate: 0 -4px; } }
 .schale[aria-pressed="true"] { box-shadow: 0 0 0 .7cqw var(--kurkuma), 0 1.4cqw 2cqw -0.4cqw rgba(0,0,0,.6); }
-.schale--garam .schale-gut { background: radial-gradient(circle at 40% 35%, #8a5230, #5b2f17 75%); }
-.schale--haldi .schale-gut { background: radial-gradient(circle at 40% 35%, #f8c84a, #d88d10 78%); }
-.schale--jeera .schale-gut { background: radial-gradient(ellipse 3.2px 1.3px, #3f2a16 70%, transparent 76%) 0 0 / 9px 7px, radial-gradient(ellipse 3.2px 1.3px, #5a3d20 70%, transparent 76%) 4px 3px / 9px 7px, #8d6a3d; }
-.schale--mirch .schale-gut { background: radial-gradient(circle at 40% 35%, #d23a20, #85160b 80%); }
-.schale--dhania .schale-gut { background: radial-gradient(circle, #d2b67b 0 38%, #8f6f3c 46%, transparent 52%) 0 0 / 10px 10px, radial-gradient(circle, #c4a76c 0 38%, #806235 46%, transparent 52%) 5px 5px / 10px 10px, #9c7d48; }
-.schale--rai .schale-gut { background: radial-gradient(circle at 35% 35%, #6b5148 0 18%, #261915 30%, transparent 40%) 0 0 / 6px 6px, radial-gradient(circle at 35% 35%, #5a4038 0 18%, #20140f 30%, transparent 40%) 3px 3px / 6px 6px, #3a2a22; }
-.schale--elaichi .schale-gut { background: radial-gradient(ellipse 6px 3.6px, #a9bd6e 0 40%, #6f8340 70%, transparent 76%) 0 0 / 14px 10px, radial-gradient(ellipse 6px 3.6px, #9cb062 0 40%, #64773a 70%, transparent 76%) 7px 5px / 14px 10px, #7d9148; }
 .dabba-deckel {
-  position: absolute; inset: -1.5cqw; border-radius: 50%; pointer-events: none;
-  background: radial-gradient(circle, rgba(255,255,255,.28) 0 7%, rgba(0,0,0,.25) 7.6%, transparent 9%), radial-gradient(circle, transparent 0 90%, rgba(255,255,255,.5) 91%, rgba(0,0,0,.45) 98%), repeating-radial-gradient(circle, rgba(255,255,255,.06) 0 1px, rgba(0,0,0,.06) 1px 3px), var(--stahl);
+  position: absolute; inset: -1cqw; border-radius: 50%; pointer-events: none; z-index: 5;
+  background: url("../img/stahl-deckel.webp") center / 100% 100% no-repeat;
   box-shadow: 0 30px 50px -20px rgba(0,0,0,.7);
-  transform: translate(calc(var(--p2) * 78%), calc(var(--p2) * -62%)) rotate(calc(var(--p2) * 38deg));
-  opacity: calc(1 - var(--p2) * .82);
+  /* Der Deckel gleitet ganz von der Dose, undurchsichtig, nie als Geist darüber */
+  transform: translate(calc(var(--p2) * 118%), calc(var(--p2) * -14%)) rotate(calc(var(--p2) * 28deg));
 }
-.dabba-deckel span { position: absolute; left: 50%; top: 50%; width: 14cqw; height: 14cqw; margin: -7cqw 0 0 -7cqw; border-radius: 50%; background: var(--stahl); box-shadow: inset 0 0 0 1px rgba(255,255,255,.6), 0 1cqw 2cqw rgba(0,0,0,.45); }
 
 /* ═══════════ Finder ═══════════ */
 .finder-feld { padding: clamp(80px, 11vw, 140px) 0; background: var(--tawa); }
 .finder-raster { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
 .finder-kopf { position: sticky; top: calc(var(--kopf-h) + 32px); }
 .finder-kopf p { margin-top: 18px; color: var(--milch-2); max-width: 42ch; }
-.finder-buehne { padding: clamp(24px, 4vw, 44px); border-radius: 28px; background: var(--tawa-2); box-shadow: inset 0 0 0 1px rgba(239,230,216,.08); min-height: 380px; }
+.finder-buehne { padding-left: clamp(0px, 4vw, 56px); border-left: 1px solid var(--line); min-height: 380px; }
 .finder-schritt { display: grid; gap: 14px; }
 .finder-schritt + .finder-schritt { margin-top: 26px; padding-top: 26px; border-top: 1px solid var(--line); }
 .finder-ergebnis { margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--kupfer-hell); }
 .finder-vorschlag { color: var(--kupfer-hell); font-weight: 600; font-size: .92rem; }
 .finder-scharf { color: var(--milch-2); margin-top: 6px; }
-.finder-bild { padding: 6px; background: var(--stahl); }
+.finder-bild { padding: 6px; background: url("../img/stahl-katori.webp") center / 100% 100%; }
 
 /* ═══════════ Galerie ═══════════ */
 .galerie { padding: clamp(70px, 9vw, 120px) 0; background: var(--tawa-2); }
@@ -256,26 +251,27 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .karte .merk-knopf[aria-pressed="true"] { background: var(--kupfer); color: #fff6ea; border-color: var(--kupfer); }
 
 /* ═══════════ Reservieren auf Kupfer ═══════════ */
-.reservieren { padding: clamp(80px, 11vw, 140px) 0; background: var(--gehaemmert) 0 0 / 46px 46px, var(--gehaemmert) 23px 23px / 46px 46px, var(--kupfer-tief); }
+.reservieren { padding: clamp(80px, 11vw, 140px) 0; background: var(--kupfer-feld-tief); }
 .res-raster { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
 .res-links > p { margin-top: 16px; color: var(--milch-2); max-width: 44ch; }
 .res-status { margin: 28px 0 10px; flex-wrap: wrap; }
 .res-links .zeiten { margin-top: 8px; }
 .res-links .klein { margin-top: 12px; color: var(--milch-2); }
-.res-platte { padding: clamp(24px, 4vw, 44px); border-radius: 30px; background: var(--tawa); box-shadow: 0 0 0 6px rgba(255,255,255,.08), 0 0 0 7px rgba(0,0,0,.3), 0 40px 70px -30px rgba(0,0,0,.8); }
+.res-platte { padding: 10px; border-radius: 36px; background: url("../img/stahl-thali.webp") center / 160% 160%; box-shadow: 0 40px 70px -30px rgba(0,0,0,.8); }
+.res-platte > [data-reservierung] { padding: clamp(22px, 4vw, 40px); border-radius: 27px; background: var(--tawa); box-shadow: inset 0 2px 10px rgba(0,0,0,.7); }
 .res-platte .res-chip { border-radius: 12px; }
 
 /* ═══════════ Stimmen ═══════════ */
 .stimmen { padding: clamp(80px, 10vw, 130px) 0; background: var(--tawa); }
 .stimmen-raster { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
-.stimmen-note { font-family: var(--font-display); font-weight: 600; font-size: clamp(5.5rem, 13vw, 10rem); line-height: .85; color: var(--kupfer-hell); }
-.stimmen-kopf h2 { font-size: clamp(1.6rem, 2.8vw, 2.4rem); margin-top: 8px; }
+.stimmen-kopf h2 { font-size: clamp(2.2rem, 4.4vw, 3.6rem); }
 .sterne { display: flex; gap: 4px; color: var(--kurkuma); margin-top: 14px; }
 .sterne .ico { width: 1.5rem; height: 1.5rem; }
 .sterne .halb { clip-path: inset(0 50% 0 0); }
 .stimmen-quelle { color: var(--milch-2); font-size: .92rem; margin-top: 10px; max-width: 38ch; }
 .zitate { list-style: none; display: grid; gap: 18px; }
-.zitate li { padding: 26px 30px; border-radius: 24px; background: var(--tawa-2); box-shadow: inset 0 0 0 1px rgba(239,230,216,.07); }
+.zitate li { padding: 22px 0; border-top: 1px solid var(--line); }
+.zitate li:first-child { border-top: 0; padding-top: 0; }
 .zitate blockquote { font-family: var(--font-display); font-size: clamp(1.25rem, 1.9vw, 1.6rem); line-height: 1.3; }
 
 /* ═══════════ Besuch ═══════════ */
@@ -284,7 +280,7 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .besuch address { font-style: normal; font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.3; margin-top: 20px; }
 .besuch .klein { margin-top: 14px; max-width: 48ch; }
 .besuch-handeln { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
-.besuch-bestellen { align-self: start; padding: clamp(24px, 4vw, 44px); border-radius: 28px; background: var(--kupfer); background-image: var(--gehaemmert); background-size: 46px 46px; }
+.besuch-bestellen { align-self: start; padding: clamp(24px, 4vw, 44px); border-radius: 28px; background: var(--kupfer-feld); box-shadow: inset 0 0 0 1px rgba(255, 200, 160, .18), 0 30px 50px -30px rgba(0,0,0,.8); }
 .besuch-bestellen h3 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
 .besuch-bestellen p { margin-top: 12px; color: var(--milch-2); }
 .besuch-bestellen .knopf { margin-top: 20px; }
@@ -332,13 +328,13 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
   .dabba-text h2 { font-size: clamp(1.8rem, 7vw, 2.4rem); }
   .finder-raster, .res-raster, .besuch-raster { grid-template-columns: 1fr; }
   .finder-kopf { position: static; }
+  .finder-buehne { padding-left: 0; border-left: 0; min-height: 0; }
 
   .daumen { display: grid; grid-template-columns: 1fr 1.3fr 1fr; position: fixed; inset: auto 0 0; z-index: 95; height: calc(var(--daumen-h) + env(safe-area-inset-bottom)); padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); gap: 8px; background: rgba(18, 14, 11, .94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 -1px 0 rgba(239,230,216,.1); }
   .daumen a { display: grid; justify-items: center; align-content: center; gap: 2px; font-size: .78rem; font-weight: 700; text-decoration: none; color: var(--milch); border-radius: 999px; }
   .daumen a .ico { width: 1.35rem; height: 1.35rem; }
   .daumen .daumen-haupt { background: var(--kurkuma); color: var(--on-accent); }
   .merk-fab { bottom: calc(12px + var(--daumen-h) + env(safe-area-inset-bottom)); }
-  .entwurf { bottom: calc(14px + var(--daumen-h) + env(safe-area-inset-bottom)); }
 }
 @media (max-width: 620px) {
   body { font-size: 1rem; }

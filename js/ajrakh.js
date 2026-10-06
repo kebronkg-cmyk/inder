@@ -44,7 +44,6 @@
 
   function textHTML(l) {
     return `
-      <p class="liebling-nr">Nr. ${l.nr}</p>
       <h3 class="liebling-name">${esc(l.name)}</h3>
       <ul class="liebling-fakten" role="list">
         <li><span>Herkunft</span>${esc(l.herkunft)}</li>
@@ -56,8 +55,8 @@
       ${schaerfeHTML(l)}
       <div class="liebling-handeln">
         <span class="liebling-preis">${euro(l.preis)}</span>
-        <button type="button" class="merk-knopf" data-merken="${l.nr}" data-scharf="${scharf[l.nr]}" aria-pressed="${B.istGemerkt(l.nr)}">${ico("plus")}<span data-merk-label>${B.istGemerkt(l.nr) ? "Gemerkt" : "Merken"}</span></button>
-        <span class="liebling-karte">mit Naan, Reis und Soßen</span>
+        <button type="button" class="merk-knopf" data-merken="${l.nr}" data-scharf="${scharf[l.nr]}" aria-pressed="${B.istGemerkt(l.nr)}">${ico(B.istGemerkt(l.nr) ? "haken" : "plus")}<span data-merk-label>${B.istGemerkt(l.nr) ? "Gemerkt" : "Merken"}</span></button>
+        <span class="liebling-karte">Nr. ${l.nr} · mit Naan, Reis und Soßen</span>
       </div>`;
   }
 

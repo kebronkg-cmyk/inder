@@ -49,12 +49,12 @@
     }
 
     function zeigeText(l, sanft) {
-      mitte.innerHTML = `<small>Nr. ${l.nr}</small>${esc(l.name)}`;
+      mitte.innerHTML = `${esc(l.name)}<small>Nr. ${l.nr}</small>`;
       text.innerHTML = `
-        <p class="thali-nr">Nr. ${l.nr} · ${esc(l.herkunft)}</p>
         <h3 class="thali-name">${esc(l.name)}</h3>
         <p class="thali-satz">${esc(l.satz)}</p>
         <ul class="thali-fakten" role="list">
+          <li><span>Herkunft</span>${esc(l.herkunft)}</li>
           <li><span>Zubereitet</span>${l.aus === "Tandoor" ? "im Tandoor" : l.aus === "Karahi" ? "in der Karahi" : "im Topf"}</li>
           <li><span>Charakter</span>${ARTEN[l.art] || "kräftig"}</li>
           <li><span>Dazu</span>Naan, Reis, Soßen</li>
@@ -64,7 +64,8 @@
         </div>
         <div class="thali-handeln">
           <span class="thali-preis">${euro(l.preis)}</span>
-          <button type="button" class="merk-knopf" data-merken="${l.nr}" data-scharf="${scharf[l.nr]}" aria-pressed="${B.istGemerkt(l.nr)}">${ico("plus")}<span data-merk-label>${B.istGemerkt(l.nr) ? "Gemerkt" : "Merken"}</span></button>
+          <button type="button" class="merk-knopf" data-merken="${l.nr}" data-scharf="${scharf[l.nr]}" aria-pressed="${B.istGemerkt(l.nr)}">${ico(B.istGemerkt(l.nr) ? "haken" : "plus")}<span data-merk-label>${B.istGemerkt(l.nr) ? "Gemerkt" : "Merken"}</span></button>
+          <span class="thali-karte">Nr. ${l.nr}</span>
         </div>`;
       if (sanft && !reduce) text.animate([{ opacity: 0, transform: "translateY(10px)" }, { opacity: 1, transform: "none" }], { duration: 480, easing: "cubic-bezier(.23,1,.32,1)" });
     }
@@ -150,12 +151,12 @@
     const info = $("[data-dabba-info]");
     schalen.innerHTML = GEWUERZE.map((g, i) => `
       <button type="button" class="schale schale--${g.id}" style="--i:${i}" data-g="${i}" aria-pressed="${i === 0}">
-        <span class="schale-gut" aria-hidden="true"></span><span class="schale-name">${g.n}</span>
+        <img class="schale-gut" src="img/gewuerz-${g.id}.webp" alt="" width="180" height="180" loading="lazy"><span class="schale-name">${g.n}</span>
       </button>`).join("");
     const zeig = (i, sanft) => {
       const g = GEWUERZE[i];
       $$(".schale", schalen).forEach((s, n) => s.setAttribute("aria-pressed", String(n === i)));
-      info.innerHTML = `<p class="dabba-hindi" lang="hi">${g.h}</p><p class="dabba-name">${g.n}</p><p>${g.t}</p>`;
+      info.innerHTML = `<p class="dabba-name">${g.n}</p><p class="dabba-hindi" lang="hi">${g.h}</p><p>${g.t}</p>`;
       if (sanft && !reduce) info.animate([{ opacity: 0, transform: "translateY(8px)" }, { opacity: 1, transform: "none" }], { duration: 420, easing: "cubic-bezier(.23,1,.32,1)" });
     };
     schalen.addEventListener("click", (e) => { const s = e.target.closest(".schale"); if (s) zeig(+s.dataset.g, true); });

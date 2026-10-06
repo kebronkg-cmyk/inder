@@ -177,6 +177,15 @@
   fab.setAttribute("aria-haspopup", "dialog");
   fab.innerHTML = `${ico("schale")}<span>Merkzettel</span><span class="zahl" data-merk-zahl>0</span>`;
   document.body.append(lade, fab);
+  const daumen = $(".daumen");
+  if (daumen) {
+    const d = document.createElement("button");
+    d.type = "button";
+    d.className = "daumen-merk";
+    d.setAttribute("data-merkzettel-oeffnen", "");
+    d.innerHTML = `${ico("schale")}<span>Merkzettel</span><span class="daumen-zahl" data-merk-zahl-daumen hidden></span>`;
+    daumen.insertBefore(d, daumen.lastElementChild);
+  }
 
   let ladeVorher = null;
   const ladeAuf = () => {
@@ -195,7 +204,7 @@
   fab.addEventListener("click", ladeAuf);
   $$("[data-lade-zu]", lade).forEach((b) => b.addEventListener("click", ladeZu));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") ladeZu(); });
-  $$("[data-merkzettel-oeffnen]").forEach((b) => b.addEventListener("click", ladeAuf));
+  document.addEventListener("click", (e) => { if (e.target.closest("[data-merkzettel-oeffnen]")) ladeAuf(); });
   BOMBAY.merkzettelOeffnen = ladeAuf;
 
   function merkText() {
@@ -260,6 +269,8 @@
     store.set("bombay-merkzettel", merk);
     const n = Object.values(merk).reduce((a, v) => a + v.menge, 0);
     $("[data-merk-zahl]").textContent = n;
+    const dz = $("[data-merk-zahl-daumen]");
+    if (dz) { dz.textContent = n; dz.hidden = n === 0; if (hupf) dz.animate([{ transform: "scale(1.5)" }, { transform: "none" }], { duration: 400, easing: "cubic-bezier(.23,1,.32,1)" }); }
     fab.classList.toggle("is-da", n > 0);
     fab.setAttribute("aria-label", `Merkzettel öffnen, ${n} ${n === 1 ? "Gericht" : "Gerichte"}`);
     if (hupf) { fab.classList.remove("is-hupf"); void fab.offsetWidth; fab.classList.add("is-hupf"); }
@@ -267,7 +278,10 @@
       const an = !!merk[b.dataset.merken];
       b.setAttribute("aria-pressed", String(an));
       const label = $("[data-merk-label]", b);
-      if (label) label.textContent = an ? "Gemerkt" : "Merken";
+      if (label) label.textContent = an ? "Gemerkt" : (b.dataset.merkText || "Merken");
+      const use = $("use", b);
+      if (use) use.setAttribute("href", an ? "#i-haken" : "#i-plus");
+      b.title = an ? "Gemerkt. Noch einmal tippen zum Entfernen." : "";
     });
     if (lade.classList.contains("is-offen")) ladeZeichnen();
   }
@@ -303,7 +317,7 @@
     BOMBAY.merken(b.dataset.merken, an ? null : b.dataset.scharf || "pikant", b);
   });
   BOMBAY.merkKnopf = (k, extra = "") =>
-    `<button type="button" class="merk-knopf ${extra}" data-merken="${esc(k)}" aria-pressed="${!!merk[k]}">${ico("plus")}<span data-merk-label>${merk[k] ? "Gemerkt" : "Merken"}</span></button>`;
+    `<button type="button" class="merk-knopf ${extra}" data-merken="${esc(k)}" aria-pressed="${!!merk[k]}">${ico(merk[k] ? "haken" : "plus")}<span data-merk-label>${merk[k] ? "Gemerkt" : "Merken"}</span></button>`;
 
   /* ───────────── Speisekarte: Darstellung ───────────── */
   const karteEl = $("[data-karte]");
@@ -432,7 +446,6 @@
           <div class="finder-treffer">
             ${p.bild ? `<img class="finder-bild" src="img/${p.bild}-480.webp" alt="" width="150" height="150" loading="lazy">` : `<span class="finder-ohnebild" aria-hidden="true">${esc(p.name[0])}</span>`}
             <div>
-              <p class="finder-vorschlag">Unser Vorschlag für Sie</p>
               <p class="finder-name">${esc(p.name)}</p>
               <p>${esc(p.text)}. <span class="tab">Nr. ${p.nr} · ${euro(p.preis)}</span></p>
               <p class="finder-scharf">Bestellen Sie es <b>${wahl.s}</b>, wir würzen genau so.</p>
