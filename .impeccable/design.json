@@ -1,0 +1,733 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T23:34:15+00:00",
+  "title": "Design System: Bombay Freising",
+  "extensions": {
+    "colorMeta": {
+      "ajrakh-krapp": {
+        "role": "secondary",
+        "displayName": "Krapprot (A)",
+        "canonical": "#6e1518",
+        "oklch": "oklch(35.5% 0.123 24.6)",
+        "tonalRamp": [
+          "#220000",
+          "#460e0e",
+          "#6d2927",
+          "#964441",
+          "#c1625d",
+          "#e18983",
+          "#ffb1aa",
+          "#ffd9d3"
+        ]
+      },
+      "ajrakh-indigo": {
+        "role": "secondary",
+        "displayName": "Indigo (A)",
+        "canonical": "#17204a",
+        "oklch": "oklch(26.2% 0.079 271.0)",
+        "tonalRamp": [
+          "#05091f",
+          "#1b2340",
+          "#364064",
+          "#525f8a",
+          "#7180b2",
+          "#95a3d2",
+          "#bac8f2",
+          "#e1edff"
+        ]
+      },
+      "ajrakh-indigo-tief": {
+        "role": "secondary",
+        "displayName": "Indigo tief (A)",
+        "canonical": "#10173a",
+        "oklch": "oklch(22.1% 0.068 271.3)",
+        "tonalRamp": [
+          "#06091c",
+          "#1d233c",
+          "#37405f",
+          "#545f85",
+          "#7380ac",
+          "#97a4cc",
+          "#bcc8ed",
+          "#e3eeff"
+        ]
+      },
+      "ajrakh-kohle": {
+        "role": "neutral",
+        "displayName": "Kohle (A)",
+        "canonical": "#18100e",
+        "oklch": "oklch(18.3% 0.014 34.4)",
+        "tonalRamp": [
+          "#0e0a09",
+          "#2a2322",
+          "#48403e",
+          "#685f5c",
+          "#8b7f7d",
+          "#ada2a0",
+          "#d0c7c4",
+          "#f5ecea"
+        ]
+      },
+      "ajrakh-reserve": {
+        "role": "neutral",
+        "displayName": "Reserve, Baumwollweiß (A)",
+        "canonical": "#f3e7d3",
+        "oklch": "oklch(93.2% 0.030 80.7)",
+        "tonalRamp": [
+          "#0f0a04",
+          "#2a241a",
+          "#494134",
+          "#696050",
+          "#8c816f",
+          "#aea493",
+          "#d1c8b9",
+          "#f6ede0"
+        ]
+      },
+      "ajrakh-reserve-gedaempft": {
+        "role": "neutral",
+        "displayName": "Reserve gedämpft (A)",
+        "canonical": "rgba(243, 231, 211, 0.76)"
+      },
+      "ajrakh-linie": {
+        "role": "neutral",
+        "displayName": "Haarlinie (A)",
+        "canonical": "rgba(243, 231, 211, 0.24)"
+      },
+      "ajrakh-tinte": {
+        "role": "neutral",
+        "displayName": "Tinte auf Tuch (A)",
+        "canonical": "#1d1310",
+        "oklch": "oklch(19.9% 0.018 37.4)",
+        "tonalRamp": [
+          "#0f0a08",
+          "#2b2321",
+          "#49403d",
+          "#6a5e5b",
+          "#8c7f7b",
+          "#afa29e",
+          "#d2c6c3",
+          "#f6ece9"
+        ]
+      },
+      "ajrakh-kurkuma": {
+        "role": "primary",
+        "displayName": "Kurkuma (A)",
+        "canonical": "#edb23a",
+        "oklch": "oklch(79.8% 0.146 80.9)",
+        "tonalRamp": [
+          "#1c0300",
+          "#3d1c00",
+          "#613800",
+          "#875600",
+          "#ae7600",
+          "#cf9b34",
+          "#f0c16d",
+          "#ffe8a0"
+        ]
+      },
+      "ajrakh-kurkuma-hell": {
+        "role": "primary",
+        "displayName": "Kurkuma hell, Hover (A)",
+        "canonical": "#f6c65e",
+        "oklch": "oklch(84.9% 0.133 84.4)",
+        "tonalRamp": [
+          "#1a0500",
+          "#391e00",
+          "#5c3b00",
+          "#815900",
+          "#a77a00",
+          "#c89e44",
+          "#e9c477",
+          "#ffeaa8"
+        ]
+      },
+      "ajrakh-auf-kurkuma": {
+        "role": "neutral",
+        "displayName": "Text auf Kurkuma (A)",
+        "canonical": "#1a100c",
+        "oklch": "oklch(18.5% 0.019 42.7)",
+        "tonalRamp": [
+          "#0f0a08",
+          "#2b2320",
+          "#49403c",
+          "#6a5e5a",
+          "#8d7f7a",
+          "#afa29d",
+          "#d2c6c2",
+          "#f7ece8"
+        ]
+      },
+      "ajrakh-offen": {
+        "role": "tertiary",
+        "displayName": "Offen-Grün (A)",
+        "canonical": "#9fe0a8",
+        "oklch": "oklch(84.8% 0.102 148.2)",
+        "tonalRamp": [
+          "#001100",
+          "#042e0f",
+          "#1e4e28",
+          "#396f43",
+          "#55935f",
+          "#7db585",
+          "#a6d8ac",
+          "#d0fcd5"
+        ]
+      },
+      "thali-tawa": {
+        "role": "neutral",
+        "displayName": "Tawa-Schwarz (B)",
+        "canonical": "#120e0b",
+        "oklch": "oklch(16.8% 0.009 59.0)",
+        "tonalRamp": [
+          "#0d0b09",
+          "#272422",
+          "#45413e",
+          "#65605d",
+          "#87817d",
+          "#a9a4a0",
+          "#cdc8c5",
+          "#f2edea"
+        ]
+      },
+      "thali-tawa-2": {
+        "role": "neutral",
+        "displayName": "Tawa 2 (B)",
+        "canonical": "#1b1511",
+        "oklch": "oklch(20.2% 0.013 55.6)",
+        "tonalRamp": [
+          "#0e0a08",
+          "#292421",
+          "#46413d",
+          "#67605b",
+          "#88817b",
+          "#aba39e",
+          "#cec8c3",
+          "#f3ede9"
+        ]
+      },
+      "thali-milch": {
+        "role": "neutral",
+        "displayName": "Milch (B)",
+        "canonical": "#efe6d8",
+        "oklch": "oklch(92.8% 0.021 79.1)",
+        "tonalRamp": [
+          "#0e0b06",
+          "#29241d",
+          "#474138",
+          "#676055",
+          "#898175",
+          "#aba498",
+          "#cfc8bd",
+          "#f4eee4"
+        ]
+      },
+      "thali-milch-gedaempft": {
+        "role": "neutral",
+        "displayName": "Milch gedämpft (B)",
+        "canonical": "rgba(239, 230, 216, 0.74)"
+      },
+      "thali-linie": {
+        "role": "neutral",
+        "displayName": "Haarlinie (B)",
+        "canonical": "rgba(239, 230, 216, 0.18)"
+      },
+      "thali-champagner": {
+        "role": "tertiary",
+        "displayName": "Champagner (B)",
+        "canonical": "#ecd2ad",
+        "oklch": "oklch(87.6% 0.057 76.6)",
+        "tonalRamp": [
+          "#130900",
+          "#30220d",
+          "#503f26",
+          "#725e40",
+          "#967e5c",
+          "#b7a182",
+          "#dac6a9",
+          "#feecd2"
+        ]
+      },
+      "thali-kupfer-hell": {
+        "role": "tertiary",
+        "displayName": "Kupfer hell (B)",
+        "canonical": "#d79a69",
+        "oklch": "oklch(73.4% 0.098 59.2)",
+        "tonalRamp": [
+          "#1b0300",
+          "#3c1b00",
+          "#60360f",
+          "#865429",
+          "#ad7343",
+          "#ce986d",
+          "#efbe97",
+          "#ffe5c2"
+        ]
+      },
+      "thali-kurkuma": {
+        "role": "primary",
+        "displayName": "Kurkuma (B)",
+        "canonical": "#e7a92f",
+        "oklch": "oklch(77.4% 0.147 79.3)",
+        "tonalRamp": [
+          "#1d0300",
+          "#3e1b00",
+          "#623700",
+          "#885500",
+          "#b07500",
+          "#d09a34",
+          "#f1c06d",
+          "#ffe7a0"
+        ]
+      },
+      "thali-kurkuma-hell": {
+        "role": "primary",
+        "displayName": "Kurkuma hell, Hover (B)",
+        "canonical": "#f3bf55",
+        "oklch": "oklch(83.2% 0.136 82.6)",
+        "tonalRamp": [
+          "#1b0400",
+          "#3b1d00",
+          "#5e3a00",
+          "#835800",
+          "#a97900",
+          "#ca9d41",
+          "#ebc375",
+          "#ffe9a6"
+        ]
+      },
+      "thali-auf-kurkuma": {
+        "role": "neutral",
+        "displayName": "Text auf Kurkuma (B)",
+        "canonical": "#1a120c",
+        "oklch": "oklch(19.0% 0.018 58.3)",
+        "tonalRamp": [
+          "#0f0a07",
+          "#2a241f",
+          "#48403b",
+          "#685f58",
+          "#8b8078",
+          "#ada39c",
+          "#d0c7c0",
+          "#f5ede7"
+        ]
+      },
+      "thali-chili": {
+        "role": "tertiary",
+        "displayName": "Chili, nur Schärfe (B)",
+        "canonical": "#d23d22",
+        "oklch": "oklch(57.7% 0.190 32.5)",
+        "tonalRamp": [
+          "#2c0000",
+          "#540000",
+          "#800700",
+          "#ad2a11",
+          "#dc482d",
+          "#fd775d",
+          "#ffa289",
+          "#ffceb6"
+        ]
+      },
+      "thali-lasur": {
+        "role": "secondary",
+        "displayName": "Lasurbraun auf Stahl (B)",
+        "canonical": "#5f2a12",
+        "oklch": "oklch(35.4% 0.085 43.2)",
+        "tonalRamp": [
+          "#1b0300",
+          "#3c1a0b",
+          "#603523",
+          "#86523d",
+          "#ad7159",
+          "#ce967f",
+          "#f0bca7",
+          "#ffe3d0"
+        ]
+      },
+      "thali-gravur": {
+        "role": "neutral",
+        "displayName": "Gravur auf Stahl (B)",
+        "canonical": "#1c1a18",
+        "oklch": "oklch(21.9% 0.005 67.6)",
+        "tonalRamp": [
+          "#0c0b0a",
+          "#262523",
+          "#434240",
+          "#63615e",
+          "#84827f",
+          "#a7a4a2",
+          "#cbc9c6",
+          "#f0eeec"
+        ]
+      },
+      "thali-offen": {
+        "role": "tertiary",
+        "displayName": "Offen-Grün (B)",
+        "canonical": "#9fdba6",
+        "oklch": "oklch(83.7% 0.096 147.7)",
+        "tonalRamp": [
+          "#001100",
+          "#082d11",
+          "#224d29",
+          "#3c6f44",
+          "#599261",
+          "#80b487",
+          "#a9d7ae",
+          "#d2fbd6"
+        ]
+      },
+      "schaerfe-hinweis": {
+        "role": "tertiary",
+        "displayName": "Schärfe-Hinweis (gemeinsam)",
+        "canonical": "#ff9a76",
+        "oklch": "oklch(78.3% 0.131 40.3)",
+        "tonalRamp": [
+          "#230000",
+          "#470e00",
+          "#6e290e",
+          "#984627",
+          "#c26441",
+          "#e38b6b",
+          "#ffb296",
+          "#ffdbc1"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "ajrakh-display": {
+        "displayName": "Display A",
+        "purpose": "Name des gezeigten Lieblingsgerichts, Rozha One als Druckstempel."
+      },
+      "ajrakh-headline": {
+        "displayName": "Headline A",
+        "purpose": "Eine Abschnittsüberschrift pro Bahn."
+      },
+      "ajrakh-title": {
+        "displayName": "Title A",
+        "purpose": "Fragen von Reservier-Assistent und Finder, Gänge, Adresse."
+      },
+      "ajrakh-body": {
+        "displayName": "Body A",
+        "purpose": "Lesetext Mukta, Absätze 42–52ch."
+      },
+      "ajrakh-label": {
+        "displayName": "Label A",
+        "purpose": "Nur Speisekarten-Etiketten veg/vegan/scharf, Versalien."
+      },
+      "thali-display": {
+        "displayName": "Display B",
+        "purpose": "Name des Gerichts in der gewählten Katori, Kalnia als Gravur."
+      },
+      "thali-headline": {
+        "displayName": "Headline B",
+        "purpose": "Eine Abschnittsüberschrift pro Bahn."
+      },
+      "thali-title": {
+        "displayName": "Title B",
+        "purpose": "Fragen von Reservier-Assistent und Finder, Gänge, Adresse."
+      },
+      "thali-body": {
+        "displayName": "Body B",
+        "purpose": "Lesetext Anek Latin, Absätze 42–52ch."
+      },
+      "thali-label": {
+        "displayName": "Label B",
+        "purpose": "Nur Speisekarten-Etiketten veg/vegan/scharf, Versalien."
+      }
+    },
+    "shadows": [
+      {
+        "name": "druckknopf-a",
+        "value": "0 1px 0 rgba(0,0,0,.25), 0 8px 22px -10px rgba(0,0,0,.6)",
+        "purpose": "Hauptknopf A in Ruhe; Hover 0 14px 28px -12px rgba(0,0,0,.7)."
+      },
+      {
+        "name": "tuch-a",
+        "value": "0 30px 60px -30px rgba(0,0,0,.6)",
+        "purpose": "Reservier-Tuch liegt auf der Bahn (A)."
+      },
+      {
+        "name": "druckknopf-b",
+        "value": "inset 0 1px 0 rgba(255,255,255,.35), 0 10px 24px -12px rgba(0,0,0,.7)",
+        "purpose": "Hauptknopf B mit Glanzkante."
+      },
+      {
+        "name": "thali-platte-b",
+        "value": "0 50px 90px -30px rgba(0,0,0,.9)",
+        "purpose": "Thali-Platte (B)."
+      },
+      {
+        "name": "dabba-b",
+        "value": "0 40px 70px -26px rgba(0,0,0,.7)",
+        "purpose": "Gewürzdose (B)."
+      },
+      {
+        "name": "tablett-b",
+        "value": "inset 0 0 0 1px rgba(255,255,255,.55), inset 0 -3px 0 rgba(0,0,0,.18), 0 40px 70px -30px rgba(0,0,0,.85)",
+        "purpose": "Stahltablett des Reservier-Assistenten (B)."
+      },
+      {
+        "name": "schaelchen-b",
+        "value": "0 1.6cqw 2.4cqw -0.6cqw rgba(0,0,0,.6)",
+        "purpose": "Katori und Gewürzschale, in Containereinheiten; Mulde innen inset 0 .8cqw 1.6cqw rgba(0,0,0,.55)."
+      },
+      {
+        "name": "schublade",
+        "value": "-20px 0 60px -20px rgba(0,0,0,.5)",
+        "purpose": "Merkzettel-Schublade, beide Themen."
+      },
+      {
+        "name": "merk-pille",
+        "value": "0 10px 30px -8px rgba(0,0,0,.45)",
+        "purpose": "Schwebende Merkzettel-Pille (Desktop)."
+      },
+      {
+        "name": "fokus-feld",
+        "value": "0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent)",
+        "purpose": "Fokusring von Eingabefeldern."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Standard für Auftritte, Schublade, Schritte, Druckknopf."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "purpose": "Logo-Bogen zieht sich auf (A)."
+      },
+      {
+        "name": "stempel-a",
+        "value": "cubic-bezier(.3, 1.4, .5, 1) 550ms",
+        "purpose": "Stempel: kurz größer, dann aufs Tuch gedrückt (A, Bühne und Einblenden)."
+      },
+      {
+        "name": "thali-dreh-b",
+        "value": "cubic-bezier(.2, .9, .25, 1) 1s",
+        "purpose": "Drehung der Thali (--R); Ankunft 1.9s."
+      },
+      {
+        "name": "licht-an-b",
+        "value": "cubic-bezier(.4, 0, .2, 1) 2.8s",
+        "purpose": "Bühne B: Raumfoto von dunkel und unscharf zu hell."
+      },
+      {
+        "name": "druck",
+        "value": "transform 160ms ease-out, scale(.97)",
+        "purpose": "Druckknöpfe und Chips beim Drücken (.95–.97)."
+      },
+      {
+        "name": "einblenden",
+        "value": "opacity/transform 800ms ease-out, 16px",
+        "purpose": "Scroll-Einblenden; ohne JS sichtbar."
+      },
+      {
+        "name": "status-puls",
+        "value": "2.4s ease-out infinite, scale 1 → 2.8",
+        "purpose": "Punkt „jetzt geöffnet“."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "karte-einspaltig",
+        "value": "1080px"
+      },
+      {
+        "name": "mobil",
+        "value": "900px"
+      },
+      {
+        "name": "klein",
+        "value": "620px"
+      }
+    ],
+    "themes": {
+      "ajrakh": {
+        "displayName": "Thema A · Ajrakh-Blockdruck",
+        "page": "index.html",
+        "stylesheet": "css/ajrakh.css",
+        "alsoUsedBy": [
+          "impressum.html",
+          "datenschutz.html"
+        ]
+      },
+      "thali": {
+        "displayName": "Thema B · Thali & Masala-Dabba",
+        "page": "thali.html",
+        "stylesheet": "css/thali.css",
+        "materialRasters": "tools/materialien.py"
+      },
+      "shared": {
+        "stylesheet": "css/base.css",
+        "scripts": [
+          "js/core.js",
+          "js/lieblinge.js",
+          "js/logo.js"
+        ],
+        "roleVariables": [
+          "--bg",
+          "--fg",
+          "--muted",
+          "--line",
+          "--accent",
+          "--on-accent",
+          "--panel",
+          "--on-panel",
+          "--focus",
+          "--radius",
+          "--font-display",
+          "--font-body"
+        ]
+      },
+      "reviewOnly": "A/B-Umschalter (.kopf-nav-entwurf, .entwurf-hinweis) nur für die Abnahme; wird nach der Wahl entfernt."
+    }
+  },
+  "components": [
+    {
+      "name": "Hauptknopf A",
+      "kind": "button",
+      "refersTo": "ajrakh-knopf-haupt",
+      "description": "Kurkuma-Druckknopf auf den Bahnen von Thema A.",
+      "html": "<a class=\"ds-knopf-a\" href=\"#\">Tisch reservieren</a>",
+      "css": ".ds-knopf-a{display:inline-flex;align-items:center;justify-content:center;gap:.55em;min-height:48px;padding:.7em 1.35em;font-family:Mukta,'Segoe UI',system-ui,sans-serif;font-weight:700;font-size:1rem;letter-spacing:.01em;line-height:1.1;text-decoration:none;border-radius:3px;background:#edb23a;color:#1a100c;box-shadow:0 1px 0 rgba(0,0,0,.25),0 8px 22px -10px rgba(0,0,0,.6);transition:transform .16s cubic-bezier(.23,1,.32,1),background-color .2s ease,box-shadow .2s ease}.ds-knopf-a:hover{background:#f6c65e;box-shadow:0 1px 0 rgba(0,0,0,.25),0 14px 28px -12px rgba(0,0,0,.7)}.ds-knopf-a:active{transform:scale(.97)}.ds-knopf-a:focus-visible{outline:2px solid #edb23a;outline-offset:3px}"
+    },
+    {
+      "name": "Linienknopf A",
+      "kind": "button",
+      "refersTo": "ajrakh-knopf-linie",
+      "description": "Zweite Handlung auf Krapprot, z. B. „Online bestellen“.",
+      "html": "<div style=\"background:#6e1518;padding:20px\"><a class=\"ds-linie-a\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linejoin=\"round\" d=\"M4.5 8h15l-1.2 12.5H5.7L4.5 8z\"/><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" d=\"M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10\"/></svg>Online bestellen</a></div>",
+      "css": ".ds-linie-a{display:inline-flex;align-items:center;gap:.55em;min-height:48px;padding:.7em 1.35em;font-family:Mukta,'Segoe UI',system-ui,sans-serif;font-weight:700;text-decoration:none;border-radius:3px;color:#f3e7d3;box-shadow:inset 0 0 0 1.5px currentColor;transition:background-color .2s ease,transform .16s cubic-bezier(.23,1,.32,1)}.ds-linie-a:hover{background:rgba(243,231,211,.1)}.ds-linie-a:active{transform:scale(.97)}.ds-linie-a:focus-visible{outline:2px solid #edb23a;outline-offset:3px}"
+    },
+    {
+      "name": "Hauptknopf B",
+      "kind": "button",
+      "refersTo": "thali-knopf-haupt",
+      "description": "Kurkuma-Pille mit Glanzkante in Thema B.",
+      "html": "<a class=\"ds-knopf-b\" href=\"#\">Tisch reservieren</a>",
+      "css": ".ds-knopf-b{display:inline-flex;align-items:center;justify-content:center;gap:.55em;min-height:48px;padding:.7em 1.35em;font-family:'Anek Latin','Segoe UI',system-ui,sans-serif;font-weight:600;font-size:1rem;line-height:1.1;text-decoration:none;border-radius:999px;background:#e7a92f;color:#1a120c;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 10px 24px -12px rgba(0,0,0,.7);transition:transform .16s cubic-bezier(.23,1,.32,1),background-color .2s ease}.ds-knopf-b:hover{background:#f3bf55}.ds-knopf-b:active{transform:scale(.97)}.ds-knopf-b:focus-visible{outline:2px solid #e7a92f;outline-offset:3px}"
+    },
+    {
+      "name": "Reservier-Chips (Tuch A)",
+      "kind": "chip",
+      "refersTo": "ajrakh-chip",
+      "description": "Personen- und Zeitwahl auf dem hellen Reservier-Tuch; gewählt Krapprot.",
+      "html": "<div class=\"ds-tuch\"><button class=\"ds-chip-a\">1</button><button class=\"ds-chip-a\" aria-pressed=\"true\">2</button><button class=\"ds-chip-a\">3</button><button class=\"ds-chip-a\" disabled>14:00</button></div>",
+      "css": ".ds-tuch{display:flex;gap:8px;flex-wrap:wrap;padding:24px;background:#f3e7d3;color:#1d1310}.ds-chip-a{min-width:52px;min-height:48px;padding:.4em .9em;font:500 1rem Mukta,system-ui,sans-serif;font-variant-numeric:tabular-nums;color:inherit;background:none;border:1px solid rgba(29,19,16,.22);border-radius:3px;cursor:pointer;transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .16s cubic-bezier(.23,1,.32,1)}.ds-chip-a:hover:not([disabled]){border-color:currentColor}.ds-chip-a:active{transform:scale(.96)}.ds-chip-a[aria-pressed=true]{background:#6e1518;color:#f3e7d3;border-color:#6e1518}.ds-chip-a[disabled]{opacity:.35;text-decoration:line-through;cursor:not-allowed}.ds-chip-a:focus-visible{outline:2px solid #8c2220;outline-offset:3px}"
+    },
+    {
+      "name": "Finder-Option",
+      "kind": "chip",
+      "refersTo": "finder-option",
+      "description": "Pillen-Auswahl im Geschmacks-Finder, beide Themen; gewählt Kurkuma.",
+      "html": "<div class=\"ds-finder\"><button class=\"ds-opt\">Mild</button><button class=\"ds-opt\" aria-pressed=\"true\">Würzig</button><button class=\"ds-opt\">Richtig scharf</button></div>",
+      "css": ".ds-finder{display:flex;gap:8px;flex-wrap:wrap;padding:20px;background:#120e0b;color:#efe6d8}.ds-opt{min-height:48px;padding:.5em 1.05em;font:500 1rem 'Anek Latin',system-ui,sans-serif;color:inherit;background:none;border:1px solid rgba(239,230,216,.18);border-radius:999px;cursor:pointer;transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .16s cubic-bezier(.23,1,.32,1)}.ds-opt:hover{border-color:currentColor}.ds-opt:active{transform:scale(.96)}.ds-opt[aria-pressed=true]{background:#e7a92f;color:#1a120c;border-color:#e7a92f}.ds-opt:focus-visible{outline:2px solid #e7a92f;outline-offset:3px}"
+    },
+    {
+      "name": "Speisekarten-Suche",
+      "kind": "input",
+      "refersTo": "eingabefeld",
+      "description": "Suchzeile der klebenden Kartenwerkzeuge; reagiert als Ganzes auf Fokus.",
+      "html": "<label class=\"ds-suche\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" d=\"M15.5 15.5 20 20\"/></svg><input placeholder=\"Gericht oder Zutat suchen\"></label>",
+      "css": ".ds-suche{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 14px;background:#10173a;color:#f3e7d3;border:1px solid rgba(243,231,211,.3);border-radius:3px;font-family:Mukta,system-ui,sans-serif}.ds-suche input{flex:1;min-width:0;min-height:46px;border:0;background:transparent;color:inherit;font:inherit;outline:none}.ds-suche input::placeholder{color:rgba(243,231,211,.76)}.ds-suche:focus-within{border-color:#edb23a}"
+    },
+    {
+      "name": "Kopfnavigation A",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "Gedämpfte Links, Kurkuma-Unterstrich wächst beim Hover von links.",
+      "html": "<nav class=\"ds-nav-a\"><a href=\"#\">Lieblinge</a><a href=\"#\">Speisekarte</a><a href=\"#\">Zeiten &amp; Anfahrt</a></nav>",
+      "css": ".ds-nav-a{display:flex;gap:4px;padding:14px;background:rgba(24,16,14,.9)}.ds-nav-a a{position:relative;padding:.5em .75em;font:500 .98rem Mukta,system-ui,sans-serif;text-decoration:none;color:rgba(243,231,211,.8);transition:color .2s ease}.ds-nav-a a::after{content:\"\";position:absolute;left:.75em;right:.75em;bottom:.25em;height:1.5px;background:#edb23a;transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.23,1,.32,1)}.ds-nav-a a:hover{color:#f3e7d3}.ds-nav-a a:hover::after{transform:scaleX(1)}.ds-nav-a a:focus-visible{outline:2px solid #edb23a;outline-offset:3px}"
+    },
+    {
+      "name": "Kopfnavigation B",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "Gedämpfte Links, Hover als Milch-Pille.",
+      "html": "<nav class=\"ds-nav-b\"><a href=\"#\">Lieblinge</a><a href=\"#\">Gewürze</a><a href=\"#\">Speisekarte</a></nav>",
+      "css": ".ds-nav-b{display:flex;gap:2px;padding:14px;background:rgba(18,14,11,.88)}.ds-nav-b a{padding:.45em .8em;font:500 .98rem 'Anek Latin',system-ui,sans-serif;text-decoration:none;border-radius:999px;color:rgba(239,230,216,.78);transition:color .2s ease,background-color .2s ease}.ds-nav-b a:hover{color:#efe6d8;background:rgba(239,230,216,.08)}.ds-nav-b a:focus-visible{outline:2px solid #e7a92f;outline-offset:3px}"
+    },
+    {
+      "name": "Heute-Status",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Offen/geschlossen mit pulsierendem Punkt, auf jeder Bühne und bei der Reservierung.",
+      "html": "<p class=\"ds-status\"><span class=\"ds-punkt\"></span><span class=\"ds-text\">Jetzt geöffnet</span><span class=\"ds-zusatz\">bis 22:00</span></p>",
+      "css": ".ds-status{display:inline-flex;align-items:center;gap:.6em;padding:16px;background:#6e1518;color:#9fe0a8;font:500 1.0625rem Mukta,system-ui,sans-serif}.ds-punkt{position:relative;width:.62em;height:.62em;border-radius:50%;background:currentColor}.ds-punkt::after{content:\"\";position:absolute;inset:0;border-radius:50%;background:currentColor;animation:ds-puls 2.4s cubic-bezier(.23,1,.32,1) infinite}@keyframes ds-puls{0%{transform:scale(1);opacity:.55}100%{transform:scale(2.8);opacity:0}}.ds-text{color:#f3e7d3;font-weight:700}.ds-zusatz{color:rgba(243,231,211,.8);font-weight:400}.ds-zusatz::before{content:\"·\";margin-right:.6em;opacity:.6}@media (prefers-reduced-motion:reduce){.ds-punkt::after{animation:none}}"
+    },
+    {
+      "name": "Reservier-Fortschritt",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Segmentbalken der vier Reservierschritte, füllt sich von links in der Handlungsfarbe.",
+      "html": "<ol class=\"ds-schritte\"><li class=\"an\"></li><li class=\"an\"></li><li></li><li></li></ol>",
+      "css": ".ds-schritte{display:flex;gap:6px;list-style:none;margin:0;padding:20px;background:#f3e7d3}.ds-schritte li{flex:1;height:3px;border-radius:3px;background:rgba(29,19,16,.22);position:relative;overflow:hidden}.ds-schritte li::after{content:\"\";position:absolute;inset:0;background:#6e1518;transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.23,1,.32,1)}.ds-schritte li.an::after{transform:scaleX(1)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Was auf dem Tisch liegt",
+    "overview": "Beide Themen holen ihre Gestaltung aus einem echten Gegenstand der indischen Esskultur statt aus einem Restaurant-Stil. Thema A ist ein handbedrucktes Ajrakh-Tuch: Abschnitte sind vollflächig bedruckte Bahnen in Krapprot, Indigo und Kohle, mit einem Rosetten-Jaal als Rapport, Punktbordüren zwischen den Bahnen und Fotos in Bogenfenstern, die aus dem Logo geschnitten sind. Bewegung ist das Aufdrücken eines Stempels. Thema B ist ein gedeckter Tisch: Tawa-Schwarz, gehämmertes Kupfer, konzentrisch gebürsteter Edelstahl. Die Lieblingsgerichte liegen in Katoris auf einer drehbaren Thali-Platte, die Gewürze in einer Masala-Dabba, deren Deckel beim Scrollen abgleitet. Bewegung ist Licht, das angeht, und Metall, das sich dreht.\n\nGemeinsam ist beiden die Ordnung: Das Essen und der Raum sind die Hauptdarsteller, die Gestaltung rahmt. Kurkuma ist in beiden Welten die einzige Handlungsfarbe. Die Dichte ist großzügig (Abschnitte 80 bis 140 px Innenabstand), die Seite liest sich als eine Folge ganzer Bahnen, nicht als Kartenraster. „Heute offen?“ und „Tisch reservieren“ sind auf jedem Bildschirm einen Daumen weit entfernt: oben im Kopf, auf Mobilgeräten in der Daumenleiste.\n\nAbgelehnt sind in beiden Verträgen das schwarz-goldene „Luxus-Inder“-Klischee und das Foodfoto- bzw. Kartenraster.",
+    "keyCharacteristics": [
+      "Ein Gegenstand pro Thema (Tuch oder Tisch), aus dem Farbe, Form, Textur und Bewegung abgeleitet sind.",
+      "Vollflächige Bahnen statt Karten; Abgrenzung durch Feldwechsel, Bordüren und Linien.",
+      "Kurkuma nur für Handlungen; alle anderen Farben sind Material.",
+      "Dunkle, warme Grundflächen mit hellem Lesetext; helle Flächen nur für das Formular (Tuch bzw. Stahltablett) und die Merkzettel-Schublade in A.",
+      "Display-Schrift als Stempel (A) bzw. Gravur (B), humanistische Grotesk als Lesetext.",
+      "Material entsteht aus Code: Inline-SVG-Rapporte in A, mit `tools/materialien.py` gerenderte Raster in B. Keine Fremdbilder für Material."
+    ],
+    "rules": [
+      {
+        "name": "Die Kurkuma-Regel",
+        "body": "Kurkuma bedeutet „hier handeln“. Jede Fläche in Kurkuma ist klickbar oder zeigt einen gewählten Zustand; Dekor in Kurkuma ist auf die kleinen Trennpunkte und Zitatlinien in A beschränkt. Auf hellen Flächen (Tuch, Stahl) übernimmt Krapprot bzw. Lasurbraun diese Rolle.",
+        "section": "colors"
+      },
+      {
+        "name": "Die Material-statt-Farbe-Regel (B)",
+        "body": "Stahl und Kupfer sind gerenderte Raster aus `tools/materialien.py`, nie CSS-Verläufe in Grau oder Orange. Neue Metallflächen werden im Skript gerendert und in `img/QUELLEN.md` belegt.",
+        "section": "colors"
+      },
+      {
+        "name": "Die Nie-flach-Regel (A)",
+        "body": "Jede Bahn trägt ihren Rapport: Krapp und Indigo den Jaal, Bühne und Lieblinge den dichten Jaal, Kohle den Kohle-Jaal, darüber ein ruhendes Korn (`multiply`, 55 %). Eine einfarbige Bahn ohne Druck gibt es nicht.",
+        "section": "colors"
+      },
+      {
+        "name": "Die Ziffern-Regel",
+        "body": "Preise, Nummern, Uhrzeiten, Zähler und die Öffnungszeiten-Tabelle stehen in tabellarischen Ziffern.",
+        "section": "typography"
+      },
+      {
+        "name": "Die Eine-Überschrift-Regel",
+        "body": "Eine Bahn hat genau eine Überschrift in Display-Schrift; Kontext steht im Absatz darunter, nicht in einer Kleinzeile darüber.",
+        "section": "typography"
+      },
+      {
+        "name": "Die Gegenstand-Regel",
+        "body": "Ein Schatten bedeutet „das ist ein Ding“. In B tragen ihn Metallobjekte und das Tablett, in A nur Tuch, Hauptknopf und die schwebenden Ebenen. Flächen, Karten oder Textblöcke bekommen keinen.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** jede neue Fläche über die Rollenvariablen des Themas (`--bg`, `--fg`, `--line`, `--accent`, `--focus`) aufbauen, damit die gemeinsamen Bausteine unverändert funktionieren; helle Inseln setzen ihre Rollen lokal um wie Tuch und Tablett.",
+      "**Do** Kurkuma nur für Handlungen und gewählte Zustände verwenden; auf hellen Flächen Krapprot (A) bzw. Lasurbraun (B).",
+      "**Do** in A jede Bahn mit ihrem Jaal und dem Korn bedrucken und Bahnen mit der Punktbordüre (30 px hoch, 44 px Rapport) trennen.",
+      "**Do** in A Fotos im Bogenfenster aus dem Logo zeigen; in B Gerichte in Stahl-Katoris oder als hohe Bänder mit 22 px Radius.",
+      "**Do** neue Metall- oder Gewürzflächen in B mit `tools/materialien.py` rendern und in `img/QUELLEN.md` eintragen; das Logo nur über `tools/logo.py` ändern (erzeugt `js/logo.js`).",
+      "**Do** Treffflächen von mindestens 44 px (Knöpfe und Chips 48 px) einhalten und `:hover` nur unter `@media (hover: hover)` setzen.",
+      "**Do** jede Bewegung mit `prefers-reduced-motion` zu einem ruhigen Endzustand machen; scrollgesteuerte Bühnen werden statisch.",
+      "**Do** `--ease-out` (`cubic-bezier(0.23, 1, 0.32, 1)`) für Ein- und Auftritte verwenden; in A den Stempel-Überschwinger (`cubic-bezier(.3, 1.4, .5, 1)`), in B das Lichtangehen der Bühne."
+    ],
+    "donts": [
+      "**Don't** das schwarz-goldene „Luxus-Inder“-Klischee bauen (Gold auf Schwarz als Schmuck, Ornamentrahmen ohne Herkunft).",
+      "**Don't** Inhalte in Kartenraster oder ein Foodfoto-Raster legen; Inhalt sitzt auf der Bahn.",
+      "**Don't** Stahl oder Kupfer in B als CSS-Grauverlauf oder flaches Orange nachahmen.",
+      "**Don't** in A eine Bahn flach einfärben oder Schatten auf Textblöcke legen; Tiefe kommt aus Druck und Feldwechsel.",
+      "**Don't** Kurkuma als Dekorfläche oder für Filterzustände verwenden; Filter sind invertiert.",
+      "**Don't** eine Kleinzeile oder Dachzeile über Abschnittsüberschriften setzen.",
+      "**Don't** die beiden Themen mischen: keine Bogenfenster in B, keine Stahlobjekte oder Pillenknöpfe in A.",
+      "**Don't** den A/B-Umschalter (Navigationslink und Fußzeilen-Hinweis) als Bestandteil übernehmen; er ist nur für die Abnahme."
+    ]
+  }
+}
