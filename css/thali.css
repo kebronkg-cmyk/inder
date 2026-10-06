@@ -38,8 +38,10 @@
 
   --stahl: conic-gradient(from 20deg, #7b8187, #dfe3e6 8%, #8a9096 20%, #f1f3f4 33%, #7e848a 47%, #d3d7da 60%, #858b91 74%, #edf0f1 87%, #7b8187);
   /* Gehämmertes Kupfer und Stahl: gerenderte Raster aus tools/materialien.py */
-  --kupfer-feld: linear-gradient(rgba(58, 20, 6, .5), rgba(58, 20, 6, .5)), url("../img/kupfer-gehaemmert.webp") 0 0 / 400px 400px;
-  --kupfer-feld-tief: linear-gradient(rgba(40, 12, 3, .66), rgba(40, 12, 3, .66)), url("../img/kupfer-gehaemmert.webp") 0 0 / 400px 400px;
+  /* Kupfer bleibt hell und glänzend, nur wo Text steht, liegt eine dunklere Lasur */
+  --kupfer-feld: linear-gradient(rgba(40, 12, 3, .6), rgba(40, 12, 3, .6)), url("../img/kupfer-gehaemmert.webp") 0 0 / 400px 400px;
+  --kupfer-feld-seite: linear-gradient(90deg, rgba(40, 12, 3, .74) 0%, rgba(40, 12, 3, .62) 42%, rgba(40, 12, 3, .2) 70%, rgba(40, 12, 3, .12)), url("../img/kupfer-gehaemmert.webp") 0 0 / 400px 400px;
+  --kupfer-feld-tief: var(--kupfer-feld-seite);
   --korn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -171,7 +173,7 @@ img.buehne-logo { height: auto; }
 .thali-handeln .merk-knopf[aria-pressed="true"] { background: var(--milch); color: var(--tawa); }
 
 /* ═══════════ Masala-Dabba ═══════════ */
-.dabba-feld { position: relative; height: 210vh; background: var(--kupfer-feld); }
+.dabba-feld { position: relative; height: 210vh; background: var(--kupfer-feld-seite); }
 .dabba-klebt { position: sticky; top: 0; height: 100vh; height: 100svh; display: grid; align-items: center; }
 .dabba-raster { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(28px, 6vw, 96px); align-items: center; padding-top: var(--kopf-h); }
 .dabba-text > p { margin-top: 18px; color: var(--milch-2); max-width: 44ch; }
@@ -255,12 +257,13 @@ img.buehne-logo { height: auto; }
 .res-links .klein { margin-top: 12px; color: var(--milch-2); }
 /* Ein Stahltablett: die Fläche ist das gerenderte Raster, die Fragen sind eingraviert */
 .res-platte {
-  --fg: #1c1a18; --muted: rgba(28, 26, 24, .76); --line: rgba(28, 26, 24, .28); --accent: #5f2a12; --on-accent: #fbe9d6; --focus: #5f2a12; --fehler: #8a1c0c;
+  --fg: #1c1a18; --muted: #3b3632; --line: rgba(28, 26, 24, .34); --accent: #5f2a12; --on-accent: #fbe9d6; --focus: #5f2a12; --fehler: #8a1c0c;
   color: var(--fg); padding: clamp(24px, 4vw, 44px); border-radius: 30px;
-  background: linear-gradient(rgba(255,255,255,.18), rgba(255,255,255,.18)), url("../img/stahl-dabba.webp") 92% 96% / 230% 230%;
+  background: url("../img/stahl-tablett.webp") center / cover;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.55), inset 0 -3px 0 rgba(0,0,0,.18), 0 40px 70px -30px rgba(0,0,0,.85);
 }
-.res-platte .res-frage, .res-platte .res-zusammen strong { color: #2a2724; text-shadow: 0 1px 0 rgba(255,255,255,.6), 0 -1px 0 rgba(0,0,0,.25); }
+.res-platte .res-frage, .res-platte .res-zusammen strong { color: #1f1c1a; text-shadow: 0 1px 0 rgba(255,255,255,.55); }
+.res-platte .res-zusammen { border-color: rgba(28, 26, 24, .4); }
 .res-platte .knopf--haupt { background: #5f2a12; color: #fbe9d6; }
 .res-platte .knopf--linie { color: #3a1a0b; }
 .res-platte .res-feld input, .res-platte .res-feld textarea { background: rgba(255,255,255,.45); }
@@ -281,7 +284,7 @@ img.buehne-logo { height: auto; }
 .zitate blockquote { font-family: var(--font-display); font-size: clamp(1.25rem, 1.9vw, 1.6rem); line-height: 1.3; }
 
 /* ═══════════ Besuch ═══════════ */
-.besuch { padding: clamp(80px, 10vw, 130px) 0; background: var(--kupfer-feld-tief); }
+.besuch { padding: clamp(80px, 10vw, 130px) 0; background: var(--kupfer-feld); }
 .besuch-raster { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); }
 .besuch address { font-style: normal; font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.3; margin-top: 20px; }
 .besuch .klein { margin-top: 14px; max-width: 48ch; }
@@ -308,7 +311,7 @@ img.buehne-logo { height: auto; }
 /* ═══════════ Responsiv ═══════════ */
 @media (max-width: 1080px) { .posten-liste { columns: 1; } }
 @media (max-width: 900px) {
-  :root { --kopf-h: 64px; --daumen-h: 68px; }
+  :root { --kopf-h: 64px; --daumen-h: 68px; --kupfer-feld-seite: var(--kupfer-feld); }
   .kopf-marke { width: 100px; }
   .kopf-menu { display: block; }
   .kopf-aktion { margin-left: auto; }

@@ -292,14 +292,29 @@ def kupfer(S=640):
         ndl = np.clip((n * l).sum(2), 0, 1)
         hv = norm(l + v)
         spec = np.clip((n * hv).sum(2), 0, 1)
-        col += k * albedo * (0.22 * ndl[..., None] + 1.15 * (spec ** 22)[..., None] + 0.35 * (spec ** 4)[..., None])
+        col += k * albedo * (0.22 * ndl[..., None] + 0.5 * (spec ** 4)[..., None])
+        col += k * np.array([1.0, 0.78, 0.6]) * (2.2 * spec ** 40)[..., None]  # Glanzpunkte auf den Graten
     rr = 2 * n[..., 2:3] * n - v
     env = umgebung(rr[..., 0], rr[..., 1], np.clip(rr[..., 2], 0, 1))
-    col += albedo * 0.42 * env[..., None]
+    col += albedo * 0.7 * env[..., None]
     k = 2 * math.pi / S  # periodische Anlauffarbe, damit die Kachel nahtlos bleibt
     fleck = 0.5 + 0.25 * np.sin(x * k * 2 + 1.3) * np.cos(y * k * 3) + 0.25 * np.sin((x + y) * k)
     col *= (0.86 + 0.24 * fleck)[..., None]
     speichere(tonemap(col), None, "kupfer-gehaemmert.webp", q=84)
+
+
+# ───────────── Tablett (rechteckig, gleichmäßiger Schliff) ─────────────
+def tablett(W=1200, H=900):
+    """Gerader Längsschliff bis an die Kanten, ruhiger Mittelwert, damit
+    gravierte Schrift überall gleich gut lesbar bleibt."""
+    zeilen = np.random.default_rng(9).random(H).astype(np.float32)
+    zeilen = np.convolve(zeilen, np.array([.25, .5, .25], np.float32), mode="same")
+    fein = np.repeat(zeilen[:, None], W, axis=1) * 0.7 + 0.3 * fbm(H, W, 60, 3, 5)
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    licht = 0.06 * np.exp(-((xx / W - 0.25) ** 2) / 0.08)  # breites, schwaches Licht
+    c = 0.70 + 0.07 * (fein - 0.5) + licht
+    rgb = np.dstack([c * 1.0, c * 1.005, c * 1.02])
+    speichere(np.clip(rgb, 0, 1), None, "stahl-tablett.webp", q=84)
 
 
 # ───────────── Logo in geprägtem Stahl ─────────────
@@ -351,4 +366,5 @@ if __name__ == "__main__":
     for g in GEWUERZE:
         gewuerz(g)
     kupfer()
+    tablett()
     buerstung()
