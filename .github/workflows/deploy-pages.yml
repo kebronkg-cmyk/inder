@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - claude/bombay-restaurant-redesign-8m9vnl
   workflow_dispatch:
 
 permissions:
