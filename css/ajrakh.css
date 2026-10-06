@@ -35,6 +35,8 @@
   /* Dichter Jaal für Bühne und Lieblinge: Kohle-Rosetten mit Reserve-Blättern,
      der Weißdruck um 1px versetzt wie beim echten Blockdruck */
   --jaal-dicht: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23f3e7d3' stroke-opacity='.22' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M32 2 62 32 32 62 2 32Z' stroke-dasharray='0 4.6'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='9.5' fill='%2318100e' fill-opacity='.38'/%3E%3Cg fill='%23f3e7d3' fill-opacity='.36' transform='translate(.8 .6)'%3E%3Cellipse cx='32' cy='25.5' rx='2' ry='4'/%3E%3Cellipse cx='32' cy='38.5' rx='2' ry='4'/%3E%3Cellipse cx='25.5' cy='32' rx='4' ry='2'/%3E%3Cellipse cx='38.5' cy='32' rx='4' ry='2'/%3E%3Cellipse cx='27.4' cy='27.4' rx='1.5' ry='3' transform='rotate(-45 27.4 27.4)'/%3E%3Cellipse cx='36.6' cy='36.6' rx='1.5' ry='3' transform='rotate(-45 36.6 36.6)'/%3E%3Cellipse cx='36.6' cy='27.4' rx='1.5' ry='3' transform='rotate(45 36.6 27.4)'/%3E%3Cellipse cx='27.4' cy='36.6' rx='1.5' ry='3' transform='rotate(45 27.4 36.6)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='2.2' fill='%23edb23a' fill-opacity='.55'/%3E%3Cg fill='%2318100e' fill-opacity='.3'%3E%3Ccircle cx='0' cy='0' r='5'/%3E%3Ccircle cx='64' cy='0' r='5'/%3E%3Ccircle cx='0' cy='64' r='5'/%3E%3Ccircle cx='64' cy='64' r='5'/%3E%3C/g%3E%3Cg fill='%23f3e7d3' fill-opacity='.32'%3E%3Ccircle cx='0' cy='0' r='2'/%3E%3Ccircle cx='64' cy='0' r='2'/%3E%3Ccircle cx='0' cy='64' r='2'/%3E%3Ccircle cx='64' cy='64' r='2'/%3E%3C/g%3E%3C/svg%3E");
+  /* Kohle-Grund: im Reservedruck auf Schwarz, nie flaches Schwarz */
+  --jaal-kohle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23f3e7d3' stroke-opacity='.09' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M32 2 62 32 32 62 2 32Z' stroke-dasharray='0 4.6'/%3E%3C/g%3E%3Cg fill='%23f3e7d3' fill-opacity='.08'%3E%3Cellipse cx='32' cy='26' rx='1.8' ry='3.6'/%3E%3Cellipse cx='32' cy='38' rx='1.8' ry='3.6'/%3E%3Cellipse cx='26' cy='32' rx='3.6' ry='1.8'/%3E%3Cellipse cx='38' cy='32' rx='3.6' ry='1.8'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='2' fill='%238c2220' fill-opacity='.7'/%3E%3Cg fill='%23233061' fill-opacity='.55'%3E%3Ccircle cx='0' cy='0' r='3'/%3E%3Ccircle cx='64' cy='0' r='3'/%3E%3Ccircle cx='0' cy='64' r='3'/%3E%3Ccircle cx='64' cy='64' r='3'/%3E%3C/g%3E%3C/svg%3E");
   /* Bordüre: zwei Punktreihen, dazwischen Krappkreise mit Reservering und Kleeblatt */
   --bordure: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='30' viewBox='0 0 44 30'%3E%3Crect width='44' height='30' fill='%2318100e'/%3E%3Cg fill='%23f3e7d3'%3E%3Ccircle cx='5.5' cy='3.5' r='1.5'/%3E%3Ccircle cx='16.5' cy='3.5' r='1.5'/%3E%3Ccircle cx='27.5' cy='3.5' r='1.5'/%3E%3Ccircle cx='38.5' cy='3.5' r='1.5'/%3E%3Ccircle cx='5.5' cy='26.5' r='1.5'/%3E%3Ccircle cx='16.5' cy='26.5' r='1.5'/%3E%3Ccircle cx='27.5' cy='26.5' r='1.5'/%3E%3Ccircle cx='38.5' cy='26.5' r='1.5'/%3E%3C/g%3E%3Ccircle cx='11' cy='15' r='6.2' fill='%238c2220' stroke='%23f3e7d3' stroke-width='1.6'/%3E%3Ccircle cx='11' cy='15' r='1.8' fill='%23edb23a'/%3E%3Cg fill='%2333508f'%3E%3Ccircle cx='33' cy='11.6' r='2.4'/%3E%3Ccircle cx='30' cy='17' r='2.4'/%3E%3Ccircle cx='36' cy='17' r='2.4'/%3E%3C/g%3E%3C/svg%3E");
   /* Stoffstruktur: feines, ruhendes Korn */
@@ -59,7 +61,7 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .feld--indigo { background: var(--jaal) var(--indigo); }
 .buehne.feld--krapp { background: var(--jaal-dicht) var(--krapp); }
 .lieblinge.feld--indigo { background: var(--jaal-dicht) var(--indigo); }
-.feld--kohle { background: var(--kohle); }
+.feld--kohle { background: var(--jaal-kohle) var(--kohle); }
 .bordure { height: 30px; background: var(--bordure) center / 44px 30px repeat-x; }
 
 h2 { font-size: clamp(2.3rem, 5.2vw, 4.4rem); letter-spacing: -0.01em; }
@@ -186,13 +188,15 @@ h2 { font-size: clamp(2.3rem, 5.2vw, 4.4rem); letter-spacing: -0.01em; }
 .handwerk { padding: clamp(80px, 11vw, 140px) 0; }
 .handwerk-raster { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: clamp(36px, 7vw, 110px); align-items: center; }
 .handwerk-bild { width: min(100%, 380px); justify-self: center; }
-.handwerk-liste { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 44px; margin-top: 38px; }
-.handwerk-liste dt { font-family: var(--font-display); font-size: clamp(1.7rem, 2.6vw, 2.3rem); color: var(--kurkuma); line-height: 1.05; }
-.handwerk-liste dd { margin-top: 8px; color: var(--reserve-2); }
+.handwerk-liste { display: grid; margin-top: 34px; border-top: 1px dashed rgba(243,231,211,.35); }
+.handwerk-liste > div { display: grid; grid-template-columns: minmax(150px, .38fr) 1fr; gap: 6px 28px; align-items: baseline; padding: 18px 0; border-bottom: 1px dashed rgba(243,231,211,.35); }
+.handwerk-liste dt { font-family: var(--font-display); font-size: clamp(1.5rem, 2.3vw, 2rem); color: var(--reserve); line-height: 1.05; }
+.handwerk-liste dd { color: var(--reserve-2); }
 
 /* ═══════════ Finder ═══════════ */
 .finder-feld { padding: clamp(80px, 11vw, 140px) 0; }
-.finder-raster { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.finder-raster { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.finder-raster::after { content: ""; }
 .finder-kopf { position: sticky; top: calc(var(--kopf-h) + 32px); }
 .finder-kopf p { margin-top: 18px; color: var(--reserve-2); max-width: 42ch; }
 .finder-buehne { padding-left: clamp(0px, 4vw, 56px); border-left: 1px dashed rgba(243,231,211,.3); min-height: 420px; }
@@ -364,7 +368,7 @@ h2 { font-size: clamp(2.3rem, 5.2vw, 4.4rem); letter-spacing: -0.01em; }
 }
 @media (max-width: 620px) {
   body { font-size: 1rem; }
-  .handwerk-liste { grid-template-columns: 1fr; gap: 22px; }
+  .handwerk-liste > div { grid-template-columns: 1fr; }
   .galerie-raster { grid-template-columns: 1fr 1fr; grid-auto-rows: 120px; gap: 10px; }
   .galerie-raster li, .galerie-raster .g1, .galerie-raster .g2, .galerie-raster .g3, .galerie-raster .g4, .galerie-raster .g5 { grid-column: auto; grid-row: auto; }
   .galerie-raster .g1 { grid-column: 1 / -1; grid-row: span 2; }

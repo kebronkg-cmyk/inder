@@ -38,8 +38,8 @@
 
   --stahl: conic-gradient(from 20deg, #7b8187, #dfe3e6 8%, #8a9096 20%, #f1f3f4 33%, #7e848a 47%, #d3d7da 60%, #858b91 74%, #edf0f1 87%, #7b8187);
   /* Gehämmertes Kupfer und Stahl: gerenderte Raster aus tools/materialien.py */
-  --kupfer-feld: linear-gradient(rgba(58, 20, 6, .4), rgba(58, 20, 6, .4)), url("../img/kupfer-gehaemmert.webp") 0 0 / 400px 400px;
-  --kupfer-feld-tief: linear-gradient(rgba(40, 12, 3, .58), rgba(40, 12, 3, .58)), url("../img/kupfer-gehaemmert.webp") 0 0 / 400px 400px;
+  --kupfer-feld: linear-gradient(rgba(58, 20, 6, .5), rgba(58, 20, 6, .5)), url("../img/kupfer-gehaemmert.webp") 0 0 / 400px 400px;
+  --kupfer-feld-tief: linear-gradient(rgba(40, 12, 3, .66), rgba(40, 12, 3, .66)), url("../img/kupfer-gehaemmert.webp") 0 0 / 400px 400px;
   --korn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -92,9 +92,8 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .buehne-logo-licht { filter: drop-shadow(0 2px 1px rgba(0,0,0,.6)) drop-shadow(0 10px 30px rgba(0,0,0,.55)); }
 .buehne-logo { width: min(560px, 82vw); color: var(--champagner); }
 .buehne-logo svg { width: 100%; height: auto; }
-/* Gebürsteter Stahl: das gerenderte Raster, ausgestanzt von der Logoform */
-.buehne-logo.hat-logo { background: url("../img/stahl-gebuerstet.webp") center / cover; -webkit-mask: url("../img/logo.svg") center / 100% 100% no-repeat; mask: url("../img/logo.svg") center / 100% 100% no-repeat; }
-.buehne-logo.hat-logo svg { visibility: hidden; }
+/* Geprägter Stahl: gerendertes Raster (tools/materialien.py) */
+img.buehne-logo { height: auto; }
 .buehne-titel { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.35rem, 2.3vw, 2rem); line-height: 1.25; max-width: 30ch; margin-top: clamp(18px, 3vw, 30px); text-wrap: balance; }
 .buehne-status { margin-top: 22px; justify-content: center; flex-wrap: wrap; row-gap: 2px; }
 .buehne-handeln { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 24px; }
@@ -180,7 +179,7 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .dabba-hindi { font-size: .95rem; color: var(--champagner); }
 .dabba-name { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.05; margin: 4px 0 8px; }
 .dabba-info p:last-child { max-width: 42ch; }
-.dabba-platz { display: grid; place-items: center; }
+.dabba-platz { display: grid; place-items: center; padding: 8% 12% 0 0; }
 .dabba {
   --p2: min(1, calc(var(--p, 0) * 2.6));
   position: relative; width: min(100%, 520px, 68vh); aspect-ratio: 1; border-radius: 50%; container-type: inline-size;
@@ -206,8 +205,9 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
   background: url("../img/stahl-deckel.webp") center / 100% 100% no-repeat;
   box-shadow: 0 30px 50px -20px rgba(0,0,0,.7);
   /* Der Deckel gleitet ganz von der Dose, undurchsichtig, nie als Geist darüber */
-  transform: translate(calc(var(--p2) * 118%), calc(var(--p2) * -14%)) rotate(calc(var(--p2) * 28deg));
+  transform: translate(calc(var(--p2) * 50%), calc(var(--p2) * -50%)) rotate(calc(var(--p2) * 28deg)) scale(calc(1 - var(--p2) * .52));
 }
+@media (max-width: 900px) { .dabba-deckel { transform: translate(calc(var(--p2) * 40%), calc(var(--p2) * -40%)) scale(calc(1 - var(--p2) * .6)); opacity: calc(1 - var(--p2)); } }
 
 /* ═══════════ Finder ═══════════ */
 .finder-feld { padding: clamp(80px, 11vw, 140px) 0; background: var(--tawa); }
@@ -232,23 +232,19 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .galerie-band img { height: 100%; width: auto; transition: transform .8s var(--ease-out); }
 @media (hover: hover) { .galerie-band button:hover img { transform: scale(1.04); } }
 
-/* ═══════════ Speisekarte auf Stahl ═══════════ */
-.karte {
-  --fg: #1d1712; --muted: rgba(29,23,18,.68); --line: rgba(29,23,18,.16); --accent: var(--kupfer); --on-accent: #fff6ea; --focus: var(--kupfer);
-  --karte-bg: #e2e5e7;
-  padding: clamp(80px, 10vw, 130px) 0; color: var(--fg); background-color: #e2e5e7;
-  background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.18) 0 1px, rgba(0,0,0,.025) 1px 3px), linear-gradient(180deg, #e9ebed, #dcdfe2);
-}
+/* ═══════════ Speisekarte auf Tawa, Stahl nur in den Linien ═══════════ */
+.karte { --karte-bg: var(--tawa-2); padding: clamp(80px, 10vw, 130px) 0; background: var(--tawa-2); }
 .karte-kopf { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 64px; align-items: end; margin-bottom: 26px; }
 .karte-kopf p { color: var(--muted); max-width: 50ch; }
-.karte-werkzeug { margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); box-shadow: 0 1px 0 var(--line); }
-.karte-suche { background: #fff; border-color: transparent; box-shadow: inset 0 1px 2px rgba(0,0,0,.12); border-radius: 999px; }
+.karte-kopf b { color: var(--milch); }
+.karte-werkzeug { margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); box-shadow: 0 1px 0 rgba(200, 204, 208, .25); }
+.karte-suche { border-radius: 999px; border-color: rgba(200, 204, 208, .35); }
 .posten-liste { list-style: none; columns: 2; column-gap: 56px; margin-top: 12px; }
-.posten { break-inside: avoid; }
-.tag--veg { color: #2f7a3b; }
-.tag--vegan { color: #5a7a1c; }
-.tag--scharf { color: #b8321b; }
-.karte .merk-knopf[aria-pressed="true"] { background: var(--kupfer); color: #fff6ea; border-color: var(--kupfer); }
+.posten { break-inside: avoid; border-bottom-color: rgba(200, 204, 208, .16); }
+.karte-gang h3 { color: var(--champagner); }
+.tag--veg { color: #9fdba6; }
+.tag--vegan { color: #c8e39a; }
+.tag--scharf { color: #ff9a76; }
 
 /* ═══════════ Reservieren auf Kupfer ═══════════ */
 .reservieren { padding: clamp(80px, 11vw, 140px) 0; background: var(--kupfer-feld-tief); }
@@ -257,9 +253,19 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .res-status { margin: 28px 0 10px; flex-wrap: wrap; }
 .res-links .zeiten { margin-top: 8px; }
 .res-links .klein { margin-top: 12px; color: var(--milch-2); }
-.res-platte { padding: 10px; border-radius: 36px; background: url("../img/stahl-thali.webp") center / 160% 160%; box-shadow: 0 40px 70px -30px rgba(0,0,0,.8); }
-.res-platte > [data-reservierung] { padding: clamp(22px, 4vw, 40px); border-radius: 27px; background: var(--tawa); box-shadow: inset 0 2px 10px rgba(0,0,0,.7); }
-.res-platte .res-chip { border-radius: 12px; }
+/* Ein Stahltablett: die Fläche ist das gerenderte Raster, die Fragen sind eingraviert */
+.res-platte {
+  --fg: #1c1a18; --muted: rgba(28, 26, 24, .76); --line: rgba(28, 26, 24, .28); --accent: #5f2a12; --on-accent: #fbe9d6; --focus: #5f2a12; --fehler: #8a1c0c;
+  color: var(--fg); padding: clamp(24px, 4vw, 44px); border-radius: 30px;
+  background: linear-gradient(rgba(255,255,255,.18), rgba(255,255,255,.18)), url("../img/stahl-dabba.webp") center / 190% 190%;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.55), inset 0 -3px 0 rgba(0,0,0,.18), 0 40px 70px -30px rgba(0,0,0,.85);
+}
+.res-platte .res-frage, .res-platte .res-zusammen strong { color: #2a2724; text-shadow: 0 1px 0 rgba(255,255,255,.6), 0 -1px 0 rgba(0,0,0,.25); }
+.res-platte .knopf--haupt { background: #5f2a12; color: #fbe9d6; }
+.res-platte .knopf--linie { color: #3a1a0b; }
+.res-platte .res-feld input, .res-platte .res-feld textarea { background: rgba(255,255,255,.45); }
+.res-platte .res-chip { border-radius: 12px; background: rgba(255,255,255,.28); }
+.res-platte .res-chip[aria-pressed="true"] { background: #5f2a12; }
 
 /* ═══════════ Stimmen ═══════════ */
 .stimmen { padding: clamp(80px, 10vw, 130px) 0; background: var(--tawa); }
@@ -275,12 +281,12 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .zitate blockquote { font-family: var(--font-display); font-size: clamp(1.25rem, 1.9vw, 1.6rem); line-height: 1.3; }
 
 /* ═══════════ Besuch ═══════════ */
-.besuch { padding: clamp(80px, 10vw, 130px) 0; background: var(--tawa-3); }
+.besuch { padding: clamp(80px, 10vw, 130px) 0; background: var(--kupfer-feld-tief); }
 .besuch-raster { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); }
 .besuch address { font-style: normal; font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.3; margin-top: 20px; }
 .besuch .klein { margin-top: 14px; max-width: 48ch; }
 .besuch-handeln { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
-.besuch-bestellen { align-self: start; padding: clamp(24px, 4vw, 44px); border-radius: 28px; background: var(--kupfer-feld); box-shadow: inset 0 0 0 1px rgba(255, 200, 160, .18), 0 30px 50px -30px rgba(0,0,0,.8); }
+.besuch-bestellen { align-self: start; padding-left: clamp(0px, 4vw, 56px); border-left: 1px solid rgba(239, 230, 216, .3); }
 .besuch-bestellen h3 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
 .besuch-bestellen p { margin-top: 12px; color: var(--milch-2); }
 .besuch-bestellen .knopf { margin-top: 20px; }
@@ -329,6 +335,7 @@ a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
   .finder-raster, .res-raster, .besuch-raster { grid-template-columns: 1fr; }
   .finder-kopf { position: static; }
   .finder-buehne { padding-left: 0; border-left: 0; min-height: 0; }
+  .besuch-bestellen { padding-left: 0; border-left: 0; padding-top: 28px; border-top: 1px solid rgba(239, 230, 216, .3); }
 
   .daumen { display: grid; grid-template-columns: 1fr 1.3fr 1fr; position: fixed; inset: auto 0 0; z-index: 95; height: calc(var(--daumen-h) + env(safe-area-inset-bottom)); padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); gap: 8px; background: rgba(18, 14, 11, .94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 -1px 0 rgba(239,230,216,.1); }
   .daumen a { display: grid; justify-items: center; align-content: center; gap: 2px; font-size: .78rem; font-weight: 700; text-decoration: none; color: var(--milch); border-radius: 999px; }

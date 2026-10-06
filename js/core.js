@@ -434,9 +434,10 @@
       let html = "";
       for (let i = 0; i < FRAGEN.length; i++) {
         const q = FRAGEN[i];
-        if (i > 0 && !wahl[FRAGEN[i - 1].k]) break;
-        html += `<div class="finder-schritt" role="group" aria-label="${q.f}"><p class="finder-frage">${q.f}</p><div class="finder-optionen">` +
-          q.o.map(([v, l]) => `<button type="button" class="finder-opt" data-k="${q.k}" data-v="${v}" aria-pressed="${wahl[q.k] === v}">${l}</button>`).join("") + "</div></div>";
+        // Spätere Fragen stehen schon da, gedämpft, bis die vorige beantwortet ist
+        const zu = i > 0 && !wahl[FRAGEN[i - 1].k];
+        html += `<div class="finder-schritt${zu ? " is-wartend" : ""}" role="group" aria-label="${q.f}"><p class="finder-frage"><span class="finder-nr" aria-hidden="true">${i + 1}</span>${q.f}</p><div class="finder-optionen">` +
+          q.o.map(([v, l]) => `<button type="button" class="finder-opt" data-k="${q.k}" data-v="${v}" aria-pressed="${wahl[q.k] === v}"${zu ? " disabled" : ""}>${l}</button>`).join("") + "</div></div>";
       }
       if (wahl.s) {
         const c = kandidaten();

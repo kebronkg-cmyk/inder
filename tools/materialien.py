@@ -271,30 +271,61 @@ def gewuerz(name, S=360):
 
 # ───────────── Gehämmertes Kupfer (kachelbar) ─────────────
 def kupfer(S=640):
+    """Jeder Hammerschlag ist eine flache Kugelkalotte; wo zwei sich treffen,
+    bleibt ein scharfer Grat stehen, der das Licht fängt."""
     r = np.random.default_rng(12)
     y, x = np.mgrid[0:S, 0:S].astype(np.float32)
     h = np.zeros((S, S), np.float32)
-    for _ in range(140):
+    for _ in range(210):
         cx, cy = r.random() * S, r.random() * S
-        rad = S * (0.06 + 0.06 * r.random())
+        rad = S * (0.05 + 0.045 * r.random())
         ddx = np.minimum(np.abs(x - cx), S - np.abs(x - cx))  # kachelbar
         ddy = np.minimum(np.abs(y - cy), S - np.abs(y - cy))
         d2 = (ddx ** 2 + ddy ** 2) / rad ** 2
-        h -= np.clip(1 - d2, 0, 1) ** 2 * (0.5 + 0.5 * r.random())
-    n = normalen(h, 9)
-    albedo = np.array([0.74, 0.36, 0.19])
+        tief = 0.55 + 0.45 * r.random()
+        h = np.minimum(h, np.where(d2 < 1, (d2 - 1) * tief, 0))
+    n = normalen(h, 7)
     v = np.array([0, 0, 1.0])
+    albedo = np.array([0.88, 0.47, 0.30])
     col = np.zeros((S, S, 3), np.float32)
     for l, k in LICHT:
         ndl = np.clip((n * l).sum(2), 0, 1)
         hv = norm(l + v)
-        spec = np.clip((n * hv).sum(2), 0, 1) ** 18
-        col += k * (albedo * ndl[..., None] * 0.55 + np.array([1.0, 0.62, 0.42]) * spec[..., None] * 0.55)
+        spec = np.clip((n * hv).sum(2), 0, 1)
+        col += k * albedo * (0.22 * ndl[..., None] + 1.15 * (spec ** 22)[..., None] + 0.35 * (spec ** 4)[..., None])
+    rr = 2 * n[..., 2:3] * n - v
+    env = umgebung(rr[..., 0], rr[..., 1], np.clip(rr[..., 2], 0, 1))
+    col += albedo * 0.42 * env[..., None]
     k = 2 * math.pi / S  # periodische Anlauffarbe, damit die Kachel nahtlos bleibt
     fleck = 0.5 + 0.25 * np.sin(x * k * 2 + 1.3) * np.cos(y * k * 3) + 0.25 * np.sin((x + y) * k)
-    col *= (0.82 + 0.3 * fleck)[..., None]
-    col += albedo * 0.12
-    speichere(tonemap(col) * 0.92, None, "kupfer-gehaemmert.webp", q=82)
+    col *= (0.86 + 0.24 * fleck)[..., None]
+    speichere(tonemap(col), None, "kupfer-gehaemmert.webp", q=84)
+
+
+# ───────────── Logo in geprägtem Stahl ─────────────
+def logo_relief(maske_png):
+    """Prägt die Logoform in gebürsteten Stahl: Höhe aus der weichgezeichneten
+    Form, waagerechter Bürststrich, ein breites Glanzband."""
+    from PIL import ImageFilter
+    m = Image.open(maske_png).getchannel("A")
+    W, H = m.size
+    a = np.asarray(m, np.float32) / 255
+    hoehe = np.zeros_like(a)
+    for rad, gew in ((10, 0.45), (4, 0.35), (1.5, 0.2)):
+        hoehe += gew * np.asarray(m.filter(ImageFilter.GaussianBlur(rad)), np.float32) / 255
+    hoehe *= a
+    n = normalen(hoehe, 16)
+    t = np.dstack([np.ones_like(a), np.zeros_like(a), np.zeros_like(a)])
+    t = t - (t * n).sum(2, keepdims=True) * n
+    t /= np.maximum(np.linalg.norm(t, axis=2, keepdims=True), 1e-5)
+    zeilen = np.random.default_rng(4).random(H).astype(np.float32)
+    rau = 0.65 * np.repeat(zeilen[:, None], W, axis=1) + 0.35 * fbm(H, W, 30, 3, 8)
+    c = stahl(n, t, glanz=18, grund=0.85, rauh=rau)
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    band = np.exp(-((xx / W - 0.36 + (yy / H - 0.5) * 0.25) ** 2) / 0.006)
+    c += 0.45 * band * (0.6 + 0.4 * rau)
+    rgb = np.dstack([c * 1.0, c * 0.985, c * 0.96])
+    speichere(tonemap(rgb), a, "logo-stahl.webp", q=88)
 
 
 # ───────────── Gebürsteter Stahl (für das Logo) ─────────────
@@ -310,6 +341,10 @@ def buerstung(W=1600, H=700):
 
 
 if __name__ == "__main__":
+    import sys
+    if len(sys.argv) > 1:  # Logomaske als PNG mit Alpha, z. B. per Browser aus img/logo.svg
+        logo_relief(sys.argv[1])
+        sys.exit()
     thali()
     katori()
     dabba()

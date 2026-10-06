@@ -158,7 +158,11 @@ p { text-wrap: pretty; }
 
 /* ═══════════ Geschmacks-Finder ═══════════ */
 .finder { display: grid; gap: 18px; }
-.finder-frage { font-family: var(--font-display); font-size: clamp(1.4rem, 2.6vw, 1.9rem); line-height: 1.1; }
+.finder-frage { font-family: var(--font-display); font-size: clamp(1.4rem, 2.6vw, 1.9rem); line-height: 1.1; display: flex; align-items: baseline; gap: .55em; }
+.finder-nr { flex: none; display: inline-grid; place-items: center; width: 1.5em; height: 1.5em; border-radius: 50%; font-size: .62em; font-family: var(--font-body); font-weight: 700; box-shadow: inset 0 0 0 1.5px currentColor; transform: translateY(-.15em); }
+.finder-schritt { transition: opacity .4s ease; }
+.finder-schritt.is-wartend { opacity: .42; }
+.finder-schritt.is-wartend .finder-opt { cursor: default; }
 .finder-optionen { display: flex; flex-wrap: wrap; gap: 8px; }
 .finder-opt { min-height: 48px; padding: .5em 1.05em; border: 1px solid var(--line); border-radius: 999px; font-weight: 500; transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .16s var(--ease-out); }
 .finder-opt:active { transform: scale(.96); }
