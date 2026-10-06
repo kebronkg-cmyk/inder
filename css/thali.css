@@ -257,7 +257,7 @@ img.buehne-logo { height: auto; }
 .res-platte {
   --fg: #1c1a18; --muted: rgba(28, 26, 24, .76); --line: rgba(28, 26, 24, .28); --accent: #5f2a12; --on-accent: #fbe9d6; --focus: #5f2a12; --fehler: #8a1c0c;
   color: var(--fg); padding: clamp(24px, 4vw, 44px); border-radius: 30px;
-  background: linear-gradient(rgba(255,255,255,.18), rgba(255,255,255,.18)), url("../img/stahl-dabba.webp") center / 190% 190%;
+  background: linear-gradient(rgba(255,255,255,.18), rgba(255,255,255,.18)), url("../img/stahl-dabba.webp") 92% 96% / 230% 230%;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.55), inset 0 -3px 0 rgba(0,0,0,.18), 0 40px 70px -30px rgba(0,0,0,.85);
 }
 .res-platte .res-frage, .res-platte .res-zusammen strong { color: #2a2724; text-shadow: 0 1px 0 rgba(255,255,255,.6), 0 -1px 0 rgba(0,0,0,.25); }
