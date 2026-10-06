@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bombay · Indisches Restaurant in Freising</title>
+  <meta name="description" content="Restaurant Bombay in der Freisinger Altstadt: Tandoori und Naan aus dem Holzkohle-Lehmofen, Currys in vier Schärfegraden. Tisch reservieren, online bestellen, Speisekarte ansehen.">
+  <meta name="theme-color" content="#6e1518">
+  <meta property="og:title" content="Bombay · Indisches Restaurant in Freising">
+  <meta property="og:description" content="Tandoori, Currys und Naan, mitten in der Altstadt. Obere Hauptstraße 67, 85354 Freising.">
+  <meta property="og:image" content="img/thali-platte-1300.webp">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/rozha-one.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/mukta-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/ajrakh.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Restaurant","name":"Bombay Restaurant Freising","servesCuisine":"Indisch","telephone":"+49 8161 4965102","email":"arunmunich@yahoo.com",
+   "address":{"@type":"PostalAddress","streetAddress":"Obere Hauptstraße 67","postalCode":"85354","addressLocality":"Freising","addressCountry":"DE"},
+   "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"11:30","closes":"14:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"17:30","closes":"22:00"}],
+   "hasMenu":"https://www.bombayrestaurant-freising.de/","acceptsReservations":"True"}
+  </script>
+</head>
+<body>
+<!--
+THESIS: Die Seite ist ein handbedrucktes Ajrakh-Tuch. Abschnitte sind bedruckte Bahnen in Krapprot und Indigo, Fotos sitzen in Bogenfenstern aus dem Logo. Verweigert: das schwarz-goldene „Luxus-Inder“-Klischee und Kartenraster.
+OWN-WORLD: Krapprot- und Indigo-Felder vollflächig, Reservelinien in Baumwollweiß, Kohleschwarz für Bordüren, Kurkuma nur für Handlungen. Rozha One als Druckstempel, Mukta als Lesetext. Rosetten-Jaal und Punktbordüren als Rapport; Bewegung ist das Aufdrücken eines Stempels.
+STORY: Gäste sehen sofort, ob heute offen ist, lernen die Lieblingsgerichte als Geschichten kennen, finden ihr Gericht und reservieren in vier Tipps.
+FIRST VIEWPORT: Krapprotes Feld, links das Logo in Reserveweiß, Titel, Heute-Status, Kurkuma-Knopf „Tisch reservieren“ und „Online bestellen“; rechts ein Bogenfenster mit der Thali-Platte und gedruckter Doppelrahmung.
+FORM: Ajrakh-Blockdruck, eigene Liste Platz 4, Seed 28b1d405.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+-->
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-telefon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 3.5h3.6l1.8 4.6-2.3 1.4a11 11 0 0 0 6.4 6.4l1.4-2.3 4.6 1.8v3.6a1.6 1.6 0 0 1-1.7 1.6A17 17 0 0 1 3.4 5.2 1.6 1.6 0 0 1 5 3.5z"/></symbol>
+  <symbol id="i-tasche" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4.5 8h15l-1.2 12.5H5.7L4.5 8z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 21.5s7-6.1 7-11.8a7 7 0 0 0-14 0c0 5.7 7 11.8 7 11.8z"/><circle cx="12" cy="9.7" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-pfeil" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15M13.5 6l6 6-6 6"/></symbol>
+  <symbol id="i-zu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-links" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-rechts" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-haken" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-schale" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M3 11h18a9 9 0 0 1-18 0z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M9 7.5c0-1.5 1.2-1.5 1.2-3M13.5 7.5c0-1.5 1.2-1.5 1.2-3"/></symbol>
+  <symbol id="i-kopie" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"/></symbol>
+  <symbol id="i-lupe" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M15.5 15.5 20 20"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 6.5l8 6.5 8-6.5"/></symbol>
+  <symbol id="i-drehen" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3M19.5 4v4.5H15"/></symbol>
+  <symbol id="i-chili" viewBox="0 0 24 24"><path fill="currentColor" d="M15.6 6.2c2.6.6 4.6 3 3.9 6.4-.9 4.5-6.1 8.1-12.8 8.4-1.3.1-1.6-1.5-.4-1.9 4.2-1.5 6.5-4.5 6.9-8.5.3-2.6 1.4-4.2 2.4-4.4z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M15.3 6.4c0-1.6.8-2.7 2.4-3.2"/></symbol>
+  <symbol id="i-stern" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></symbol>
+</svg>
+
+<header class="kopf" data-kopf>
+  <div class="kopf-zeile wrap">
+    <a class="kopf-marke" href="#oben" aria-label="Bombay, zum Seitenanfang"><span class="logo-inline" data-logo>Bombay</span></a>
+    <nav class="kopf-nav" id="nav" data-nav aria-label="Hauptnavigation">
+      <a href="#lieblinge">Lieblinge</a>
+      <a href="#finder">Was passt zu mir?</a>
+      <a href="#raum">Der Raum</a>
+      <a href="#karte">Speisekarte</a>
+      <a href="#besuch">Zeiten &amp; Anfahrt</a>
+      <a class="kopf-nav-tel" href="tel:+4981614965102"><svg class="ico" aria-hidden="true"><use href="#i-telefon"/></svg>08161 4965102</a>
+    </nav>
+    <div class="kopf-aktion">
+      <a class="knopf knopf--haupt knopf--klein" href="#reservieren">Tisch reservieren</a>
+      <button class="kopf-menu" type="button" data-menu-knopf aria-expanded="false" aria-controls="nav"><span></span><span class="sr">Menü</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="inhalt">
+
+  <!-- ═══ Bühne ═══ -->
+  <section class="buehne feld feld--krapp" id="oben" aria-labelledby="titel">
+    <div class="wrap buehne-raster">
+      <div class="buehne-text">
+        <h1 id="titel" class="sr">Bombay, indisches Restaurant in Freising</h1>
+        <div class="buehne-logo" data-logo data-logo-zeichnen aria-hidden="true"></div>
+        <p class="buehne-titel" data-stempel>Indisch essen, mitten in der Freisinger Altstadt.</p>
+        <p class="buehne-unter" data-stempel style="--d:.1s">Tandoori und Naan aus dem Holzkohle-Lehmofen, Currys mit bis zu 13 selbst gemischten Gewürzen. Jedes Gericht so scharf, wie Sie es mögen.</p>
+        <p class="status buehne-status" data-status data-status-zusatz data-stempel style="--d:.18s"></p>
+        <div class="buehne-handeln" data-stempel style="--d:.26s">
+          <a class="knopf knopf--haupt" href="#reservieren">Tisch reservieren</a>
+          <a class="knopf knopf--linie" href="https://www.bombayrestaurant-freising.de/order_type" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-tasche"/></svg>Online bestellen</a>
+        </div>
+        <p class="buehne-wege" data-stempel style="--d:.32s"><span>Abholung ca. 30 Min.</span><span>Lieferung ca. 60 Min.</span><span>Obere Hauptstraße 67</span></p>
+      </div>
+      <figure class="buehne-bild">
+        <div class="bogen bogen--gross">
+          <img src="img/thali-platte-900.webp" srcset="img/thali-platte-480.webp 480w, img/thali-platte-900.webp 900w, img/thali-platte-1300.webp 1300w" sizes="(min-width: 900px) 42vw, 92vw" width="900" height="1200" alt="Eine Thali-Platte im Bombay: Reis, Naan, Pappad und mehrere Schälchen mit Currys und Raita" fetchpriority="high">
+        </div>
+        <figcaption>Thali, serviert auf der indischen Platte</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="bordure" aria-hidden="true"></div>
+  <p class="gewuerzband"><span class="sr">Typische Gewürze der indischen Küche: </span><span>Kurkuma</span><span>Kreuzkümmel</span><span>Koriander</span><span>Kardamom</span><span>Nelke</span><span>Zimt</span><span>Bockshornklee</span><span>Senfsaat</span><span>Ingwer</span><span>Chili</span><span>Garam Masala</span></p>
+  <div class="bordure" aria-hidden="true"></div>
+
+  <!-- ═══ Lieblinge ═══ -->
+  <section class="lieblinge feld feld--indigo" id="lieblinge" aria-labelledby="lieblinge-titel" data-lieblinge>
+    <div class="wrap">
+      <div class="lieblinge-kopf" data-reveal>
+        <h2 id="lieblinge-titel">Die Lieblinge des Hauses</h2>
+        <p>Neun Gerichte, die das Bombay am liebsten zeigt. Wählen Sie eines, stellen Sie die Schärfe ein und legen Sie es auf Ihren Merkzettel.</p>
+      </div>
+      <div class="liebling" data-liebling aria-live="polite"></div>
+      <div class="stempelreihe" role="tablist" aria-label="Lieblingsgericht wählen" data-stempelreihe></div>
+    </div>
+  </section>
+
+  <!-- ═══ Handwerk ═══ -->
+  <section class="handwerk feld feld--kohle" aria-labelledby="handwerk-titel">
+    <div class="wrap handwerk-raster">
+      <figure class="handwerk-bild" data-reveal>
+        <div class="bogen">
+          <img src="img/kupferschalen-naan-900.webp" srcset="img/kupferschalen-naan-480.webp 480w, img/kupferschalen-naan-900.webp 900w" sizes="(min-width: 900px) 34vw, 90vw" width="900" height="1200" loading="lazy" alt="Gehämmerte Kupferschalen auf Stövchen, daneben frisches Naan im Brotkorb">
+        </div>
+      </figure>
+      <div class="handwerk-text">
+        <h2 id="handwerk-titel" data-reveal>Was in der Küche passiert</h2>
+        <dl class="handwerk-liste">
+          <div data-reveal><dt>Tandoor</dt><dd>Tandoori-Gerichte, Naan und Gemüse kommen aus dem Lehmofen, befeuert mit Holzkohle. Darin entsteht die rauchige Kruste, die keine Pfanne schafft.</dd></div>
+          <div data-reveal style="--d:.08s"><dt>13 Gewürze</dt><dd>Die Currymischungen stellt die Küche aus frischen Gewürzen selbst her, bis zu dreizehn in einer Soße.</dd></div>
+          <div data-reveal style="--d:.16s"><dt>Vier Schärfen</dt><dd>Mild, pikant, scharf oder sehr scharf: jedes Gericht wird so gewürzt, wie Sie es bestellen.</dd></div>
+          <div data-reveal style="--d:.24s"><dt>Ohne Fleisch</dt><dd>Zwanzig vegetarische Hauptgerichte, viele davon auf Wunsch vegan.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Finder ═══ -->
+  <section class="finder-feld feld feld--krapp" id="finder" aria-labelledby="finder-titel">
+    <div class="wrap finder-raster">
+      <div class="finder-kopf" data-reveal>
+        <h2 id="finder-titel">Was passt heute zu mir?</h2>
+        <p>Drei Fragen, ein Vorschlag aus 141 Gerichten. Ideal, wenn Sie die indische Küche zum ersten Mal probieren oder einfach nicht wissen, worauf Sie Lust haben.</p>
+      </div>
+      <div class="finder-buehne" data-finder></div>
+    </div>
+  </section>
+
+  <!-- ═══ Raum ═══ -->
+  <section class="raum" id="raum" aria-labelledby="raum-titel" data-fortschritt>
+    <div class="raum-klebt">
+      <div class="raum-fenster">
+        <img src="img/gastraum-1400.webp" srcset="img/gastraum-900.webp 900w, img/gastraum-1400.webp 1400w, img/gastraum-1800.webp 1800w" sizes="100vw" width="1800" height="1012" loading="lazy" alt="Der Gastraum des Bombay: ockerfarbene Wände, ein Wandbild des Taj Mahal, rote Polsterbänke, gedeckte Tische und Sternlaternen an der Decke">
+      </div>
+      <div class="raum-text wrap">
+        <h2 id="raum-titel">Willkommen im Bombay</h2>
+        <ol class="raum-notizen">
+          <li style="--a:.18">Das Taj Mahal an der Wand</li>
+          <li style="--a:.38">Rote Polsterbänke, weiß gedeckte Tische</li>
+          <li style="--a:.58">Sternlaternen über jedem Tisch</li>
+          <li style="--a:.78">Im Sommer: unsere Terrasse</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="galerie feld feld--kohle" aria-labelledby="galerie-titel">
+    <div class="wrap">
+      <h2 id="galerie-titel" data-reveal>Gedeckt im Bombay</h2>
+      <p class="galerie-unter" data-reveal>Fotos unserer Gäste. Tippen Sie für die Großansicht.</p>
+      <ul class="galerie-raster" role="list">
+        <li class="g1" data-reveal><button type="button" data-gross="img/tisch-gerichte-1200.webp" data-titel="Ein Tisch für mehrere: Currys in Kupferschälchen, Reis, Naan und Salat"><img src="img/tisch-gerichte-900.webp" width="900" height="675" loading="lazy" alt="Ein gedeckter Tisch: drei Currys in Kupferschälchen, Reis, Naan und Salat"></button></li>
+        <li class="g2" data-reveal style="--d:.06s"><button type="button" data-gross="img/thali-dunkel-1300.webp" data-titel="Thali mit Kupferschälchen auf dunklem Tisch"><img src="img/thali-dunkel-900.webp" width="900" height="1200" loading="lazy" alt="Eine Thali-Platte mit Kupferschälchen, Reis und Naan auf einem dunklen Tisch"></button></li>
+        <li class="g3" data-reveal style="--d:.12s"><button type="button" data-gross="img/drei-saucen-1200.webp" data-titel="Die drei Soßen zu Pappad und Vorspeisen"><img src="img/drei-saucen-480.webp" width="480" height="360" loading="lazy" alt="Drei Soßen in kleinen Metallschälchen"></button></li>
+        <li class="g4" data-reveal style="--d:.18s"><button type="button" data-gross="img/teller-paisley-1200.webp" data-titel="Mittagstisch auf der Paisley-Tischdecke"><img src="img/teller-paisley-480.webp" width="480" height="360" loading="lazy" alt="Ein Curry mit Reis auf einem Teller, Tischdecke mit Paisleymuster"></button></li>
+        <li class="g5" data-reveal style="--d:.24s"><button type="button" data-gross="img/kupferschalen-naan-1200.webp" data-titel="Kupferschalen auf Stövchen, dazu Naan"><img src="img/kupferschalen-naan-480.webp" width="480" height="640" loading="lazy" alt="Kupferschalen auf Stövchen und Naan im Brotkorb"></button></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="bordure" aria-hidden="true"></div>
+
+  <!-- ═══ Speisekarte ═══ -->
+  <section class="karte feld feld--indigo" id="karte" aria-labelledby="karte-titel">
+    <div class="wrap karte-wrap">
+      <div class="karte-kopf" data-reveal>
+        <h2 id="karte-titel">Die ganze Karte</h2>
+        <p>141 Gerichte und Getränke, mit Nummern wie im Restaurant. Jedes Gericht gibt es <b>mild, pikant, scharf oder sehr scharf</b>. Preise in Euro inkl. MwSt.</p>
+      </div>
+      <div data-karte></div>
+    </div>
+  </section>
+
+  <div class="bordure" aria-hidden="true"></div>
+
+  <!-- ═══ Reservieren ═══ -->
+  <section class="reservieren feld feld--krapp" id="reservieren" aria-labelledby="res-titel">
+    <div class="wrap res-raster">
+      <div class="res-links">
+        <h2 id="res-titel" data-reveal>Ihr Tisch im Bombay</h2>
+        <p data-reveal>Wählen Sie Personen, Tag und Uhrzeit. Am Ende rufen Sie uns an oder schicken die fertige Anfrage per E-Mail.</p>
+        <p class="status res-status" data-status data-status-zusatz></p>
+        <table class="zeiten" aria-label="Öffnungszeiten">
+          <tbody>
+            <tr data-tag="1"><th scope="row">Montag</th><td>11:30–14:00 · 17:30–22:00</td></tr>
+            <tr data-tag="2"><th scope="row">Dienstag</th><td class="ruhe">Ruhetag</td></tr>
+            <tr data-tag="3"><th scope="row">Mittwoch</th><td>11:30–14:00 · 17:30–22:00</td></tr>
+            <tr data-tag="4"><th scope="row">Donnerstag</th><td>11:30–14:00 · 17:30–22:00</td></tr>
+            <tr data-tag="5"><th scope="row">Freitag</th><td>11:30–14:00 · 17:30–22:00</td></tr>
+            <tr data-tag="6"><th scope="row">Samstag</th><td>11:30–14:00 · 17:30–22:00</td></tr>
+            <tr data-tag="0"><th scope="row">Sonntag</th><td>11:30–14:00 · 17:30–22:00</td></tr>
+          </tbody>
+        </table>
+        <p class="klein">Abholung und Lieferung zu denselben Zeiten.</p>
+      </div>
+      <div class="res-tuch" data-reveal>
+        <div data-reservierung></div>
+        <noscript><p>Reservieren Sie telefonisch unter <a href="tel:+4981614965102">08161 4965102</a>.</p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Stimmen ═══ -->
+  <section class="stimmen feld feld--kohle" aria-labelledby="stimmen-titel">
+    <div class="wrap">
+      <div class="stimmen-kopf" data-reveal>
+        <p class="stimmen-note" aria-hidden="true">4,5</p>
+        <div>
+          <h2 id="stimmen-titel">4,5 von 5 Sternen bei Google</h2>
+          <p class="sterne" aria-hidden="true"><svg class="ico"><use href="#i-stern"/></svg><svg class="ico"><use href="#i-stern"/></svg><svg class="ico"><use href="#i-stern"/></svg><svg class="ico"><use href="#i-stern"/></svg><svg class="ico halb"><use href="#i-stern"/></svg></p>
+          <p class="stimmen-quelle">Über 400 Bewertungen im Google-Unternehmensprofil, Stand Oktober 2026.</p>
+        </div>
+      </div>
+      <ul class="zitate" role="list">
+        <li data-reveal><blockquote>„Sehr gutes Essen, kurze Wartezeiten, Bedienung sehr freundlich und zuvorkommend.“</blockquote></li>
+        <li data-reveal style="--d:.08s"><blockquote>„Sehr schmackhafte, günstige und reichhaltige Gerichte zum Mittagstisch.“</blockquote></li>
+        <li data-reveal style="--d:.16s"><blockquote>„Die Hauptspeise besaß genügend Reis für die Fleisch- und Soßenportion.“</blockquote></li>
+      </ul>
+      <p class="stimmen-hinweis">Auszüge aus Google-Bewertungen, ohne Namen.</p>
+    </div>
+  </section>
+
+  <!-- ═══ Besuch ═══ -->
+  <section class="besuch feld feld--indigo" id="besuch" aria-labelledby="besuch-titel">
+    <div class="wrap besuch-raster">
+      <div data-reveal>
+        <h2 id="besuch-titel">So finden Sie uns</h2>
+        <address>Restaurant Bombay<br>Obere Hauptstraße 67<br>85354 Freising</address>
+        <p class="klein">Mitten in der Altstadt, wenige Schritte vom Marienplatz. Parkhäuser in der Innenstadt, vom Bahnhof etwa zehn Minuten zu Fuß.</p>
+        <div class="besuch-handeln">
+          <a class="knopf knopf--haupt" href="https://www.google.com/maps/search/?api=1&amp;query=Bombay+Restaurant+Obere+Hauptstra%C3%9Fe+67+85354+Freising" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Route planen</a>
+          <a class="knopf knopf--linie" href="tel:+4981614965102"><svg class="ico" aria-hidden="true"><use href="#i-telefon"/></svg>08161 4965102</a>
+        </div>
+        <p class="klein">Der Eingang ist leider nicht rollstuhlgerecht. Sprechen Sie uns an, wir helfen gern.</p>
+      </div>
+      <div class="besuch-bestellen" data-reveal style="--d:.1s">
+        <h3>Lieber zu Hause?</h3>
+        <p>Bestellen Sie direkt bei uns zum Abholen (ca. 30 Minuten) oder Liefern (ca. 60 Minuten). Ohne Umweg über Plattformen.</p>
+        <a class="knopf knopf--haupt" href="https://www.bombayrestaurant-freising.de/order_type" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-tasche"/></svg>Online bestellen</a>
+        <p class="klein">Auch als App: <a href="https://apps.apple.com/de/app/bombay-restaurant-freising/id6504758170" target="_blank" rel="noopener">iPhone</a> · <a href="https://play.google.com/store/apps/details?id=com.de.bombay.resto" target="_blank" rel="noopener">Android</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="fuss feld feld--kohle">
+  <div class="bordure" aria-hidden="true"></div>
+  <div class="wrap fuss-raster">
+    <span class="fuss-logo" data-logo aria-hidden="true"></span>
+    <p>Restaurant Bombay · Obere Hauptstraße 67 · 85354 Freising<br><a href="tel:+4981614965102">08161 4965102</a> · <a href="mailto:arunmunich@yahoo.com">arunmunich@yahoo.com</a></p>
+    <ul class="fuss-links" role="list">
+      <li><a href="#karte">Speisekarte</a></li>
+      <li><a href="https://www.bombayrestaurant-freising.de/order_type" target="_blank" rel="noopener">Online bestellen</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+    <p class="fuss-copy">© <span data-jahr>2026</span> Restaurant Bombay Freising</p>
+  </div>
+</footer>
+
+<nav class="daumen" aria-label="Schnellzugriff">
+  <a href="#reservieren"><svg class="ico" aria-hidden="true"><use href="#i-schale"/></svg>Tisch</a>
+  <a class="daumen-haupt" href="https://www.bombayrestaurant-freising.de/order_type" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-tasche"/></svg>Bestellen</a>
+  <a href="tel:+4981614965102"><svg class="ico" aria-hidden="true"><use href="#i-telefon"/></svg>Anrufen</a>
+</nav>
+
+<nav class="entwurf" aria-label="Entwurf wählen"><a href="index.html" aria-current="page">A · Ajrakh</a><a href="thali.html">B · Thali</a></nav>
+
+<script src="menu-data.js"></script>
+<script src="js/lieblinge.js"></script>
+<script src="js/logo.js"></script>
+<script src="js/core.js"></script>
+<script src="js/ajrakh.js"></script>
+</body>
+</html>
