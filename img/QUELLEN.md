@@ -1,10 +1,8 @@
 # Bildquellen
 
-| Datei(stamm) | Herkunft |
+| Datei | Herkunft |
 |---|---|
-| butter-chicken, chicken-tikka, dal-makhni, karahi-paneer, jheenga-curry, rogan-josh, mango-chicken, karahi-ghosht, fisch-chili | Gerichtfotos der bisherigen Website bombayrestaurant-freising.de (vom Restaurant veröffentlicht) |
-| gastraum, thali-platte, thali-dunkel, kupferschalen-naan, tisch-gerichte, drei-saucen, teller-paisley | Gästefotos aus dem Google-Unternehmensprofil des Restaurants; Einwilligung der Fotografierenden vor dem Livegang einholen oder durch eigene Aufnahmen ersetzen |
-| stahl-thali, stahl-katori, stahl-dabba, stahl-deckel, stahl-tablett, stahl-gebuerstet, logo-stahl, kupfer-gehaemmert, gewuerz-* | Gerendert mit tools/materialien.py (Höhenkarte, Normalen, Softbox- und Umgebungslicht; Stahl mit anisotropem Ringschliff). Keine Fremdbilder. |
-| logo.svg, favicon.svg | Neu gezeichnet nach dem bestehenden Bombay-Logo (tools/logo.py) |
-
-Alle Fotos wurden nur skaliert und als WebP gespeichert, nicht bearbeitet.
+| gerichte/karahi-paneer, gerichte/dal-makhni, gerichte/jheenga-curry, gerichte/butter-chicken | Gerichtfotos der bisherigen Website bombayrestaurant-freising.de (vom Restaurant veröffentlicht). Schale vom Hintergrund freigestellt (rembg, isnet-general-use), Ränder bereinigt, als WebP mit Transparenz gespeichert. |
+| chicken-tikka | Gerichtfoto der bisherigen Website bombayrestaurant-freising.de, nur skaliert. |
+| gastraum | Gästefoto aus dem Google-Unternehmensprofil des Restaurants, nur skaliert. Einwilligung der fotografierenden Person vor dem Livegang einholen oder durch eine eigene Aufnahme ersetzen. |
+| logo.svg, favicon.svg | Neu gezeichnet nach dem bestehenden Bombay-Logo (tools/logo.py). |

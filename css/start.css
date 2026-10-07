@@ -131,7 +131,7 @@
 .sterne { color: var(--safran); letter-spacing: 2px; font-size: 1.2rem; }
 .sterne .halb { display: inline-block; width: .5em; overflow: hidden; vertical-align: bottom; }
 .zitate { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 56px); margin-top: 38px; }
-.zitate blockquote { font-family: var(--display); font-size: clamp(1.5rem, 2.3vw, 2.1rem); line-height: 1.2; letter-spacing: -0.015em; }
+.zitate blockquote { font-family: var(--display); font-size: clamp(1.5rem, 2.3vw, 2.1rem); line-height: 1.25; letter-spacing: -0.015em; }
 
 /* ── Mobil ── */
 @media (max-width: 860px) {

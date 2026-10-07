@@ -11,7 +11,7 @@ body[data-seite="karte"] .zettel-knopf { display: none; }
 .suche { display: flex; align-items: center; gap: 10px; flex: 1 1 320px; max-width: 520px; min-height: 54px; padding: 0 20px; border-radius: 999px; background: var(--porzellan); transition: box-shadow .2s ease, background-color .2s ease; }
 .suche:focus-within { background: var(--weiss); box-shadow: 0 0 0 1.5px var(--tinte), 0 0 0 6px rgba(23,17,14,.06); }
 .suche input { flex: 1; min-width: 0; min-height: 52px; border: 0; background: transparent; outline: none; font-size: 1.02rem; }
-.suche input::placeholder { color: var(--tinte-3); }
+.suche input::placeholder { color: var(--tinte-2); }
 .filter { display: flex; gap: 8px; flex-wrap: wrap; }
 .filter-chip { min-height: 44px; padding: 0 1.1em; border-radius: 999px; box-shadow: inset 0 0 0 1.5px var(--linie); font-weight: 600; font-size: .95rem; transition: background-color .2s ease, color .2s ease, box-shadow .2s ease, transform .15s var(--aus); }
 .filter-chip:active { transform: scale(.96); }

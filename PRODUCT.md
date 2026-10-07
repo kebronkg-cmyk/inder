@@ -13,12 +13,12 @@ Statisches HTML/CSS/JS ohne Build-Schritt (vom Inhaber bestätigt), Deployment �
 ## Users
 
 - **Gäste aus Freising und Umgebung**, oft mobil, die mittags schnell etwas essen oder abends einen Tisch wollen. Ihr Job: in Sekunden sehen, ob heute offen ist, was es gibt, und reservieren oder bestellen.
-- **Bestellkunden** (Abholung ca. 30 min, Lieferung ca. 60 min), die direkt über den hauseigenen Shop bestellen.
+- **Bestellkunden** (Abholung ca. 30 min, Lieferung ca. 60 min), die direkt auf der Seite bestellen: Gerichte in den Bestellzettel legen und per WhatsApp schicken oder am Telefon durchgeben.
 - **Studierende und Pendler** (TU München / Weihenstephan, Flughafen-Nähe) — preisbewusst, mittags.
 
 ## Product Purpose
 
-Die Website des Restaurants Bombay, Obere Hauptstraße 67, 85354 Freising. Sie soll die indische Küche des Hauses hochwertig zeigen, die Lieblingsgerichte in Szene setzen, Reservierungen anstoßen und Bestellungen in den bestehenden Shop leiten. Erfolg: mehr Reservierungen und Direktbestellungen statt Plattformbestellungen, ein Auftritt, der dem Essen gerecht wird.
+Die Website des Restaurants Bombay, Obere Hauptstraße 67, 85354 Freising. Sie soll die indische Küche des Hauses hochwertig zeigen, die Lieblingsgerichte in Szene setzen, Reservierungen anstoßen und Bestellungen ohne Umweg möglich machen. Erfolg: mehr Reservierungen und Direktbestellungen statt Plattformbestellungen, ein Auftritt, der dem Essen gerecht wird.
 
 ## Positioning
 
@@ -27,13 +27,14 @@ Indische Küche mitten in der Freisinger Altstadt: Tandoor-Gerichte und Naan aus
 ## Operating Context
 
 - Öffnungszeiten: Mo und Mi–So 11:30–14:00 und 17:30–22:00, Dienstag Ruhetag. Lieferung zu den Öffnungszeiten.
-- Reservierung: telefonisch (08161 4965102); die Seite bietet einen Reservier-Assistenten (Personen → Tag/Uhrzeit innerhalb der Öffnungszeiten → Name), der per Anruf oder vorformulierter E-Mail abschließt. Kein Backend.
-- Bestellung: bestehender Karvi-Shop `https://www.bombayrestaurant-freising.de/order_type` (0 % Provision) sowie iOS-/Android-App. Die Seite führt dorthin, sie ersetzt ihn nicht.
+- Reservierung: telefonisch (08161 4965102); die Seite bietet einen Reservier-Assistenten (Personen → Tag/Uhrzeit innerhalb der Öffnungszeiten → Name), der als fertige WhatsApp-Nachricht, per Anruf oder per vorformulierter E-Mail abschließt. Kein Backend.
+- Bestellung: Bestellzettel auf der Seite (Gerichte, Menge, Schärfe, Abholen ca. 30 Min. oder Liefern ca. 60 Min., Name, Telefon, Adresse, Zeit). Daraus entsteht eine fertige WhatsApp-Nachricht an das Restaurant; alternativ anrufen oder den Text kopieren. Die Bestellung gilt nach Bestätigung durch das Restaurant. Der frühere Karvi-Shop (`/order_type`) zeigt keine Karte mehr und wird nicht verlinkt. Die iOS-/Android-App bleibt im Fuß verlinkt.
+- WhatsApp-Nummer: steht in `js/site.js` (`BOMBAY.cfg.whatsapp`), vorläufig die Festnetznummer. Vor dem Livegang mit dem Restaurant klären (WhatsApp Business auf dieser Nummer oder eine Handynummer).
 
 ## Capabilities and Constraints
 
 - Vollständige Speisekarte mit Nummern, Preisen, vegetarisch/vegan-Markierungen (`menu-data.js`).
-- Keine eigene Zahlungs- oder Bestellabwicklung; keine Server-Komponente.
+- Keine Zahlungsabwicklung und keine Server-Komponente; Bestellungen und Reservierungen gehen als Nachricht an das Restaurant.
 - Rollstuhlgerechter Eingang nicht vorhanden — ehrlich angeben.
 
 ## Brand Commitments

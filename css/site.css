@@ -226,7 +226,7 @@ p { text-wrap: pretty; }
 .fuss { background: var(--tinte); color: #fff; padding: clamp(64px, 9vw, 120px) 0 calc(36px + env(safe-area-inset-bottom)); }
 .fuss-raster { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; align-items: start; }
 .fuss-marke { width: min(320px, 70%); color: #fff; }
-.fuss h3 { font-family: var(--text); font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 12px; line-height: 1.2; }
+.fuss h2 { font-family: var(--text); font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 12px; line-height: 1.2; }
 .fuss p, .fuss li { color: rgba(255,255,255,.86); }
 .fuss ul { list-style: none; display: grid; gap: 6px; }
 .fuss a { text-decoration: none; }
