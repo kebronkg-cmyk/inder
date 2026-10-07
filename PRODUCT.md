@@ -44,7 +44,7 @@ Indische Küche mitten in der Freisinger Altstadt: Tandoor-Gerichte und Naan aus
 
 ## Evidence on Hand
 
-- Gerichtfotos des Restaurants (Studio-Food-Fotos) und Gästefotos aus dem Google-Profil in `img/`.
+- Gerichtfotos des Restaurants (Studio-Food-Fotos) in `img/`. Gästefotos aus dem Google-Profil werden nicht mehr gezeigt (Qualität); der Raum erscheint als gezeichnete Laternen.
 - Google: 4,5 von 5 Sternen, über 400 Bewertungen (Stand Oktober 2026). Zitate nur als kurze, namenlose Auszüge.
 - Keine erfundenen Auszeichnungen, Presse oder Bewertungen.
 
