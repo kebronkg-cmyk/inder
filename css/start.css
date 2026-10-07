@@ -1,0 +1,175 @@
+/* ═══════════ Startseite ═══════════ */
+
+/* ── Bühne: Scheibe, Flut, Lieblinge ── */
+.buehne { position: relative; }
+.buehne-flaeche { position: relative; height: 100vh; height: 100svh; overflow: hidden; background: var(--weiss); }
+.flut { position: absolute; inset: 0; background: var(--pfau); clip-path: circle(30vmin at 74% 54%); will-change: clip-path; }
+
+.teller { position: absolute; left: 0; top: 0; width: 46vmin; aspect-ratio: 1; filter: drop-shadow(0 34px 34px rgba(10, 30, 32, .38)) drop-shadow(0 8px 10px rgba(10, 30, 32, .2)); will-change: transform; pointer-events: none; }
+.teller-dreh { position: absolute; inset: 0; }
+.schale { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.js .schale:not([data-schale="0"]) { opacity: 0; }
+
+.intro { position: absolute; left: var(--rand); top: 52%; transform: translateY(-50%); width: min(600px, 44vw); z-index: 2; }
+.intro-status { font-size: .95rem; color: var(--tinte-2); margin-bottom: 22px; }
+.intro-titel { font-size: clamp(3.2rem, 6.4vw, 7rem); font-weight: 500; letter-spacing: -0.03em; line-height: .95; }
+.intro-unter { margin-top: 26px; max-width: 42ch; font-size: 1.12rem; color: var(--tinte-2); }
+.intro-handeln { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
+
+.gerichte { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.gericht { position: absolute; left: var(--rand); top: 50%; transform: translateY(-50%); width: min(620px, 46vw); color: #fff; pointer-events: auto; }
+.js .gericht { visibility: hidden; }
+.gericht[data-ton="dunkel"] { color: var(--tinte); }
+.gericht-kopf { display: flex; gap: 14px; align-items: baseline; font-size: .95rem; opacity: .85; margin-bottom: 18px; }
+.gericht-name { font-size: clamp(3.4rem, 8.2vw, 9.4rem); font-weight: 500; letter-spacing: -0.035em; line-height: .9; }
+.gericht-satz { margin-top: 24px; max-width: 40ch; font-size: 1.1rem; line-height: 1.55; opacity: .92; }
+.gericht-handeln { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 30px; }
+.gericht-preis { font-family: var(--display); font-size: 2.2rem; font-variant-numeric: tabular-nums; line-height: 1; }
+.gericht .pille--hell[aria-pressed="true"] { background: rgba(255,255,255,.18); color: inherit; box-shadow: inset 0 0 0 1.5px currentColor; }
+.gericht[data-ton="dunkel"] .pille--hell { background: var(--tinte); color: #fff; }
+.gericht[data-ton="dunkel"] .pille--hell[aria-pressed="true"] { background: rgba(23,17,14,.08); color: var(--tinte); box-shadow: inset 0 0 0 1.5px currentColor; }
+
+.leiste { position: absolute; left: var(--rand); right: var(--rand); bottom: clamp(20px, 4vh, 40px); z-index: 3; display: flex; gap: clamp(14px, 2.4vw, 34px); list-style: none; color: #fff; font-size: .9rem; }
+.js .leiste { visibility: hidden; }
+.leiste li { position: relative; padding-top: 12px; opacity: .55; transition: opacity .4s ease; }
+.leiste li::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: currentColor; opacity: .3; }
+.leiste li::after { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: currentColor; transform: scaleX(var(--f, 0)); transform-origin: left; }
+.leiste li.is-aktiv { opacity: 1; }
+.leiste[data-ton="dunkel"] { color: var(--tinte); }
+
+/* ── Aus dem Lehmofen ── */
+.ofen { background: var(--porzellan); padding: clamp(90px, 12vw, 170px) 0; overflow: hidden; }
+.ofen-raster { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(32px, 6vw, 100px); align-items: center; }
+.ofen-bild { position: relative; margin-left: calc(var(--rand) * -1); }
+.ofen-bild img { width: 100%; -webkit-mask-image: radial-gradient(closest-side, #000 76%, transparent); mask-image: radial-gradient(closest-side, #000 76%, transparent); }
+.ofen-text h2 { font-size: clamp(2.8rem, 5.6vw, 5.8rem); }
+.ofen-unter { margin-top: 22px; max-width: 46ch; font-size: 1.1rem; color: var(--tinte-2); }
+.fakten { margin-top: 40px; display: grid; }
+.fakten > div { display: grid; grid-template-columns: minmax(170px, .8fr) 1.2fr; gap: 6px 26px; padding: 20px 0; border-top: 1px solid var(--linie); align-items: baseline; }
+.fakten dt { font-family: var(--display); font-size: 1.55rem; line-height: 1.1; }
+.fakten dd { color: var(--tinte-2); }
+
+/* ── Zur Karte ── */
+.zur-karte { position: relative; padding: clamp(100px, 13vw, 180px) 0 clamp(80px, 10vw, 140px); }
+.zur-karte-titel { font-size: clamp(2.8rem, 6.4vw, 7rem); letter-spacing: -0.035em; max-width: 15ch; }
+.gaenge { list-style: none; margin-top: clamp(48px, 6vw, 80px); border-bottom: 1px solid var(--linie); }
+.gaenge a { display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: center; padding: clamp(16px, 2.2vw, 26px) 0; border-top: 1px solid var(--linie); text-decoration: none; }
+.gang-name { font-family: var(--display); font-size: clamp(2rem, 4.6vw, 4.4rem); letter-spacing: -0.025em; line-height: 1.02; transition: transform .6s var(--aus); }
+.gang-info { color: var(--tinte-2); font-size: .98rem; }
+.gaenge .ico { width: 1.5em; height: 1.5em; transition: transform .5s var(--aus); }
+@media (hover: hover) {
+  .gaenge a:hover .gang-name { transform: translateX(18px); }
+  .gaenge a:hover .ico { transform: translateX(6px); }
+}
+.gang-bild { position: absolute; left: 0; top: 0; width: clamp(200px, 22vw, 320px); aspect-ratio: 1; object-fit: contain; pointer-events: none; z-index: 5; opacity: 0; filter: drop-shadow(0 24px 30px rgba(23,17,14,.3)); }
+.zur-karte-fuss { display: flex; align-items: center; flex-wrap: wrap; gap: 18px 28px; margin-top: 44px; }
+.zur-karte-fuss p { color: var(--tinte-2); }
+
+/* ── Besuch ── */
+.besuch { padding-bottom: clamp(90px, 11vw, 150px); }
+.raum { position: relative; }
+.raum-fenster { position: relative; height: min(82vh, 62vw); overflow: hidden; }
+.raum-fenster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+.raum figcaption { margin-top: 14px; font-size: .9rem; color: var(--tinte-2); }
+.besuch-raster { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 100px); margin-top: clamp(56px, 7vw, 100px); align-items: start; }
+.besuch h2 { font-size: clamp(2.8rem, 5.4vw, 5.6rem); }
+.adresse { font-style: normal; font-size: 1.35rem; line-height: 1.45; margin-top: 22px; }
+.besuch-handeln { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.klein { font-size: .9rem; color: var(--tinte-2); margin-top: 18px; }
+.zeiten-titel { font-family: var(--text); font-size: 1rem; font-weight: 600; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin-bottom: 10px; letter-spacing: 0; }
+.zeiten-titel .status { font-weight: 400; color: var(--tinte-2); }
+.zeiten { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.zeiten th, .zeiten td { padding: 12px 0; border-bottom: 1px solid var(--linie); text-align: left; font-weight: 400; }
+.zeiten td { text-align: right; padding-left: 18px; }
+.zeiten tr.is-heute th, .zeiten tr.is-heute td { font-weight: 700; }
+.zeiten tr.is-heute th::after { content: "heute"; margin-left: 10px; padding: 2px 8px; border-radius: 999px; background: var(--rani); color: #fff; font-size: .72rem; font-weight: 600; vertical-align: 2px; }
+
+/* ── Reservieren ── */
+.reservieren { background: var(--rani); color: #fff; padding: clamp(90px, 11vw, 160px) 0; }
+.res-raster { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(36px, 6vw, 100px); align-items: start; }
+.res-kopf h2 { font-size: clamp(2.8rem, 6vw, 6.2rem); }
+.res-kopf p { margin-top: 22px; max-width: 40ch; font-size: 1.1rem; color: rgba(255,255,255,.88); }
+.res { display: grid; gap: 26px; min-height: 380px; }
+.res-form { display: grid; gap: clamp(26px, 4vw, 36px); align-content: start; }
+.res-schritt { display: grid; gap: 18px; align-content: start; }
+.res-zurueck { justify-self: start; }
+.res-schritte { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; list-style: none; }
+.res-schritte li { height: 3px; border-radius: 3px; background: rgba(255,255,255,.25); overflow: hidden; }
+.res-schritte li::after { content: ""; display: block; height: 100%; background: #fff; transform: scaleX(0); transform-origin: left; transition: transform .6s var(--aus); }
+.res-schritte li.is-fertig::after, .res-schritte li.is-jetzt::after { transform: scaleX(1); }
+.res-frage { font-family: var(--display); font-size: clamp(1.9rem, 3.4vw, 2.8rem); line-height: 1.05; letter-spacing: -0.02em; }
+.res-frage small { display: block; margin-top: 8px; font-family: var(--text); font-size: 1rem; letter-spacing: 0; color: rgba(255,255,255,.8); }
+.res-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.res-chip { min-width: 56px; min-height: 52px; padding: 0 1.1em; border-radius: 999px; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.45); font-weight: 600; font-variant-numeric: tabular-nums; transition: background-color .2s ease, color .2s ease, box-shadow .2s ease, transform .16s var(--aus); }
+.res-chip:active { transform: scale(.95); }
+@media (hover: hover) { .res-chip:not([disabled]):hover { box-shadow: inset 0 0 0 1.5px #fff; } }
+.res-chip[aria-pressed="true"] { background: #fff; color: var(--rani); box-shadow: none; }
+.res-chip[disabled] { opacity: .35; cursor: not-allowed; }
+.res-tage { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; margin-inline: calc(var(--rand) * -1); padding-inline: var(--rand); }
+.res-tage::-webkit-scrollbar { display: none; }
+.res-tag { flex: none; scroll-snap-align: start; display: grid; justify-items: center; align-content: center; gap: 2px; width: 70px; height: 84px; border-radius: 18px; padding: 0; }
+.res-tag b { font-family: var(--display); font-size: 1.6rem; font-weight: 500; line-height: 1; }
+.res-tag small { font-size: .74rem; font-weight: 500; opacity: .85; }
+.res-gruppe { font-size: .82rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+.res .feld span { color: rgba(255,255,255,.85); }
+.res .feld input, .res .feld textarea { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.35); color: #fff; }
+.res .feld input::placeholder, .res .feld textarea::placeholder { color: rgba(255,255,255,.6); }
+.res .feld input:focus, .res .feld textarea:focus { border-color: #fff; box-shadow: 0 0 0 4px rgba(255,255,255,.18); }
+.res .fehler { color: #fff; font-weight: 600; }
+.res-nav { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.res-zurueck { min-height: 44px; padding: 0 .4em; text-decoration: underline; text-underline-offset: 4px; color: rgba(255,255,255,.85); }
+.res-karte { display: grid; gap: 4px; padding: 24px; border-radius: 20px; background: rgba(255,255,255,.12); }
+.res-karte strong { font-family: var(--display); font-weight: 500; font-size: 2.4rem; line-height: 1; }
+.res-hinweis { font-size: .88rem; color: rgba(255,255,255,.8); }
+.reservieren .pille--voll { background: #fff; color: var(--rani); }
+.reservieren .pille--rand { color: #fff; }
+.reservieren :focus-visible { outline-color: #fff; }
+
+/* ── Stimmen ── */
+.stimmen { padding: clamp(90px, 11vw, 150px) 0; }
+.stimmen-titel { font-family: var(--text); font-size: 1.05rem; font-weight: 600; letter-spacing: 0; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.sterne { color: var(--safran); letter-spacing: 2px; font-size: 1.2rem; }
+.sterne .halb { display: inline-block; width: .5em; overflow: hidden; vertical-align: bottom; }
+.zitate { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 56px); margin-top: 38px; }
+.zitate blockquote { font-family: var(--display); font-size: clamp(1.5rem, 2.3vw, 2.1rem); line-height: 1.2; letter-spacing: -0.015em; }
+
+/* ── Mobil ── */
+@media (max-width: 860px) {
+  .flut { clip-path: circle(34vw at 72% 30%); }
+  .teller { width: 64vw; }
+  .intro { top: auto; bottom: calc(26px + env(safe-area-inset-bottom)); transform: none; width: auto; right: var(--rand); }
+  .intro-status { margin-bottom: 14px; }
+  .intro-titel { font-size: clamp(2.5rem, 10.5vw, 3.6rem); }
+  .intro-unter { margin-top: 14px; font-size: 1rem; }
+  .intro-handeln { margin-top: 22px; }
+  .intro-handeln .pille { flex: 1 1 140px; }
+  .gericht { top: auto; bottom: calc(48px + env(safe-area-inset-bottom)); transform: none; width: auto; right: var(--rand); }
+  .gericht-name { font-size: clamp(2.8rem, 13vw, 4.2rem); }
+  .gericht-satz { margin-top: 12px; font-size: .98rem; }
+  .gericht-kopf { margin-bottom: 10px; }
+  .gericht-handeln { margin-top: 18px; gap: 14px; }
+  .gericht-preis { font-size: 1.8rem; }
+  .leiste { gap: 6px; bottom: calc(22px + env(safe-area-inset-bottom)); }
+  .leiste li { flex: 1; font-size: 0; padding-top: 0; height: 2px; }
+  .ofen-raster, .besuch-raster, .res-raster { grid-template-columns: 1fr; }
+  .ofen-bild { margin: 0 calc(var(--rand) * -1); }
+  .fakten > div { grid-template-columns: 1fr; }
+  .gaenge a { grid-template-columns: 1fr auto; }
+  .gang-info { display: none; }
+  .zitate { grid-template-columns: 1fr; }
+  .raum-fenster { height: 56svh; }
+}
+@media (max-width: 860px) and (max-height: 700px) {
+  .intro-unter { display: none; }
+  .gericht-satz { display: none; }
+}
+
+/* ── Ohne Bewegung: die Bühne als ruhige Liste ── */
+.ohne-bewegung .buehne-flaeche { height: auto; overflow: visible; padding: calc(var(--kopf) + 40px) 0 0; }
+.ohne-bewegung .flut, .ohne-bewegung .teller, .ohne-bewegung .leiste { display: none; }
+.ohne-bewegung .intro { position: static; transform: none; width: auto; padding: 0 var(--rand) 60px; }
+.ohne-bewegung .gerichte { position: static; }
+.ohne-bewegung .gericht { position: static; transform: none; width: auto; visibility: visible; padding: 60px var(--rand); background: var(--pfau); }
+.ohne-bewegung .gericht:nth-child(2) { background: var(--safran); }
+.ohne-bewegung .gericht:nth-child(3) { background: var(--pink); }
+.ohne-bewegung .gericht:nth-child(4) { background: var(--kardamom); }

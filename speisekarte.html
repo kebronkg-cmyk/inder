@@ -3,12 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Datenschutz · Bombay Freising</title>
-  <meta name="robots" content="noindex">
+  <title>Speisekarte · Bombay Freising</title>
+  <meta name="description" content="Die ganze Speisekarte des Restaurants Bombay in Freising: Currys, Tandoori, Biryani, vegetarische Gerichte und Naan. Direkt bestellen per WhatsApp oder Telefon.">
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/karte.css">
 </head>
-<body>
+<body data-seite="karte">
+<a class="skip" href="#karte">Zur Speisekarte springen</a>
 <!--ICONS-->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-tasche" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M5 8.5h14l-1.1 11.5H6.1L5 8.5z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/></symbol>
@@ -24,35 +29,56 @@
   <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 7l8 6 8-6"/></symbol>
 </svg>
 <!--/ICONS-->
-<header class="kopf is-fest" data-kopf>
+
+<header class="kopf" data-kopf>
   <div class="wrap kopf-zeile">
     <a class="marke" href="index.html" aria-label="Bombay, Startseite" data-logo>Bombay</a>
-    <a class="pille pille--rand pille--klein" href="index.html" style="margin-left:auto">Zur Startseite</a>
+    <nav class="kopf-nav" aria-label="Hauptnavigation">
+      <a href="speisekarte.html" aria-current="page">Speisekarte</a>
+      <a href="index.html#lieblinge">Lieblinge</a>
+      <a href="index.html#reservieren">Reservieren</a>
+      <a href="index.html#besuch">Besuch</a>
+    </nav>
+    <span class="kopf-status" data-status></span>
+    <button class="pille pille--voll pille--klein" type="button" data-zettel-oeffnen><svg class="ico" aria-hidden="true"><use href="#i-tasche"/></svg>Bestellzettel <span class="zahl" data-zettel-zahl>0</span></button>
+    <button class="kopf-menu" type="button" data-menu aria-expanded="false" aria-controls="menu"><i></i><i></i><span class="sr">Menü</span></button>
   </div>
 </header>
-<main class="recht">
-  <div class="wrap">
-    <h1>Datenschutz</h1>
-    <p class="offen">Entwurf: vor dem Livegang vom Betreiber prüfen und ergänzen lassen.</p>
-    <h2>1. Verantwortlicher</h2>
-    <p>Bombay Restaurant Freising, Inhaber Arun Kumar Bhardwaj, Obere Hauptstraße 67, 85354 Freising, Telefon +49 8161 4965102, E-Mail <a href="mailto:arunmunich@yahoo.com">arunmunich@yahoo.com</a>.</p>
-    <h2>2. Hosting und Server-Logfiles</h2>
-    <p>Diese Website wird über GitHub Pages ausgeliefert (GitHub, Inc., USA). Beim Aufruf verarbeitet GitHub technisch notwendige Daten (u. a. IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browsertyp), um die Seite auszuliefern und sicher zu betreiben. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework.</p>
-    <p class="offen">Hoster bestätigen, falls die Seite später woanders liegt.</p>
-    <h2>3. Keine Cookies, keine Tracker</h2>
-    <p>Diese Website setzt keine Cookies, nutzt keine Analyse- oder Werbedienste und lädt keine Schriften, Karten oder Skripte von Drittanbietern. Schriften und Bilder liegen auf demselben Server wie die Seite.</p>
-    <h2>4. Bestellzettel und Filter (lokaler Speicher)</h2>
-    <p>Ihr Bestellzettel, die Angaben im Bestellformular und die Filter der Speisekarte werden im lokalen Speicher Ihres Browsers (localStorage) abgelegt, damit sie beim nächsten Besuch noch da sind. Diese Angaben verlassen Ihr Gerät nicht. Sie können sie jederzeit in den Einstellungen Ihres Browsers löschen.</p>
-    <h2>5. Reservierungsanfragen</h2>
-    <p>Der Reservier-Assistent speichert und versendet nichts. Er bereitet nur einen Anruf oder eine E-Mail in Ihrem eigenen E-Mail-Programm vor. Erst wenn Sie anrufen oder die E-Mail absenden, erhalten wir Ihre Angaben und verarbeiten sie zur Bearbeitung Ihrer Reservierung (Art. 6 Abs. 1 lit. b DSGVO).</p>
-    <h2>6. Bestellen und Reservieren per WhatsApp</h2>
-    <p>Wenn Sie „Per WhatsApp senden“ wählen, öffnet sich WhatsApp mit einer vorbereiteten Nachricht. Erst wenn Sie sie dort absenden, gehen Ihre Angaben über WhatsApp (WhatsApp Ireland Limited, Meta) an das Restaurant. Es gelten die Datenschutzhinweise von WhatsApp. Alternativ können Sie telefonisch bestellen.</p>
-    <h2>7. Links zu anderen Anbietern</h2>
-    <p>Die App-Links führen zum Apple App Store bzw. zu Google Play, „Route planen“ zu Google Maps. Erst mit dem Klick werden Daten an diese Anbieter übertragen; dort gelten deren Datenschutzhinweise.</p>
-    <h2>8. Ihre Rechte</h2>
-    <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde. Zuständig ist das Bayerische Landesamt für Datenschutzaufsicht, Promenade 18, 91522 Ansbach.</p>
+<nav class="menu-flaeche" id="menu" data-menu-flaeche aria-label="Menü">
+  <a href="index.html">Start</a>
+  <a href="speisekarte.html">Speisekarte</a>
+  <a href="index.html#reservieren">Reservieren</a>
+  <a href="index.html#besuch">Besuch</a>
+  <div class="menu-fuss"><span data-status="lang"></span><a href="tel:+4981614965102">08161 4965102</a><span>Obere Hauptstraße 67, Freising</span></div>
+</nav>
+
+<main id="karte" class="karte">
+  <header class="karte-kopf wrap">
+    <h1 class="karte-titel" data-titel>Speisekarte</h1>
+    <p class="karte-unter">Jedes Gericht gibt es <b>mild, pikant, scharf oder sehr scharf</b>. Tippen Sie auf <span class="plus-mini" aria-hidden="true">+</span>, Ihre Auswahl landet im Bestellzettel. Abschicken per WhatsApp oder vorlesen am Telefon.</p>
+    <div class="werkzeug">
+      <label class="suche"><svg class="ico" aria-hidden="true"><use href="#i-lupe"/></svg><span class="sr">Speisekarte durchsuchen</span>
+        <input id="suche" type="search" placeholder="Gericht, Zutat oder Nummer" autocomplete="off" enterkeyhint="search" data-suche></label>
+      <div class="filter" role="group" aria-label="Filter">
+        <button type="button" class="filter-chip" data-filter="veg" aria-pressed="false">Vegetarisch</button>
+        <button type="button" class="filter-chip" data-filter="vegan" aria-pressed="false">Vegan möglich</button>
+        <button type="button" class="filter-chip" data-filter="scharf" aria-pressed="false">Scharf</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap karte-raster">
+    <nav class="gaenge-nav" aria-label="Gänge" data-gaenge-nav></nav>
+    <div class="karte-liste" data-liste aria-live="polite"></div>
   </div>
 </main>
+
+<button class="pille pille--rand gaenge-knopf" type="button" data-gaenge-knopf aria-expanded="false" aria-controls="gaenge-blatt">Gänge</button>
+<div class="gaenge-blatt" id="gaenge-blatt" data-gaenge-blatt>
+  <div class="gaenge-blatt-schleier" data-gaenge-zu></div>
+  <nav class="gaenge-blatt-panel" aria-label="Gänge" data-gaenge-blatt-liste></nav>
+</div>
+
 <!--FUSS-->
 <footer class="fuss">
   <div class="wrap">
@@ -79,7 +105,11 @@
   </div>
 </footer>
 <!--/FUSS-->
+
+<script src="js/vendor/lenis.min.js"></script>
+<script src="menu-data.js"></script>
 <script src="js/logo.js"></script>
 <script src="js/site.js"></script>
+<script src="js/karte.js"></script>
 </body>
 </html>

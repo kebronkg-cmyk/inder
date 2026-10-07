@@ -1,0 +1,84 @@
+/* ═══════════ Speisekarte ═══════════ */
+body[data-seite="karte"] .zettel-knopf { display: none; }
+
+.karte { padding: calc(var(--kopf) + clamp(40px, 7vw, 96px)) 0 clamp(80px, 10vw, 140px); }
+.karte-titel { font-size: clamp(3.6rem, 11vw, 10rem); letter-spacing: -0.04em; line-height: .9; }
+.karte-unter { margin-top: 22px; max-width: 54ch; font-size: 1.1rem; color: var(--tinte-2); }
+.karte-unter b { color: var(--tinte); font-weight: 600; }
+.plus-mini { display: inline-grid; place-items: center; width: 1.35em; height: 1.35em; border-radius: 50%; background: var(--tinte); color: #fff; font-size: .85em; font-weight: 600; vertical-align: .05em; }
+
+.werkzeug { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; margin-top: 36px; }
+.suche { display: flex; align-items: center; gap: 10px; flex: 1 1 320px; max-width: 520px; min-height: 54px; padding: 0 20px; border-radius: 999px; background: var(--porzellan); transition: box-shadow .2s ease, background-color .2s ease; }
+.suche:focus-within { background: var(--weiss); box-shadow: 0 0 0 1.5px var(--tinte), 0 0 0 6px rgba(23,17,14,.06); }
+.suche input { flex: 1; min-width: 0; min-height: 52px; border: 0; background: transparent; outline: none; font-size: 1.02rem; }
+.suche input::placeholder { color: var(--tinte-3); }
+.filter { display: flex; gap: 8px; flex-wrap: wrap; }
+.filter-chip { min-height: 44px; padding: 0 1.1em; border-radius: 999px; box-shadow: inset 0 0 0 1.5px var(--linie); font-weight: 600; font-size: .95rem; transition: background-color .2s ease, color .2s ease, box-shadow .2s ease, transform .15s var(--aus); }
+.filter-chip:active { transform: scale(.96); }
+@media (hover: hover) { .filter-chip:hover { box-shadow: inset 0 0 0 1.5px var(--tinte); } }
+.filter-chip[aria-pressed="true"] { background: var(--tinte); color: #fff; box-shadow: none; }
+
+.karte-raster { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); margin-top: clamp(48px, 6vw, 80px); align-items: start; }
+.gaenge-nav { position: sticky; top: calc(var(--kopf) + 24px); display: grid; gap: 2px; max-height: calc(100vh - var(--kopf) - 48px); overflow-y: auto; scrollbar-width: none; }
+.gaenge-nav::-webkit-scrollbar { display: none; }
+.gaenge-nav a, .gaenge-blatt-panel a { display: flex; justify-content: space-between; gap: 10px; padding: .45em .8em; border-radius: 10px; text-decoration: none; font-size: .95rem; color: var(--tinte-2); transition: background-color .2s ease, color .2s ease; }
+.gaenge-nav a .tab, .gaenge-blatt-panel a .tab { color: var(--tinte-3); font-size: .85rem; }
+@media (hover: hover) { .gaenge-nav a:hover { background: var(--porzellan); color: var(--tinte); } }
+.gaenge-nav a.is-aktiv { background: var(--tinte); color: #fff; }
+.gaenge-nav a.is-aktiv .tab { color: rgba(255,255,255,.6); }
+
+.gang { padding-top: 10px; margin-bottom: clamp(56px, 7vw, 96px); scroll-margin-top: calc(var(--kopf) + 16px); }
+.gang-kopf { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: end; padding-bottom: 18px; border-bottom: 1.5px solid var(--tinte); }
+.gang-kopf h2 { font-size: clamp(2.2rem, 4.6vw, 3.8rem); letter-spacing: -0.03em; }
+.gang-hinweis { grid-column: 1 / -1; color: var(--tinte-2); max-width: 60ch; font-size: .98rem; }
+.gang-schale { width: clamp(96px, 12vw, 150px); margin: -40px 0 -14px; filter: drop-shadow(0 18px 18px rgba(23,17,14,.25)); }
+
+.posten-liste { list-style: none; }
+.posten { display: grid; grid-template-columns: 3em minmax(0, 1fr) auto auto; gap: 4px 18px; align-items: start; padding: 20px 0; border-bottom: 1px solid var(--linie); }
+.posten-nr { font-variant-numeric: tabular-nums; color: var(--tinte-3); font-size: .88rem; padding-top: .35em; }
+.posten-name { font-family: var(--display); font-size: 1.45rem; font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; }
+.posten-text { color: var(--tinte-2); font-size: .97rem; margin-top: 4px; }
+.posten-marken { display: inline-flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.marke-chip { font-size: .72rem; font-weight: 600; padding: .2em .65em; border-radius: 999px; background: var(--porzellan); color: var(--tinte-2); }
+.marke-chip--veg { background: #e6f2e9; color: #1f6b3a; }
+.marke-chip--scharf { background: #fde8e4; color: #b3261b; }
+.posten-preis { font-variant-numeric: tabular-nums; font-weight: 600; padding-top: .35em; white-space: nowrap; }
+.posten-tun { display: flex; justify-content: flex-end; min-width: 44px; }
+
+.plus { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--tinte); color: #fff; transition: transform .2s var(--aus), background-color .2s ease; }
+.plus:active { transform: scale(.9); }
+@media (hover: hover) { .plus:hover { background: var(--rani); } }
+.plus .ico { width: 20px; height: 20px; }
+.stepper { display: inline-flex; align-items: center; height: 44px; border-radius: 999px; background: var(--tinte); color: #fff; animation: aufklappen .4s var(--aus); }
+@keyframes aufklappen { from { clip-path: inset(0 0 0 calc(100% - 44px) round 22px); } to { clip-path: inset(0 0 0 0 round 22px); } }
+.stepper button { width: 40px; height: 44px; display: grid; place-items: center; font-size: 1.15rem; border-radius: 50%; transition: transform .15s var(--aus); }
+.stepper button:active { transform: scale(.85); }
+.stepper output { min-width: 1.5em; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.karte-leer { padding: 40px 0; }
+.karte-leer strong { display: block; font-family: var(--display); font-weight: 500; font-size: 2rem; }
+.karte-leer p { color: var(--tinte-2); margin-top: 6px; }
+
+/* Gänge auf schmalen Schirmen: ein Knopf, ein Blatt */
+.gaenge-knopf { display: none; position: fixed; left: max(16px, env(safe-area-inset-left)); bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 90; background: var(--weiss); box-shadow: inset 0 0 0 1.5px var(--tinte), 0 14px 30px -14px rgba(23,17,14,.5); }
+.gaenge-blatt { position: fixed; inset: 0; z-index: 280; pointer-events: none; }
+.gaenge-blatt-schleier { position: absolute; inset: 0; background: rgba(23,17,14,.35); opacity: 0; transition: opacity .35s ease; }
+.gaenge-blatt-panel { position: absolute; left: 0; right: 0; bottom: 0; max-height: 78svh; overflow-y: auto; padding: 22px 16px calc(22px + env(safe-area-inset-bottom)); background: var(--weiss); border-radius: 22px 22px 0 0; transform: translateY(100%); transition: transform .5s var(--schublade); display: grid; gap: 2px; }
+.gaenge-blatt-panel a { font-size: 1.1rem; padding: .7em .9em; color: var(--tinte); }
+.gaenge-blatt.is-offen { pointer-events: auto; }
+.gaenge-blatt.is-offen .gaenge-blatt-schleier { opacity: 1; }
+.gaenge-blatt.is-offen .gaenge-blatt-panel { transform: none; }
+
+@media (max-width: 860px) {
+  .karte-raster { grid-template-columns: 1fr; }
+  .gaenge-nav { display: none; }
+  .gaenge-knopf { display: inline-flex; }
+  body[data-seite="karte"] .zettel-knopf { display: inline-flex; }
+  .kopf [data-zettel-oeffnen] { display: none; }
+  .posten { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; }
+  .posten-nr { display: none; }
+  .posten-preis { grid-column: 2; grid-row: 1; }
+  .posten-tun { grid-column: 2; grid-row: 2; align-self: end; }
+  .posten-name { font-size: 1.3rem; }
+  .gang-schale { margin: -24px 0 -10px; }
+}
