@@ -44,6 +44,7 @@
   const licht = $(".waehler-licht", waehler);
   gerichtEl.id = "gericht-text";
   gerichtEl.setAttribute("role", "tabpanel");
+  gerichtEl.setAttribute("aria-labelledby", tabs[0].id);
 
   function gerichtHTML(g) {
     const n = B.zettel.menge(g.nr);
@@ -59,6 +60,7 @@
 
   let akt = 0;
   let laeuft = null;          // laufende Wechsel-Animation
+  let warte = null;           // Wunsch, der während eines Wechsels kam
   let gewechselt = false;     // hat der Gast schon selbst gewechselt?
 
   function lichtSetzen(sofort) {
@@ -102,7 +104,9 @@
   function zeige(neu, von, richtung) {
     neu = (neu + GERICHTE.length) % GERICHTE.length;
     if (neu === akt) return;
-    if (laeuft) laeuft.progress(1).kill();
+    // Läuft noch ein Wechsel, wird er beschleunigt zu Ende gespielt und der
+    // neue Wunsch danach ausgeführt; nichts springt.
+    if (laeuft) { warte = [neu, von, richtung]; laeuft.timeScale(2.6); return; }
     const alt = akt;
     akt = neu;
     const g = GERICHTE[neu];
@@ -110,6 +114,7 @@
     if (!gewechselt) { gewechselt = true; hinweisWeg(); }
 
     tabs.forEach((t, i) => { t.setAttribute("aria-selected", String(i === neu)); t.tabIndex = i === neu ? 0 : -1; });
+    gerichtEl.setAttribute("aria-labelledby", tabs[neu].id);
     lichtSetzen(false);
 
     const altS = schalen[alt], neuS = schalen[neu];
@@ -137,23 +142,26 @@
 
     laeuft = gsap.timeline({
       defaults: { overwrite: "auto" },
-      onComplete: () => { feld.style.background = g.farbe; flut.remove(); altS.classList.remove("is-aktiv"); gsap.set(altS, { clearProps: "all" }); laeuft = null; },
+      onComplete: () => {
+        feld.style.background = g.farbe; flut.remove(); altS.classList.remove("is-aktiv"); gsap.set(altS, { clearProps: "all" }); laeuft = null;
+        if (warte) { const w = warte; warte = null; zeige(w[0], w[1], w[2]); }
+      },
       onInterrupt: () => { feld.style.background = g.farbe; flut.remove(); altS.classList.remove("is-aktiv"); gsap.set(altS, { clearProps: "all" }); },
     });
     laeuft
       .fromTo(flut, { clipPath: `circle(0px at ${x}px ${y}px)` }, { clipPath: `circle(${R}px at ${x}px ${y}px)`, duration: 0.85, ease: "power3.inOut" }, 0)
       .call(() => tonSetzen(g), null, 0.32)
-      // die alte Schale dreht sich in Laufrichtung hinaus
-      .to(altS, { rotation: 70 * richtung, xPercent: -22 * richtung, scale: 0.78, autoAlpha: 0, duration: 0.5, ease: "power2.in" }, 0)
+      // die alte Schale rollt in Laufrichtung hinaus (vorwärts: nach links, gegen den Uhrzeigersinn)
+      .to(altS, { rotation: `-=${70 * richtung}`, xPercent: -22 * richtung, scale: 0.78, autoAlpha: 0, duration: 0.5, ease: "power2.in" }, 0)
       // die neue kommt von der anderen Seite und dreht sich an ihren Platz
-      .fromTo(neuS, { rotation: -80 * richtung, xPercent: 26 * richtung, scale: 0.82, autoAlpha: 0 },
+      .fromTo(neuS, { rotation: 80 * richtung, xPercent: 26 * richtung, scale: 0.82, autoAlpha: 0 },
         { rotation: 0, xPercent: 0, scale: 1, autoAlpha: 1, duration: 0.95, ease: "expo.out" }, 0.3)
-      .to(rangoli, { rotation: `+=${45 * richtung}`, duration: 1.2, ease: "power3.inOut" }, 0)
+      .to(rangoli, { rotation: `+=${-45 * richtung}`, duration: 1.2, ease: "power3.inOut" }, 0)
       .to(alteZeilen, { y: -14, autoAlpha: 0, duration: 0.26, stagger: 0.03, ease: "power2.in" }, 0)
       .call(textNeu, null, 0.36)
       .add(() => {
         const z = $$(".gericht-name, .gericht-satz, .gericht-handeln, .gericht-herkunft", gerichtEl);
-        gsap.fromTo(z, { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.05, ease: "expo.out" });
+        gsap.fromTo(z, { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.05, ease: "expo.out", overwrite: true });
       }, 0.37);
   }
 
@@ -181,14 +189,15 @@
   /* ── Die Schale zur Seite ziehen ──
      Sie folgt dem Finger mit Widerstand und dreht sich mit; ab einer
      kleinen Strecke (oder mit Schwung) kommt das nächste Gericht. */
-  if (gsap && !ruhig) {
+  {
     let start = null;
-    const drehZu = gsap.quickTo(rangoli, "rotation", { duration: 0.6, ease: "power3.out" });
+    const mit = !!gsap && !ruhig;   // Schale läuft mit dem Finger mit
+    const drehZu = mit ? gsap.quickTo(rangoli, "rotation", { duration: 0.6, ease: "power3.out" }) : () => {};
     let ringBasis = 0;
     tafel.addEventListener("pointerdown", (e) => {
       if (e.target.closest("button") || laeuft) return;
       start = { x: e.clientX, y: e.clientY, t: performance.now(), id: e.pointerId, quer: null };
-      ringBasis = gsap.getProperty(rangoli, "rotation");
+      ringBasis = mit ? gsap.getProperty(rangoli, "rotation") : 0;
     });
     tafel.addEventListener("pointermove", (e) => {
       if (!start || e.pointerId !== start.id) return;
@@ -198,8 +207,7 @@
         if (start.quer) { tafel.setPointerCapture(e.pointerId); tafel.classList.add("is-zieht"); }
       }
       if (!start.quer) return;
-      const s = schalen[akt];
-      gsap.set(s, { x: dx * 0.35, rotation: dx * 0.22 });
+      if (mit) gsap.set(schalen[akt], { x: dx * 0.35, rotation: dx * 0.22 });
       drehZu(ringBasis + dx * 0.1);
     });
     const los = (e) => {
@@ -213,9 +221,8 @@
       const s = schalen[akt];
       if (Math.abs(dx) > 70 || Math.abs(v) > 0.55) {
         const d = dx < 0 ? 1 : -1;
-        gsap.set(s, { x: 0 });
         zeige(akt + d, { x: e.clientX, y: e.clientY }, d);
-      } else {
+      } else if (mit) {
         gsap.to(s, { x: 0, rotation: 0, duration: 0.7, ease: "elastic.out(1, 0.55)" });
         drehZu(ringBasis);
       }
@@ -238,7 +245,7 @@
         if (gewechselt) return;
         hinweis.classList.add("is-da");
         // das nächste Schälchen nickt einmal kurz
-        if (gsap && !ruhig) gsap.fromTo($("img", tabs[1]), { y: 0 }, { y: -7, duration: 0.28, ease: "power2.out", yoyo: true, repeat: 3, delay: 0.6 });
+        if (gsap && !ruhig) gsap.fromTo($("img", tabs[1]), { y: 0 }, { y: -7, duration: 0.28, ease: "power2.out", yoyo: true, repeat: 1, delay: 0.6 });
       }, ruhig ? 300 : 2200);
     }
   }

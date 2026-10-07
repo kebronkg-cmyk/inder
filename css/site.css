@@ -100,7 +100,8 @@ h1, h2, h3, blockquote, .display, .posten-name, .karte-leer strong, .menu-flaech
 
 /* ═══════════ Kopf ═══════════ */
 .kopf { position: fixed; inset: 0 0 auto; z-index: 100; height: var(--kopf); transition: background-color .35s ease, box-shadow .35s ease, transform .5s var(--aus), color .35s ease; }
-.kopf.is-fest { background: rgba(255, 255, 255, .86); backdrop-filter: saturate(1.6) blur(14px); -webkit-backdrop-filter: saturate(1.6) blur(14px); box-shadow: 0 1px 0 var(--linie); }
+.kopf.is-fest { background: rgba(255, 255, 255, .97); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); box-shadow: 0 1px 0 var(--linie); }
+body[data-seite="start"] .kopf:not(.is-fest) .kopf-status { opacity: 0; }
 .kopf.is-weg { transform: translateY(-105%); }
 .kopf-zeile { height: 100%; display: flex; align-items: center; gap: 32px; }
 .marke { display: block; width: 118px; color: var(--rani); flex: none; text-decoration: none; transition: color .35s ease; }

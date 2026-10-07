@@ -8,19 +8,23 @@
   "use strict";
   const B = window.BOMBAY;
   const { $, $$, euro, esc, ico, speicher, ruhig } = B.u;
-  const KARTE = window.BOMBAY_KARTE || [];
+  const ROH = window.BOMBAY_KARTE || [];
+  // Die einzelne kalte Vorspeise wandert zu den warmen: kein Gang mit nur einem Gericht
+  const warm = ROH.find((g) => g.id === "warme-vorspeisen"), kalt = ROH.find((g) => g.id === "kalte-vorspeisen");
+  const KARTE = ROH.filter((g) => g !== warm && g !== kalt);
+  if (warm) KARTE.unshift({ id: "vorspeisen", titel: "Vorspeisen", hinweis: warm.hinweis, posten: [...warm.posten, ...(kalt ? kalt.posten : [])] });
   const NACH_ID = new Map(KARTE.map((g) => [g.id, g]));
   const liste = $("[data-liste]");
   const schnell = $("[data-schnell]");
 
   const GRUPPEN = [
-    { titel: "Zum Anfang", ids: ["warme-vorspeisen", "kalte-vorspeisen", "suppen", "salate"] },
+    { titel: "Zum Anfang", ids: ["vorspeisen", "suppen", "salate"] },
     { titel: "Hauptgerichte", ids: ["huehnerfleisch-spezialitaeten", "lamm-spezialitaeten", "vegetarische-spezialitaeten", "fisch-spezialitaeten", "enten-spezialitaeten", "tandoori-khajana", "reis-spezialitaeten", "thalis"] },
     { titel: "Dazu", ids: ["tandoori-brot", "beilagen"] },
     { titel: "Zum Schluss", ids: ["nachspeisen", "getraenke", "wein"] },
   ];
   const NAME = {
-    "warme-vorspeisen": "Warme Vorspeisen", "kalte-vorspeisen": "Kalte Vorspeise", "suppen": "Suppen", "salate": "Salate",
+    "vorspeisen": "Vorspeisen", "suppen": "Suppen", "salate": "Salate",
     "huehnerfleisch-spezialitaeten": "Hähnchen", "lamm-spezialitaeten": "Lamm", "vegetarische-spezialitaeten": "Vegetarisch",
     "fisch-spezialitaeten": "Fisch & Garnelen", "enten-spezialitaeten": "Ente", "tandoori-khajana": "Tandoori aus dem Lehmofen",
     "reis-spezialitaeten": "Biryani & Reis", "thalis": "Thalis", "tandoori-brot": "Naan & Brot", "beilagen": "Raita & Beilagen",
@@ -39,7 +43,7 @@
     ["Naan dazu", "tandoori-brot"], ["Etwas Süßes", "nachspeisen"],
   ];
 
-  let filter = speicher.lies("bombay-filter", {});
+  let filter = {};   // bewusst nicht gespeichert: die Karte beginnt immer kompakt
   let suche = "";
   let offen = null;              // der eine offene Gang (ohne Suche)
   const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ß/g, "ss");
@@ -85,7 +89,7 @@
             <span class="gang-proben">${esc(proben)}</span>
             <span class="gang-meta"><span>${ps.length} ${ps.length === 1 ? "Gericht" : g.id === "getraenke" || g.id === "wein" ? "Sorten" : "Gerichte"}</span>${ab ? `<span>ab ${euro(ab)}</span>` : ""}</span>
             ${SCHALE[g.id] ? `<img class="gang-schale" src="img/gerichte/${SCHALE[g.id]}-640.webp" alt="" width="640" height="600" loading="lazy" decoding="async">` : ""}
-            <svg class="gang-zeichen" aria-hidden="true"><use href="#i-bluete"/></svg>
+            <span class="gang-zeichen" aria-hidden="true"><i></i><i></i></span>
           </button>
         </h3>
         <div class="gang-inhalt" id="p-${g.id}" role="region" aria-label="${esc(NAME[g.id] || g.titel)}" inert>
@@ -104,9 +108,11 @@
       const gs = gr.ids.map((id) => NACH_ID.get(id)).filter(Boolean).map((g) => ({ g, ps: g.posten.filter(passt) })).filter((x) => x.ps.length);
       if (!gs.length) return;
       treffer += gs.reduce((n, x) => n + x.ps.length, 0);
-      html += `<div class="gruppe"><h2 class="gruppe-titel">${esc(gr.titel)}</h2>${gs.map((x) => gangHTML(x.g, x.ps)).join("")}</div>`;
+      html += `<div class="gruppe"><h2 class="gruppe-titel"><svg class="gruppe-bluete" aria-hidden="true"><use href="#i-bluete"/></svg>${esc(gr.titel)}</h2>${gs.map((x) => gangHTML(x.g, x.ps)).join("")}</div>`;
     });
+    document.body.classList.toggle("is-suche", sucht());
     if (!html) {
+      $("[data-treffer]").textContent = "";
       liste.innerHTML = `<div class="karte-leer"><strong>Nichts gefunden.</strong><p>Versuchen Sie es mit einer Zutat wie „Spinat“ oder „Mango“, mit einer Nummer, oder nehmen Sie einen Filter heraus.</p></div>`;
       return;
     }
@@ -142,6 +148,7 @@
     setzen(s, true);
     offen = id;
     history.replaceState(null, "", "#" + id);
+    k.focus({ preventScroll: true });
     if (scrollen !== false) setTimeout(() => B.scrollZu(s), ruhig ? 0 : 60);
   }
   function schliesse(s) {
@@ -186,7 +193,12 @@
   schnell.addEventListener("click", (e) => {
     const b = e.target.closest("[data-oeffne]");
     if (!b) return;
-    if (suche) { suche = ""; $("[data-suche]").value = ""; zeichnen(); }
+    if (sucht()) {
+      suche = ""; $("[data-suche]").value = ""; filter = {};
+      $$("[data-filter]").forEach((f) => f.setAttribute("aria-pressed", "false"));
+      leerKnopf.hidden = true;
+      zeichnen();
+    }
     oeffne(b.dataset.oeffne);
   });
 
@@ -195,15 +207,18 @@
     b.addEventListener("click", () => {
       filter[b.dataset.filter] = !filter[b.dataset.filter];
       b.setAttribute("aria-pressed", String(filter[b.dataset.filter]));
-      speicher.schreib("bombay-filter", filter);
       zeichnen();
     });
   });
   let warte;
-  $("[data-suche]").addEventListener("input", (e) => {
+  const feld = $("[data-suche]");
+  const leerKnopf = $("[data-suche-leeren]");
+  feld.addEventListener("input", (e) => {
+    leerKnopf.hidden = !e.target.value;
     clearTimeout(warte);
     warte = setTimeout(() => { suche = e.target.value.trim(); zeichnen(); }, 120);
   });
+  leerKnopf.addEventListener("click", () => { feld.value = ""; leerKnopf.hidden = true; suche = ""; zeichnen(); feld.focus(); });
 
   // Sprungmarke (#gang-id), etwa von der Startseite
   const ziel = location.hash && decodeURIComponent(location.hash.slice(1));

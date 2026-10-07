@@ -22,6 +22,10 @@
 .suche:focus-within { background: var(--weiss); box-shadow: 0 0 0 1.5px var(--tinte), 0 0 0 6px rgba(23,17,14,.06); }
 .suche input { flex: 1; min-width: 0; min-height: 52px; border: 0; background: transparent; outline: none; font-size: 1.02rem; }
 .suche input::placeholder { color: var(--tinte-2); }
+.suche input::-webkit-search-cancel-button, .suche input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
+.suche-leeren { flex: none; width: 34px; height: 34px; margin-right: -8px; display: grid; place-items: center; border-radius: 50%; background: var(--tinte); color: #fff; }
+.suche-leeren .ico { width: 16px; height: 16px; }
+.suche-leeren[hidden] { display: none; }
 .filter { display: flex; gap: 8px; flex-wrap: wrap; }
 .filter-chip { min-height: 44px; padding: 0 1.1em; border-radius: 999px; box-shadow: inset 0 0 0 1.5px var(--linie); font-weight: 600; font-size: .95rem; transition: background-color .2s ease, color .2s ease, box-shadow .2s ease, transform .15s var(--aus); }
 .filter-chip:active { transform: scale(.96); }
@@ -44,13 +48,18 @@
 .gang-meta { grid-area: meta; display: grid; justify-items: end; gap: 2px; font-size: .92rem; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .gang-meta span:last-child { color: var(--tinte-2); font-weight: 500; }
 .gang-schale { position: absolute; right: 168px; top: 50%; width: 92px; margin-top: -46px; opacity: 0; transform: scale(.6) rotate(-30deg); filter: drop-shadow(0 10px 10px rgba(20,12,6,.25)); transition: opacity .4s ease, transform .6s var(--aus); pointer-events: none; }
-.gang-zeichen { grid-area: zeichen; width: 34px; height: 34px; color: var(--rani); transition: transform .6s var(--aus), color .3s ease; }
+.gang-zeichen { grid-area: zeichen; position: relative; width: 40px; height: 40px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px var(--tinte); transition: background-color .3s ease, transform .5s var(--aus); }
+.gang-zeichen i { position: absolute; left: 50%; top: 50%; width: 14px; height: 1.8px; margin: -0.9px 0 0 -7px; border-radius: 2px; background: var(--tinte); transition: transform .45s var(--aus), background-color .3s ease; }
+.gang-zeichen i:last-child { transform: rotate(90deg); }
+.gruppe-bluete { display: inline-block; width: .9em; height: .9em; margin-right: .35em; vertical-align: -.08em; color: var(--rani); --blatt: color-mix(in srgb, var(--safran) 70%, transparent); }
 @media (hover: hover) {
   .gang-knopf:hover .gang-titel { transform: translateX(6px); }
-  .gang-knopf:hover .gang-zeichen { transform: rotate(22.5deg); }
+  .gang-knopf:hover .gang-zeichen { background: var(--porzellan); }
   .gang-knopf:hover .gang-schale { opacity: 1; transform: none; }
 }
-.gang.is-offen .gang-zeichen { transform: rotate(90deg); --blatt: var(--safran); }
+.gang.is-offen .gang-zeichen { background: var(--tinte); transform: rotate(180deg); }
+.gang.is-offen .gang-zeichen i { background: #fff; }
+.gang.is-offen .gang-zeichen i:last-child { transform: rotate(0deg); }
 .gang.is-offen .gang-schale { opacity: 1; transform: none; }
 .gang.is-offen .gang-proben { opacity: 0; }
 
@@ -90,6 +99,10 @@
 .stepper output { min-width: 1.5em; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
 .menge .ico, .stepper .ico { width: 18px; height: 18px; }
 
+/* Suchen: Treffer kompakt, ohne Gangköpfe groß aufzuziehen */
+.is-suche .gang-titel { font-size: clamp(1.2rem, 1.6vw, 1.45rem); }
+.is-suche .gang-knopf { padding: 14px 0 6px; }
+.is-suche .gang-hinweis, .is-suche .gang-meta, .is-suche .gang-schale, .is-suche .gang-proben { display: none; }
 .karte-leer { padding: 40px 0; }
 .karte-leer strong { display: block; font-family: var(--display); font-weight: 560; font-size: 2rem; }
 .karte-leer p { color: var(--tinte-2); margin-top: 6px; }
@@ -110,7 +123,7 @@ body[data-seite="karte"] .zettel-knopf { display: none; }
   .gang-knopf { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "titel zeichen" "proben zeichen" "meta zeichen"; gap: 3px 14px; padding: 18px 0; }
   .gang-meta { display: flex; justify-items: start; gap: 12px; font-size: .86rem; }
   .gang-schale { right: 48px; width: 70px; margin-top: -35px; }
-  .gang-zeichen { width: 30px; height: 30px; }
+  .gang-zeichen { width: 36px; height: 36px; }
   body[data-seite="karte"] .zettel-knopf { display: inline-flex; }
   .kopf [data-zettel-oeffnen] { display: none; }
   .karte { padding-bottom: calc(110px + env(safe-area-inset-bottom)); }
