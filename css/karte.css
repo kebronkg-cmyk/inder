@@ -41,6 +41,7 @@
 .gruppe { display: grid; grid-template-columns: minmax(160px, .28fr) minmax(0, 1fr); gap: 0 clamp(24px, 4vw, 72px); padding-top: 22px; border-top: 1px solid var(--tinte); margin-bottom: clamp(40px, 5vw, 72px); }
 .gruppe-titel { font-size: clamp(1.4rem, 1.9vw, 1.8rem); font-weight: 360; font-style: italic; padding-top: 18px; color: var(--tinte); }
 .gruppe > .gang { grid-column: 2; }
+.gruppe-bild { grid-column: 1; grid-row: 2 / span 3; align-self: start; width: 100%; margin-top: 18px; border-radius: 18px; transform: rotate(-2deg); box-shadow: 0 24px 40px -24px rgba(20, 12, 6, .5); }
 
 /* Ein Gang: Kopfzeile als Knopf, Inhalt klappt über die Rasterhöhe auf */
 .gang { border-bottom: 1px solid var(--linie); scroll-margin-top: calc(var(--kopf) + 12px); }
@@ -115,9 +116,17 @@ body[data-seite="karte"] .zettel-knopf { display: none; }
 
 @media (max-width: 860px) {
   .karte-kopf { grid-template-columns: minmax(0, 1fr); }
-  .karte-schale { width: 34vw; right: -14vw; top: -14px; }
-  .karte-kopf > .karte-titel { max-width: 66vw; }
-  .karte-kopf > .karte-unter { max-width: 68vw; }
+  .karte { padding-top: calc(var(--kopf) + 22px); }
+  .karte-schale { display: none; }
+  .karte-titel { font-size: clamp(2.6rem, 12vw, 3.4rem); }
+  .karte-kopf > .karte-unter { margin-top: 12px; font-size: .98rem; }
+  .schnell-zeile { margin-top: 26px; }
+  .schnell-frage { font-size: 1.3rem; }
+  .schnell { margin-top: 10px; }
+  .werkzeug { margin-top: 14px; gap: 10px; }
+  .suche { flex-basis: 100%; min-height: 50px; }
+  .filter-chip { min-height: 38px; font-size: .88rem; }
+  .karte-liste { margin-top: 30px; }
   body[data-seite="karte"] .kopf-menu { margin-left: auto; }
   .karte-unter { margin-top: 18px; }
   .schnell { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(var(--rand) * -1); padding: 2px var(--rand) 6px; scrollbar-width: none; scroll-snap-type: x proximity; }
@@ -125,6 +134,7 @@ body[data-seite="karte"] .zettel-knopf { display: none; }
   .schnell-chip { flex: none; scroll-snap-align: start; }
   .gruppe { grid-template-columns: minmax(0, 1fr); padding-top: 14px; }
   .gruppe > .gang { grid-column: 1; }
+  .gruppe-bild { display: none; }
   .gruppe-titel { padding: 0 0 4px; font-size: 1.3rem; }
   .gang-knopf { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "titel zeichen" "proben zeichen" "meta zeichen"; gap: 3px 14px; padding: 18px 0; }
   .gang-meta { display: flex; justify-items: start; gap: 12px; font-size: .86rem; }

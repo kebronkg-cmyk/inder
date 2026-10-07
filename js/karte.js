@@ -109,7 +109,9 @@
       const gs = gr.ids.map((id) => NACH_ID.get(id)).filter(Boolean).map((g) => ({ g, ps: g.posten.filter(passt) })).filter((x) => x.ps.length);
       if (!gs.length) return;
       treffer += gs.reduce((n, x) => n + x.ps.length, 0);
-      html += `<div class="gruppe"><h2 class="gruppe-titel"><svg class="gruppe-bluete" aria-hidden="true"><use href="#i-bluete"/></svg>${esc(gr.titel)}</h2>${gs.map((x) => gangHTML(x.g, x.ps)).join("")}</div>`;
+      const bild = gr.titel === "Dazu" && !sucht()
+        ? `<img class="gruppe-bild" src="img/foto/naan-reis-640.webp" srcset="img/foto/naan-reis-640.webp 640w, img/foto/naan-reis-1084.webp 1084w" sizes="22vw" width="1084" height="610" loading="lazy" decoding="async" alt="Reis und Naan zu zwei Currys auf dem Tisch">` : "";
+      html += `<div class="gruppe"><h2 class="gruppe-titel"><svg class="gruppe-bluete" aria-hidden="true"><use href="#i-bluete"/></svg>${esc(gr.titel)}</h2>${bild}${gs.map((x) => gangHTML(x.g, x.ps)).join("")}</div>`;
     });
     document.body.classList.toggle("is-suche", sucht());
     if (!html) {

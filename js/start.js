@@ -284,6 +284,13 @@
     });
   }
 
+  // Goldsterne setzen sich, sobald sie zu sehen sind
+  $$("[data-sterne]").forEach((el) => {
+    if (!("IntersectionObserver" in window)) return el.classList.add("is-da");
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { el.classList.add("is-da"); io.disconnect(); } }), { threshold: 0.6 });
+    io.observe(el);
+  });
+
   /* ── Auftritt beim Laden ── */
   if (gsap && !ruhig) {
     const titelZeilen = B.zeilen($("[data-intro-titel]"));
@@ -307,6 +314,17 @@
     start: "top 90%",
     onEnter: (els) => gsap.fromTo(els, { y: 28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1, stagger: 0.08, ease: "expo.out", overwrite: true }),
   });
+
+  // Übergang: die Bühne hebt sich beim Wegscrollen wie eine Karte ab
+  // (Ecken unten runden sich, Seiten rücken ein, der Inhalt bleibt etwas zurück)
+  const rund = window.innerWidth > 860 ? 48 : 30, ein = window.innerWidth > 860 ? 2.2 : 3;
+  gsap.fromTo(buehne, { clipPath: "inset(0% 0% 0% 0% round 0px 0px 0px 0px)" },
+    { clipPath: `inset(0% ${ein}% 0% ${ein}% round 0px 0px ${rund}px ${rund}px)`, ease: "none", scrollTrigger: { trigger: buehne, start: "top top", end: "bottom 30%", scrub: true } });
+  gsap.to($(".buehne-raster", buehne), { yPercent: 9, ease: "none", scrollTrigger: { trigger: buehne, start: "top top", end: "bottom top", scrub: true } });
+  gsap.to($(".rahmen", buehne), { opacity: 0, ease: "none", scrollTrigger: { trigger: buehne, start: "30% top", end: "70% top", scrub: true } });
+  // Zweites Ofenbild wandert etwas schneller als das erste
+  const ofen2 = $("[data-ofen-bild2]");
+  if (ofen2) gsap.fromTo(ofen2, { yPercent: 18 }, { yPercent: -8, ease: "none", scrollTrigger: { trigger: ofen2, start: "top bottom", end: "bottom top", scrub: 1 } });
 
   // Lehmofen: das Bild dreht sich leicht ins Licht
   const ofenBild = $("[data-ofen-bild] img");
@@ -343,7 +361,17 @@
       }
       if (img) img.draggable = false;
     });
-    const pendel = laternen.map((el) => ({ el, w: 0, v: 0, k: 24 / (+el.dataset.laenge + 80) }));
+    // Jede Laterne bekommt ihren eigenen Charakter: Ruhelage (manche hängen
+    // deutlich nach rechts geneigt), Dämpfung und einen leisen, unregelmäßigen Luftzug.
+    const NEIGUNG = [-3, -8, 2, -11, -5, 4, -7];
+    const pendel = laternen.map((el, i) => {
+      const ruhe = NEIGUNG[i % NEIGUNG.length] + (rnd() - 0.5) * 2;
+      return { el, w: ruhe, v: 0, ruhe, k: 24 / (+el.dataset.laenge + 80), d: 0.022 + rnd() * 0.03,
+        f1: 0.00031 + rnd() * 0.0004, f2: 0.00083 + rnd() * 0.0007, p1: rnd() * 6.3, p2: rnd() * 6.3, luft: 0.004 + rnd() * 0.007 };
+    });
+    // Ab und zu ein Windstoß, der nur einzelne Laternen erwischt
+    let naechsterStoss = 2500;
+    pendel.forEach((p) => (p.el.style.transform = `rotate(${p.ruhe.toFixed(2)}deg)`));
     const stoss = (p, kraft) => { p.v += kraft; };
     let letzteY = window.scrollY, sicht = false, px = null, pt = 0;
     const band = $("[data-laternen]");
@@ -370,9 +398,16 @@
       letzteY = y;
       if (!sicht) return;
       const t = Math.min(dt, 40) / 16.7;
+      if (zeit * 1000 > naechsterStoss) {
+        naechsterStoss = zeit * 1000 + 3500 + rnd() * 6000;
+        const r = (rnd() - 0.35) * 1.6;
+        pendel.forEach((p) => { if (rnd() < 0.45) stoss(p, r * (0.4 + rnd() * 0.8)); });
+      }
+      const ms = zeit * 1000;
       pendel.forEach((p) => {
-        p.v += (-p.k * 0.06 * p.w - 0.035 * p.v + dy * 0.012) * t;
-        p.w = Math.max(-16, Math.min(16, p.w + p.v * t));
+        const brise = (Math.sin(ms * p.f1 + p.p1) + 0.6 * Math.sin(ms * p.f2 + p.p2)) * p.luft;
+        p.v += (-p.k * 0.06 * (p.w - p.ruhe) - p.d * p.v + dy * 0.012 + brise) * t;
+        p.w = Math.max(-22, Math.min(18, p.w + p.v * t));
         p.el.style.transform = `rotate(${p.w.toFixed(2)}deg)`;
       });
     });

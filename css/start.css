@@ -93,7 +93,10 @@
 /* ── Aus dem Lehmofen ── */
 .ofen { background: var(--weiss); padding: clamp(64px, 7vw, 120px) 0; overflow: hidden; }
 .ofen-raster { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(32px, 6vw, 100px); align-items: center; }
+.ofen-bilder { position: relative; padding: 0 12% 16% 0; }
 .ofen-bild { position: relative; aspect-ratio: 1; border-radius: 28px; overflow: hidden; isolation: isolate; }
+.ofen-bild2 { position: absolute; right: 0; bottom: 0; width: 50%; aspect-ratio: 1100 / 972; border-radius: 22px; overflow: hidden; border: 7px solid var(--weiss); box-shadow: 0 30px 60px -24px rgba(20, 12, 6, .45); transform: rotate(2.5deg); }
+.ofen-bild2 img { width: 100%; height: 100%; object-fit: cover; }
 .ofen-bild img { width: 100%; height: 100%; object-fit: cover; }
 .ofen-text h2 { font-size: clamp(2.8rem, 5.6vw, 5.8rem); }
 .ofen-unter { margin-top: 22px; max-width: 46ch; font-size: 1.1rem; color: var(--tinte-2); }
@@ -127,7 +130,7 @@
 
 /* ── Besuch ── */
 /* Laternen hängen von der Oberkante und schwingen beim Scrollen (start.js) */
-.laternen-band { position: relative; display: grid; min-height: clamp(600px, 50vw, 960px); padding: 0 0 clamp(56px, 6vw, 110px); background: #140d0a; color: #fff; overflow: hidden; isolation: isolate; }
+.laternen-band { position: relative; display: grid; min-height: clamp(600px, 50vw, 960px); padding: 0 0 clamp(56px, 6vw, 110px); background: linear-gradient(180deg, rgba(20, 13, 10, .55), rgba(20, 13, 10, .25) 40%, rgba(20, 13, 10, .82)), url("../img/foto/gastraum-nacht-1800.webp") 78% 30% / cover, #140d0a; color: #fff; overflow: hidden; isolation: isolate; }
 .laternen-raster { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); align-items: end; }
 .laternen { position: absolute; inset: 0; }
 .decke { position: absolute; left: 0; right: 0; top: 0; height: 10px; background: linear-gradient(#2a1d15, #140d0a); box-shadow: 0 1px 0 rgba(255, 210, 150, .12); }
@@ -160,6 +163,8 @@
 .res-raster { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(36px, 6vw, 100px); align-items: start; }
 .res-kopf h2 { font-size: clamp(2.8rem, 6vw, 6.2rem); }
 .res-kopf p { margin-top: 22px; max-width: 40ch; font-size: 1.1rem; color: rgba(255,255,255,.88); }
+.res-bild { margin-top: clamp(28px, 3.4vw, 48px); max-width: 520px; border-radius: 22px; overflow: hidden; box-shadow: 0 34px 60px -30px rgba(40, 0, 18, .7); transform: rotate(-1.5deg); }
+.res-bild img { width: 100%; aspect-ratio: 900 / 840; object-fit: cover; }
 .res { display: grid; gap: 26px; min-height: 380px; }
 .res-form { display: grid; gap: clamp(26px, 4vw, 36px); align-content: start; }
 .res-schritt { display: grid; gap: 18px; align-content: start; }
@@ -218,6 +223,16 @@
 .stimme-zahl { font-family: var(--display); font-weight: 300; font-size: clamp(5rem, 8vw, 7.5rem); line-height: .85; letter-spacing: -0.05em; color: var(--rani); }
 .stimme--note .stimme-quelle { margin-top: auto; }
 .sterne { display: inline-flex; gap: 3px; color: var(--safran); }
+/* Goldsterne: gerundete Spitzen, Verlauf, nacheinander eingesetzt, dann ein Lichtschein */
+.sterne-gold { position: relative; display: inline-flex; gap: 4px; margin-top: 4px; }
+.gstern { width: 30px; height: 30px; overflow: visible; filter: drop-shadow(0 2px 3px rgba(150, 80, 0, .25)); }
+.js .sterne-gold .gstern { opacity: 0; transform: scale(.4) rotate(-40deg); }
+.sterne-gold.is-da .gstern { animation: stern-ein .7s cubic-bezier(.34, 1.56, .64, 1) forwards; animation-delay: calc(var(--i) * 90ms + 120ms); }
+@keyframes stern-ein { to { opacity: 1; transform: none; } }
+.sterne-gold::after { content: ""; position: absolute; inset: -4px -8px; background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .85) 50%, transparent 65%); background-size: 250% 100%; background-position: 120% 0; mix-blend-mode: soft-light; pointer-events: none; }
+.sterne-gold.is-da::after { animation: stern-glanz 1.4s ease .9s forwards; }
+@keyframes stern-glanz { to { background-position: -40% 0; } }
+@media (prefers-reduced-motion: reduce) { .js .sterne-gold .gstern { opacity: 1; transform: none; } .sterne-gold.is-da .gstern, .sterne-gold.is-da::after { animation: none; } }
 .sterne .ico { width: 1.5rem; height: 1.5rem; }
 .sterne .ico--leer { opacity: .28; }
 .stimme--du { background: var(--rani); color: #fff; box-shadow: none; justify-content: flex-end; }
@@ -228,7 +243,9 @@
 /* ── Mobil ── */
 @media (max-width: 860px) {
   .ofen-raster, .besuch-raster, .res-raster { grid-template-columns: 1fr; }
+  .ofen-bilder { padding: 0 0 22% 0; }
   .ofen-bild { margin: 0 calc(var(--rand) * -1); border-radius: 0; }
+  .ofen-bild2 { width: 58%; right: -4px; bottom: 0; }
   .fakten > div { grid-template-columns: 1fr; }
   .gaenge a { grid-template-columns: 1fr auto; }
   .gang-info { display: none; }

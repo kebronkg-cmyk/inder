@@ -520,3 +520,11 @@ Tinte-Fläche mit Jali-Band oben, Text Weiß .86; großes Logo in Weiß; Spalten
 - **Don't** auf der Bühne Scroll-Jacking, Pinning, Einrasten oder selbstständiges Drehen einsetzen.
 - **Don't** Gerichtsfarben als Kacheln, Chips, Rahmen oder Textfarbe auf Weiß nutzen.
 - **Don't** Fotos zu Rastern oder Galerien stapeln; keine dunkle Restaurant-Bühne (das Laternen-Band ist die eine bewusste Nachtfläche, keine Vorlage für weitere).
+
+## Nachtrag: Atmosphäre-Fotos, Goldsterne, Übergang (Runde 5)
+
+- **Fotos sparsam und bearbeitet.** Vier Gästefotos, jeweils an genau einer Stelle mit Bezug: Naan mit Kupferschalen als zweite, leicht gedrehte Karte (7px weißer Rand, 22px) über dem Chicken-Tikka-Bild im Lehmofen; der gedeckte Tisch von oben unter „Ein Tisch für Sie.“ (22px, −1,5°); der Gastraum als abgedunkelter Nachthintergrund des Laternenbands; Reis und Naan neben der Gruppe „Dazu“ auf der Speisekarte (nur breit). Bearbeitung: Tonwerte, wärmer, mehr Farbe und Tiefe, Schärfe. Keine Raster, keine Galerien.
+- **Goldsterne.** Gerundete Sternspitzen mit Goldverlauf (#ffe08a → #f6b73c → #d9861a), werden beim Erscheinen nacheinander eingesetzt (Federkurve) und einmal von einem Lichtschein überstrichen; halber Stern als Kontur plus halbe Füllung. Nur bei der Google-Note; die Tripadvisor-Karte zeigt die Zahl ohne Sterne, Quelle steht unten.
+- **Übergang von der Bühne.** Beim Wegscrollen hebt sich die Bühne wie eine Karte ab: Seiten rücken 2,2 % (mobil 3 %) ein, die unteren Ecken runden sich auf 48px (mobil 30px), der Inhalt bleibt 9 % zurück, der Rahmen blendet aus.
+- **Laternen.** Jede hat eine eigene Ruhelage (einige deutlich nach rechts geneigt), eigene Dämpfung, einen leisen unregelmäßigen Luftzug und gelegentliche Windstöße, die nur einzelne treffen.
+- **Speisekarte mobil.** Kein Kopfbild; Titel, zwei Zeilen Text, Schnellwahl, Suche – die ersten Gänge stehen im ersten Bildschirm. Kein Plus-Zeichen im Fließtext.
