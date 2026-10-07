@@ -14,14 +14,14 @@
   if (ST) gsap.registerPlugin(ST);
 
   const GERICHTE = [
-    { nr: "108", bild: "dal-makhni", farbe: "#f3a11b", ton: "dunkel", herkunft: "Punjab",
-      satz: "Gelbe Linsen, langsam gegart, mit Butter nach ayurvedischer Art. Auf Wunsch vegan." },
-    { nr: "109", bild: "karahi-paneer", farbe: "#0d5a60", ton: "hell", herkunft: "Nordindien",
-      satz: "Hausgemachter Käse, in der Karahi gebraten und in ihr serviert, in kräftiger Currysoße." },
-    { nr: "92", bild: "jheenga-curry", farbe: "#2c6b45", ton: "hell", herkunft: "Westküste",
-      satz: "Riesengarnelen ohne Schale in Currysoße mit feinen Gewürzen, wie an der Küste bei Bombay." },
     { nr: "57", bild: "butter-chicken", farbe: "#d42f73", ton: "hell", herkunft: "Delhi",
       satz: "Zartes Huhn in einer samtigen Soße aus Butter und Tomate. In Delhi erfunden, heute das bekannteste Curry Nordindiens." },
+    { nr: "109", bild: "karahi-paneer", farbe: "#0d5a60", ton: "hell", herkunft: "Nordindien",
+      satz: "Hausgemachter Käse, in der Karahi gebraten und in ihr serviert, in kräftiger Currysoße." },
+    { nr: "108", bild: "dal-makhni", farbe: "#ff8a1c", ton: "dunkel", herkunft: "Punjab",
+      satz: "Gelbe Linsen, langsam gegart, mit Butter nach ayurvedischer Art. Auf Wunsch vegan." },
+    { nr: "92", bild: "jheenga-curry", farbe: "#2c6b45", ton: "hell", herkunft: "Westküste",
+      satz: "Riesengarnelen ohne Schale in Currysoße mit feinen Gewürzen, wie an der Küste bei Bombay." },
   ].map((g) => Object.assign(g, B.speisen.get(g.nr)));
 
   const buehne = $("[data-buehne]");

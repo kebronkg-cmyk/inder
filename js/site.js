@@ -112,8 +112,8 @@
   function kopfScroll() {
     if (!kopf) return;
     const y = window.scrollY;
-    if (Date.now() < sprungBis) { kopf.classList.toggle("is-fest", y > 40 && !kopf.dataset.buehne); letzte = y; return; }
-    kopf.classList.toggle("is-fest", y > 40 && !kopf.dataset.buehne);
+    if (Date.now() < sprungBis) { kopf.classList.toggle("is-fest", y > 8 && !kopf.dataset.buehne); letzte = y; return; }
+    kopf.classList.toggle("is-fest", y > 8 && !kopf.dataset.buehne);
     kopf.classList.toggle("is-weg", y > 600 && y > letzte + 2 && !kopf.classList.contains("is-menu"));
     if (y < letzte - 2) kopf.classList.remove("is-weg");
     // Schwebende Knöpfe (Gänge, Bestellzettel) weichen beim Lesen nach unten aus
