@@ -31,16 +31,17 @@
     "nachspeisen": "Nachspeisen", "getraenke": "Getränke", "wein": "Wein",
   };
   const SCHALE = {
-    "huehnerfleisch-spezialitaeten": "butter-chicken",
-    "vegetarische-spezialitaeten": "karahi-paneer",
-    "fisch-spezialitaeten": "jheenga-curry",
+    "huehnerfleisch-spezialitaeten": "mango-chicken-400",
+    "lamm-spezialitaeten": "rogan-josh-400",
+    "vegetarische-spezialitaeten": "karahi-paneer-640",
+    "fisch-spezialitaeten": "fisch-chili-400",
   };
   const HAUPT = new Set(GRUPPEN[1].ids);
   const DAZU = ["tandoori-brot", "beilagen", "reis-spezialitaeten"];
   const SCHNELL = [
-    ["Curry mit Hähnchen", "huehnerfleisch-spezialitaeten"], ["Etwas Vegetarisches", "vegetarische-spezialitaeten"],
-    ["Aus dem Tandoor", "tandoori-khajana"], ["Fisch & Garnelen", "fisch-spezialitaeten"], ["Biryani", "reis-spezialitaeten"],
-    ["Naan dazu", "tandoori-brot"], ["Etwas Süßes", "nachspeisen"],
+    ["Curry mit Hähnchen", "huehnerfleisch-spezialitaeten", "butter-chicken-640"], ["Etwas Vegetarisches", "vegetarische-spezialitaeten", "karahi-paneer-640"],
+    ["Fisch & Garnelen", "fisch-spezialitaeten", "jheenga-curry-640"], ["Lamm", "lamm-spezialitaeten", "rogan-josh-400"],
+    ["Aus dem Tandoor", "tandoori-khajana"], ["Biryani", "reis-spezialitaeten"], ["Naan dazu", "tandoori-brot"], ["Etwas Süßes", "nachspeisen"],
   ];
 
   let filter = {};   // bewusst nicht gespeichert: die Karte beginnt immer kompakt
@@ -88,7 +89,7 @@
             <span class="gang-titel">${esc(NAME[g.id] || g.titel)}</span>
             <span class="gang-proben">${esc(proben)}</span>
             <span class="gang-meta"><span>${ps.length} ${ps.length === 1 ? "Gericht" : g.id === "getraenke" || g.id === "wein" ? "Sorten" : "Gerichte"}</span>${ab ? `<span>ab ${euro(ab)}</span>` : ""}</span>
-            ${SCHALE[g.id] ? `<img class="gang-schale" src="img/gerichte/${SCHALE[g.id]}-640.webp" alt="" width="640" height="600" loading="lazy" decoding="async">` : ""}
+            ${SCHALE[g.id] ? `<img class="gang-schale" src="img/gerichte/${SCHALE[g.id]}.webp" alt="" width="400" height="400" loading="lazy" decoding="async">` : ""}
             <span class="gang-zeichen" aria-hidden="true"><i></i><i></i></span>
           </button>
         </h3>
@@ -189,7 +190,7 @@
   });
 
   // Schnellwahl
-  schnell.innerHTML = SCHNELL.map(([t, id]) => `<button type="button" class="schnell-chip" data-oeffne="${id}">${esc(t)}</button>`).join("");
+  schnell.innerHTML = SCHNELL.map(([t, id, bild]) => `<button type="button" class="schnell-chip${bild ? " schnell-chip--bild" : ""}" data-oeffne="${id}">${bild ? `<img src="img/gerichte/${bild}.webp" alt="" width="64" height="64" decoding="async">` : ""}<span>${esc(t)}</span></button>`).join("");
   schnell.addEventListener("click", (e) => {
     const b = e.target.closest("[data-oeffne]");
     if (!b) return;
@@ -226,6 +227,14 @@
   zeichnen();
   if (offen) setTimeout(() => B.scrollZu($(`#${CSS.escape(offen)}`, liste)), 150);
 
+  // Die große Schale im Kopf dreht sich langsam mit dem Scrollen
+  const kopfSchale = $("[data-karte-schale]");
+  if (kopfSchale && !ruhig) {
+    let wartet = false;
+    const drehe = () => { wartet = false; const y = Math.min(window.scrollY, 900); kopfSchale.style.transform = `rotate(${(-y * 0.06).toFixed(2)}deg) translateY(${(y * 0.12).toFixed(1)}px)`; };
+    window.addEventListener("scroll", () => { if (!wartet) { wartet = true; requestAnimationFrame(drehe); } }, { passive: true });
+    kopfSchale.animate([{ transform: "rotate(28deg) scale(.9)", opacity: 0 }, { transform: "none", opacity: 1 }], { duration: 1400, easing: "cubic-bezier(.16,1,.3,1)" });
+  }
   // Titel steigt beim Öffnen sanft auf
   const titel = $("[data-titel]");
   if (!ruhig && titel.animate) {

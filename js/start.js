@@ -66,8 +66,9 @@
   function lichtSetzen(sofort) {
     const t = tabs[akt];
     licht.style.transition = sofort ? "none" : "";
-    licht.style.width = t.offsetWidth + "px";
-    licht.style.transform = `translateX(${t.offsetLeft}px)`;
+    const b = Math.min(36, t.offsetWidth * 0.6);
+    licht.style.width = b + "px";
+    licht.style.transform = `translateX(${t.offsetLeft + (t.offsetWidth - b) / 2}px)`;
     if (sofort) { licht.offsetWidth; licht.style.transition = ""; }
   }
   function tonSetzen(g) {
@@ -250,6 +251,39 @@
     }
   }
 
+  /* ── Stimmen: seitlich verschieben, mit Pfeilen oder mit der Maus ziehen ── */
+  const band = $("[data-stimmen]");
+  if (band) {
+    const pfeile = $$("[data-stimmen-schritt]");
+    const karteBreite = () => { const k = $(".stimme", band); return k ? k.getBoundingClientRect().width + parseFloat(getComputedStyle(band).columnGap || 20) : 320; };
+    const stand = () => {
+      const max = band.scrollWidth - band.clientWidth - 2;
+      pfeile.forEach((b) => (b.disabled = +b.dataset.stimmenSchritt < 0 ? band.scrollLeft <= 2 : band.scrollLeft >= max));
+    };
+    pfeile.forEach((b) => b.addEventListener("click", () => band.scrollBy({ left: +b.dataset.stimmenSchritt * karteBreite(), behavior: ruhig ? "auto" : "smooth" })));
+    band.addEventListener("scroll", stand, { passive: true });
+    window.addEventListener("resize", stand);
+    stand();
+    // Ziehen mit der Maus (Finger scrollen ohnehin nativ)
+    let zug = null;
+    band.addEventListener("pointerdown", (e) => {
+      if (e.pointerType !== "mouse" || e.target.closest("a, button")) return;
+      zug = { x: e.clientX, l: band.scrollLeft, bewegt: false };
+    });
+    window.addEventListener("pointermove", (e) => {
+      if (!zug) return;
+      const dx = e.clientX - zug.x;
+      if (!zug.bewegt && Math.abs(dx) > 4) { zug.bewegt = true; band.classList.add("is-zieht"); }
+      if (zug.bewegt) band.scrollLeft = zug.l - dx;
+    });
+    window.addEventListener("pointerup", () => {
+      if (!zug) return;
+      const war = zug.bewegt; zug = null;
+      band.classList.remove("is-zieht");
+      if (war) { const k = karteBreite(); band.scrollTo({ left: Math.round(band.scrollLeft / k) * k, behavior: "smooth" }); }
+    });
+  }
+
   /* ── Auftritt beim Laden ── */
   if (gsap && !ruhig) {
     const titelZeilen = B.zeilen($("[data-intro-titel]"));
@@ -278,6 +312,10 @@
   const ofenBild = $("[data-ofen-bild] img");
   if (ofenBild) gsap.fromTo(ofenBild, { scale: 1.14, rotation: -7 }, { scale: 1, rotation: 0, ease: "none", scrollTrigger: { trigger: "[data-ofen-bild]", start: "top bottom", end: "bottom 40%", scrub: 1 } });
 
+  // Die Schale am Rand dreht sich beim Vorbeiscrollen ein Stück
+  const randSchale = $("[data-rand-schale]");
+  if (randSchale) gsap.fromTo(randSchale, { rotation: 40, xPercent: 18 }, { rotation: -25, xPercent: 0, ease: "none", scrollTrigger: { trigger: randSchale.parentElement, start: "top bottom", end: "bottom top", scrub: 1 } });
+
   // Verzierungen zeichnen sich, wenn sie ins Bild kommen
   $$("[data-zeichnen]").forEach((svg) => {
     const pfade = $$("path:not(.punkte), circle:not(.punkte), line", svg);
@@ -285,21 +323,56 @@
     gsap.to(pfade, { strokeDashoffset: 0, duration: 2.2, stagger: 0.04, ease: "power2.inOut", scrollTrigger: { trigger: svg, start: "top 85%" } });
   });
 
-  /* ── Laternen: hängen still und schwingen, wenn gescrollt wird ──
-     Ein gedämpftes Pendel je Laterne; lange Schnüre schwingen langsamer. */
+  /* ── Laternen: echte, freigestellte Laternen aus dem Gastraum ──
+     Jede hängt als gedämpftes Pendel (lange Schnüre schwingen langsamer).
+     Scrollen, ein vorbeistreifender Zeiger oder ein Tipp stoßen sie an.
+     Um jede streuen kleine Lichtpunkte, wie durch das durchbrochene Metall. */
   const laternen = $$("[data-laterne]");
   if (laternen.length) {
-    const pendel = laternen.map((el) => ({ el, w: 0, v: 0, k: 24 / (+el.dataset.laenge || 160) }));
-    let letzteY = window.scrollY, sicht = false;
-    ST.create({ trigger: "[data-laternen]", start: "top bottom", end: "bottom top", onToggle: (s) => (sicht = s.isActive) });
+    const FARBEN = ["#ffd9a0", "#ffd9a0", "#ffe9c4", "#ff6b5a", "#5aa9ff", "#6fe0a0", "#ffd9a0"];
+    let zufall = 7;
+    const rnd = () => ((zufall = (zufall * 16807) % 2147483647) / 2147483647);
+    laternen.forEach((el) => {
+      const img = $("img", el);
+      for (let i = 0; i < 26; i++) {
+        const f = document.createElement("span");
+        f.className = "funke";
+        const w = rnd() * Math.PI * 2, r = 0.7 + rnd() * 1.6;
+        f.style.cssText = `--s:${(1.5 + rnd() * 2.5).toFixed(1)}px;--f:${FARBEN[(rnd() * FARBEN.length) | 0]};--o:${(0.18 + rnd() * 0.45).toFixed(2)};left:calc(50% + ${Math.cos(w).toFixed(3)} * ${r.toFixed(2)} * var(--b));top:calc(var(--l) + var(--b) * (.6 + ${(Math.sin(w) * r * 0.8).toFixed(3)}))`;
+        el.appendChild(f);
+      }
+      if (img) img.draggable = false;
+    });
+    const pendel = laternen.map((el) => ({ el, w: 0, v: 0, k: 24 / (+el.dataset.laenge + 80) }));
+    const stoss = (p, kraft) => { p.v += kraft; };
+    let letzteY = window.scrollY, sicht = false, px = null, pt = 0;
+    const band = $("[data-laternen]");
+    ST.create({ trigger: band, start: "top bottom", end: "bottom top", onToggle: (s) => (sicht = s.isActive) });
+    // Zeiger streift vorbei: Laternen unter dem Zeiger bekommen dessen Schwung
+    band.addEventListener("pointermove", (e) => {
+      const jetzt = performance.now();
+      if (px !== null) {
+        const vx = (e.clientX - px) / Math.max(8, jetzt - pt) * 16;
+        pendel.forEach((p) => {
+          const r = p.el.getBoundingClientRect();
+          if (e.clientX > r.left && e.clientX < r.right && e.clientY > r.top + r.height * 0.3 && e.clientY < r.bottom) stoss(p, vx * 0.05);
+        });
+      }
+      px = e.clientX; pt = jetzt;
+    });
+    band.addEventListener("pointerleave", () => (px = null));
+    laternen.forEach((el, i) => el.addEventListener("click", (e) => {
+      const r = el.getBoundingClientRect();
+      stoss(pendel[i], (e.clientX < r.left + r.width / 2 ? 1 : -1) * 2.4);
+    }));
     gsap.ticker.add((zeit, dt) => {
       const y = window.scrollY, dy = y - letzteY;
       letzteY = y;
       if (!sicht) return;
       const t = Math.min(dt, 40) / 16.7;
       pendel.forEach((p) => {
-        p.v += (-p.k * 0.06 * p.w - 0.06 * p.v + dy * 0.016) * t;
-        p.w = Math.max(-11, Math.min(11, p.w + p.v * t));
+        p.v += (-p.k * 0.06 * p.w - 0.035 * p.v + dy * 0.012) * t;
+        p.w = Math.max(-16, Math.min(16, p.w + p.v * t));
         p.el.style.transform = `rotate(${p.w.toFixed(2)}deg)`;
       });
     });

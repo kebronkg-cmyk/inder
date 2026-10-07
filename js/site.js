@@ -150,18 +150,30 @@
      Maske, damit sie einzeln aufsteigen können. */
   B.zeilen = function (el) {
     if (!el || el.dataset.zerlegt) return $$(".zeile > span", el);
-    const text = el.textContent.trim().split(/\s+/);
-    el.innerHTML = text.map((w) => `<span class="wort" style="display:inline-block">${esc(w)}</span>`).join(" ");
+    // Wörter samt Auszeichnung (z. B. <em class="akzent">) einsammeln
+    const woerterHTML = [];
+    const sammle = (knoten, huelle) => {
+      knoten.childNodes.forEach((n) => {
+        if (n.nodeType === 3) n.textContent.split(/\s+/).filter(Boolean).forEach((w) => woerterHTML.push(huelle ? huelle(esc(w)) : esc(w)));
+        else if (n.nodeType === 1) {
+          const tag = n.tagName.toLowerCase(), cls = n.className ? ` class="${n.className}"` : "";
+          sammle(n, (w) => `<${tag}${cls}>${huelle ? huelle(w) : w}</${tag}>`);
+        }
+      });
+    };
+    sammle(el);
+    const klartext = el.textContent.trim().replace(/\s+/g, " ");
+    el.innerHTML = woerterHTML.map((w) => `<span class="wort" style="display:inline-block">${w}</span>`).join(" ");
     const woerter = $$(".wort", el);
     const gruppen = [];
     let top = null;
     woerter.forEach((w) => {
       const t = Math.round(w.offsetTop);
       if (top === null || Math.abs(t - top) > 4) { gruppen.push([]); top = t; }
-      gruppen[gruppen.length - 1].push(w.textContent);
+      gruppen[gruppen.length - 1].push(w.innerHTML);
     });
-    el.innerHTML = gruppen.map((g) => `<span class="zeile"><span>${esc(g.join(" "))}</span></span>`).join("");
-    el.setAttribute("aria-label", text.join(" "));
+    el.innerHTML = gruppen.map((g) => `<span class="zeile"><span>${g.join(" ")}</span></span>`).join("");
+    el.setAttribute("aria-label", klartext);
     el.dataset.zerlegt = "1";
     return $$(".zeile > span", el);
   };
