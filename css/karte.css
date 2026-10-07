@@ -12,9 +12,9 @@
 
 /* Schnellwahl: der kürzeste Weg zum Wunsch */
 .schnell-zeile { grid-column: 1 / -1; margin-top: clamp(36px, 4.4vw, 64px); }
-.schnell-frage { font-family: var(--display); font-style: italic; font-size: clamp(1.5rem, 2.2vw, 2.1rem); font-weight: 360; letter-spacing: -0.02em; font-variation-settings: "SOFT" 40; }
+.schnell-frage { font-family: var(--display); font-style: italic; font-size: clamp(1.5rem, 2.2vw, 2.1rem); font-weight: 360; letter-spacing: -0.02em; font-variation-settings: "SOFT" 20; }
 .schnell { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-.schnell-chip { display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 1.25em; border-radius: 999px; background: var(--weiss); color: var(--tinte); box-shadow: inset 0 0 0 1px var(--linie); font-weight: 500; font-size: .98rem; transition: box-shadow .25s ease, background-color .25s ease, transform .2s var(--aus); }
+.schnell-chip { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 1.25em; border-radius: 999px; background: var(--weiss); color: var(--tinte); box-shadow: inset 0 0 0 1px var(--linie); font-weight: 500; font-size: .98rem; transition: box-shadow .25s ease, background-color .25s ease, transform .2s var(--aus); }
 .schnell-chip--bild { padding-left: 6px; }
 .schnell-chip img { width: 40px; height: 40px; object-fit: contain; filter: drop-shadow(0 3px 4px rgba(20, 12, 6, .22)); transition: transform .5s var(--aus); }
 .schnell-chip:active { transform: scale(.96); }
@@ -22,7 +22,7 @@
 
 .werkzeug { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; margin-top: 22px; }
 .suche { display: flex; align-items: center; gap: 10px; flex: 1 1 320px; max-width: 520px; min-height: 54px; padding: 0 20px; border-radius: 999px; background: var(--porzellan); transition: box-shadow .2s ease, background-color .2s ease; }
-.suche:focus-within { background: var(--weiss); box-shadow: 0 0 0 1.5px var(--tinte), 0 0 0 6px rgba(23,17,14,.06); }
+.suche:focus-within { background: var(--weiss); box-shadow: 0 0 0 1px var(--tinte), 0 0 0 6px rgba(23,17,14,.06); }
 .suche input { flex: 1; min-width: 0; min-height: 52px; border: 0; background: transparent; outline: none; font-size: 1.02rem; }
 .suche input::placeholder { color: var(--tinte-2); }
 .suche input::-webkit-search-cancel-button, .suche input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
@@ -46,7 +46,7 @@
 .gang { border-bottom: 1px solid var(--linie); scroll-margin-top: calc(var(--kopf) + 12px); }
 .gang-h { font: inherit; letter-spacing: 0; }
 .gang-knopf { position: relative; width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) auto auto; grid-template-areas: "titel meta zeichen" "proben meta zeichen"; gap: 2px 22px; align-items: center; padding: 20px 4px 20px 0; text-align: left; color: inherit; }
-.gang-titel { grid-area: titel; font-family: var(--display); font-size: clamp(1.6rem, 2.6vw, 2.4rem); font-weight: 380; letter-spacing: -0.025em; line-height: 1.1; font-variation-settings: "SOFT" 40; transition: transform .45s var(--aus); }
+.gang-titel { grid-area: titel; font-family: var(--display); font-size: clamp(1.6rem, 2.6vw, 2.4rem); font-weight: 380; letter-spacing: -0.025em; line-height: 1.1; font-variation-settings: "SOFT" 20; transition: transform .45s var(--aus); }
 .gang-proben { grid-area: proben; color: var(--tinte-2); font-size: .98rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; transition: opacity .3s ease; }
 .gang-meta { grid-area: meta; display: grid; justify-items: end; gap: 2px; font-size: .92rem; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .gang-meta span:last-child { color: var(--tinte-2); font-weight: 500; }
