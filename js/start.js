@@ -1,21 +1,23 @@
 /* ═══════════════════════════════════════════════════════════
    Startseite — die Bühne
-   Eine Scheibe trägt das erste Gericht. Beim Scrollen flutet sie
-   den Bildschirm; die Schale bleibt, die Welt wechselt die Farbe.
-   Jede Station rastet ein, damit man nie zwischen zwei Gerichten
-   hängen bleibt.
+   Vier Lieblingsgerichte auf einer vollen Farbfläche. Gewechselt wird
+   nur, wenn der Gast es will: Schälchen antippen, Pfeil, Schale zur
+   Seite ziehen oder Pfeiltasten. Die neue Farbe breitet sich von der
+   Stelle aus, an der getippt wurde; die Schale dreht sich dabei genau
+   einmal in Laufrichtung und steht dann still.
    ═══════════════════════════════════════════════════════════ */
 (function () {
   "use strict";
   const B = window.BOMBAY;
-  const { $, $$, ruhig, euro, esc, ico } = B.u;
+  const { $, $$, ruhig, euro, esc, ico, speicher } = B.u;
   const gsap = window.gsap, ST = window.ScrollTrigger;
+  if (ST) gsap.registerPlugin(ST);
 
   const GERICHTE = [
-    { nr: "109", bild: "karahi-paneer", farbe: "#0d5a60", ton: "hell", herkunft: "Nordindien",
-      satz: "Hausgemachter Käse, in der Karahi gebraten und in ihr serviert, in kräftiger Currysoße." },
     { nr: "108", bild: "dal-makhni", farbe: "#f3a11b", ton: "dunkel", herkunft: "Punjab",
       satz: "Gelbe Linsen, langsam gegart, mit Butter nach ayurvedischer Art. Auf Wunsch vegan." },
+    { nr: "109", bild: "karahi-paneer", farbe: "#0d5a60", ton: "hell", herkunft: "Nordindien",
+      satz: "Hausgemachter Käse, in der Karahi gebraten und in ihr serviert, in kräftiger Currysoße." },
     { nr: "92", bild: "jheenga-curry", farbe: "#2c6b45", ton: "hell", herkunft: "Westküste",
       satz: "Riesengarnelen ohne Schale in Currysoße mit feinen Gewürzen, wie an der Küste bei Bombay." },
     { nr: "57", bild: "butter-chicken", farbe: "#d42f73", ton: "hell", herkunft: "Delhi",
@@ -23,202 +25,280 @@
   ].map((g) => Object.assign(g, B.speisen.get(g.nr)));
 
   const buehne = $("[data-buehne]");
-  const flaeche = $(".buehne-flaeche", buehne);
-  const flut = $("[data-flut]");
-  const intro = $("[data-intro]");
-  const teller = $("[data-teller]");
-  const dreh = $("[data-teller-dreh]");
-  const schalen = $$(".schale", teller);
-  const gerichteEl = $("[data-gerichte]");
-  const leiste = $("[data-leiste]");
+  const feld = $("[data-feld]", buehne);
+  const tafel = $("[data-tafel]", buehne);
+  const rangoli = $("[data-rangoli]", buehne);
+  const schalen = $$(".schale", buehne);
+  const gerichtEl = $("[data-gericht]", buehne);
+  const waehler = $("[data-waehler]", buehne);
+  const hinweis = $("[data-hinweis]", buehne);
+  const themaFarbe = document.querySelector('meta[name="theme-color"]');
+  const fein = window.matchMedia("(pointer: fine)").matches;
 
-  /* ── Texte der Gerichte ── */
-  gerichteEl.innerHTML = GERICHTE.map((g, i) => `
-    <article class="gericht" data-i="${i}" data-ton="${g.ton}" aria-labelledby="g-${g.nr}">
-      <h2 class="gericht-name" id="g-${g.nr}">${esc(g.name)}</h2>
+  /* ── Wähler: vier Schälchen als Tabs ── */
+  waehler.innerHTML = GERICHTE.map((g, i) => `
+    <button type="button" class="waehler-tab" role="tab" id="tab-${g.nr}" aria-controls="gericht-text" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-i="${i}">
+      <img src="img/gerichte/${g.bild}-640.webp" alt="" width="640" height="600" decoding="async"><span>${esc(g.name)}</span>
+    </button>`).join("") + `<span class="waehler-licht" aria-hidden="true"></span>`;
+  const tabs = $$(".waehler-tab", waehler);
+  const licht = $(".waehler-licht", waehler);
+  gerichtEl.id = "gericht-text";
+  gerichtEl.setAttribute("role", "tabpanel");
+
+  function gerichtHTML(g) {
+    const n = B.zettel.menge(g.nr);
+    return `
+      <h2 class="gericht-name">${esc(g.name)}</h2>
       <p class="gericht-satz">${esc(g.satz)}</p>
       <div class="gericht-handeln">
         <span class="gericht-preis tab">${euro(g.preis)}</span>
-        <button type="button" class="pille pille--hell" data-dazu="${g.nr}" aria-pressed="false">${ico("plus")}<span>Auf den Bestellzettel</span></button>
+        <button type="button" class="pille pille--dazu" data-dazu="${g.nr}" aria-pressed="${n > 0}">${n ? `${ico("haken")}<span>Im Bestellzettel · ${n}</span>` : `${ico("plus")}<span>Auf den Bestellzettel</span>`}</button>
       </div>
-      <p class="gericht-herkunft"><span class="tab">Nr. ${g.nr}</span> · ${esc(g.herkunft)}</p>
-    </article>`).join("");
-  leiste.innerHTML = GERICHTE.map((g) => `<li>${esc(g.name)}</li>`).join("");
-  const artikel = $$(".gericht", gerichteEl);
-  const leisteLi = $$("li", leiste);
+      <p class="gericht-herkunft"><span class="tab">Nr. ${g.nr}</span> · ${esc(g.herkunft)}</p>`;
+  }
 
-  gerichteEl.addEventListener("click", (e) => {
+  let akt = 0;
+  let laeuft = null;          // laufende Wechsel-Animation
+  let gewechselt = false;     // hat der Gast schon selbst gewechselt?
+
+  function lichtSetzen(sofort) {
+    const t = tabs[akt];
+    licht.style.transition = sofort ? "none" : "";
+    licht.style.width = t.offsetWidth + "px";
+    licht.style.transform = `translateX(${t.offsetLeft}px)`;
+    if (sofort) { licht.offsetWidth; licht.style.transition = ""; }
+  }
+  function tonSetzen(g) {
+    buehne.dataset.ton = g.ton;
+    if (B.kopf) B.kopf.classList.toggle("is-hell", g.ton === "hell");
+    if (themaFarbe) themaFarbe.setAttribute("content", g.farbe);
+  }
+
+  // Erster Stand
+  gerichtEl.innerHTML = gerichtHTML(GERICHTE[0]);
+  schalen[0].classList.add("is-aktiv");
+  feld.style.background = GERICHTE[0].farbe;
+  tonSetzen(GERICHTE[0]);
+  requestAnimationFrame(() => lichtSetzen(true));
+  window.addEventListener("resize", () => lichtSetzen(true));
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => lichtSetzen(true));
+
+  // Bestellzettel aus der Bühne
+  gerichtEl.addEventListener("click", (e) => {
     const b = e.target.closest("[data-dazu]");
     if (b) B.zettel.dazu(b.dataset.dazu, null, b);
   });
-  function knopfStand() {
-    $$("[data-dazu]", gerichteEl).forEach((b) => {
-      const n = B.zettel.menge(b.dataset.dazu);
-      b.setAttribute("aria-pressed", String(n > 0));
-      b.innerHTML = n ? `${ico("haken")}<span>Im Bestellzettel · ${n}</span>` : `${ico("plus")}<span>Auf den Bestellzettel</span>`;
-      b.setAttribute("aria-label", n ? `${b.closest(".gericht").querySelector(".gericht-name").textContent} noch einmal hinzufügen, ${n} im Bestellzettel` : "");
-    });
-  }
-  document.addEventListener("zettel", knopfStand);
-  knopfStand();
-
-  /* Ohne Bewegung: alles ruhig untereinander */
-  if (ruhig || !gsap || !ST) {
-    buehne.classList.add("ohne-bewegung");
-    $$("[data-ofen-bild] img, [data-raum-fenster] img").forEach((i) => (i.style.transform = "none"));
-    return;
-  }
-  gsap.registerPlugin(ST);
-
-  /* ── Geometrie, je nach Bildschirm ── */
-  function geo() {
-    const W = flaeche.clientWidth, H = flaeche.clientHeight, schmal = W < 861;
-    let g;
-    if (schmal) {
-      // Die Schale füllt genau den Raum zwischen Kopfzeile und dem höchsten Gerichtstext
-      const oben = B.kopf ? B.kopf.offsetHeight : 64;
-      const unten = Math.min(...artikel.map((a) => a.offsetTop)) || H * 0.62;
-      const T = Math.max(160, Math.min(W * 0.96, (unten - oben) * 0.94));
-      g = { cx: W * 0.66, cy: H * 0.3, r: Math.min(W * 0.44, H * 0.23), sx: W * 0.5, sy: (oben + unten) / 2, T };
-    } else {
-      // Die Scheibe läuft rechts aus dem Bild
-      g = { cx: W * 0.765, cy: H * 0.53, r: Math.min(H * 0.43, W * 0.29), sx: W * 0.7, sy: H * 0.5, T: Math.min(H * 0.8, W * 0.45) };
-    }
-    g.T0 = g.r * 2 * (schmal ? 0.94 : 0.84);
-    g.R = Math.hypot(Math.max(g.cx, W - g.cx), Math.max(g.cy, H - g.cy)) + 20;
-    g.W = W; g.H = H;
-    return g;
-  }
-  let G = geo();
-  const kreis = (r) => `circle(${r}px at ${G.cx}px ${G.cy}px)`;
-
-  function legen() {
-    G = geo();
-    gsap.set(teller, { width: G.T, xPercent: -50, yPercent: -50 });
-  }
-  legen();
-
-  /* ── Auftritt beim Laden ── */
-  const titelZeilen = B.zeilen($("[data-intro-titel]"));
-  const introRest = [$(".intro-unter", intro), $(".intro-handeln", intro), $(".intro-status", intro)];
-  gsap.set(flut, { clipPath: kreis(G.r) });
-  gsap.set(teller, { x: G.cx, y: G.cy, scale: G.T0 / G.T });
-  const auftritt = gsap.timeline({ defaults: { ease: "expo.out" } });
-  auftritt
-    .from(flut, { scale: 0, transformOrigin: () => `${G.cx}px ${G.cy}px`, duration: 1.5 }, 0)
-    .from(dreh, { rotation: -140, scale: 0.55, autoAlpha: 0, duration: 1.9 }, 0.12)
-    .from(titelZeilen, { yPercent: 108, duration: 1.2, stagger: 0.09 }, 0.2)
-    .from(introRest, { y: 24, autoAlpha: 0, duration: 1, stagger: 0.08 }, 0.55);
-  // Die Schale dreht sich langsam weiter, wie auf einer Drehplatte
-  gsap.to(dreh, { rotation: "+=360", duration: 160, ease: "none", repeat: -1, delay: 2 });
-
-  // Feine Mausparallaxe: die Schale folgt dem Zeiger ein wenig
-  if (window.matchMedia("(pointer: fine)").matches) {
-    const qx = gsap.quickTo(dreh, "x", { duration: 1.2, ease: "power3.out" });
-    const qy = gsap.quickTo(dreh, "y", { duration: 1.2, ease: "power3.out" });
-    flaeche.addEventListener("pointermove", (e) => {
-      const r = flaeche.getBoundingClientRect();
-      qx(((e.clientX - r.left) / r.width - 0.5) * 26);
-      qy(((e.clientY - r.top) / r.height - 0.5) * 20);
-    });
-  }
-
-  /* ── Die Bühne beim Scrollen ── */
-  const zeilenJe = artikel.map((a) => B.zeilen($(".gericht-name", a)));
-  const restJe = artikel.map((a) => [$(".gericht-satz", a), $(".gericht-handeln", a), $(".gericht-herkunft", a)]);
-  gsap.set(artikel, { autoAlpha: 0 });
-  gsap.set(schalen.slice(1), { autoAlpha: 0 });
-
-  const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
-  tl.addLabel("start", 0);
-
-  // 1 · Flut: die Scheibe füllt den Bildschirm, das Intro tritt ab
-  tl.to(flut, { clipPath: () => kreis(G.R), duration: 1, ease: "power2.in" }, 0)
-    .to(intro, { y: -70, autoAlpha: 0, duration: 0.5, ease: "power2.in" }, 0)
-    .to(teller, { x: () => G.sx, y: () => G.sy, scale: 1, duration: 1, ease: "power3.inOut" }, 0)
-    .set(artikel[0], { autoAlpha: 1 }, 0.55)
-    .from(zeilenJe[0], { yPercent: 110, duration: 0.5, stagger: 0.05, ease: "power3.out" }, 0.55)
-    .from(restJe[0], { y: 30, autoAlpha: 0, duration: 0.45, stagger: 0.05, ease: "power3.out" }, 0.65)
-    .fromTo(leiste, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.4 }, 0.7)
-    .addLabel("g0", 1.2);
-
-  // 2 · Wechsel von Gericht zu Gericht
-  let t = 1.2;
-  for (let i = 0; i < GERICHTE.length - 1; i++) {
-    const a = i, b = i + 1, s = t + 0.5;
-    tl.to(flut, { backgroundColor: GERICHTE[b].farbe, duration: 1, ease: "power1.inOut" }, s)
-      .to(schalen[a], { rotation: 55, scale: 0.55, autoAlpha: 0, duration: 0.6, ease: "power2.in" }, s)
-      .fromTo(schalen[b], { rotation: -75, scale: 1.3, autoAlpha: 0 }, { rotation: 0, scale: 1, autoAlpha: 1, duration: 0.75, ease: "power3.out" }, s + 0.35)
-      .to(zeilenJe[a], { yPercent: -110, duration: 0.4, stagger: 0.03, ease: "power2.in" }, s)
-      .to(restJe[a], { y: -24, autoAlpha: 0, duration: 0.35, stagger: 0.03, ease: "power2.in" }, s)
-      .set(artikel[a], { autoAlpha: 0 }, s + 0.45)
-      .set(artikel[b], { autoAlpha: 1 }, s + 0.45)
-      .from(zeilenJe[b], { yPercent: 110, duration: 0.55, stagger: 0.05, ease: "power3.out" }, s + 0.45)
-      .from(restJe[b], { y: 30, autoAlpha: 0, duration: 0.45, stagger: 0.05, ease: "power3.out" }, s + 0.55);
-    t = s + 1.1;
-    tl.addLabel("g" + b, t);
-  }
-  tl.to({}, { duration: 0.6 }); // kurzes Verweilen beim letzten Gericht
-
-  const labels = ["start", ...GERICHTE.map((_, i) => "g" + i)].map((l) => tl.labels[l] / tl.duration());
-  ST.create({
-    animation: tl,
-    trigger: buehne,
-    start: "top top",
-    end: () => "+=" + Math.round(G.H * 5.2),
-    pin: flaeche,
-    scrub: 0.9,
-    invalidateOnRefresh: true,
-    snap: { snapTo: labels, duration: { min: 0.35, max: 0.9 }, delay: 0.08, ease: "power2.inOut" },
-    onRefreshInit: legen,
-    onUpdate: (self) => buehnenStand(self.progress),
-    onToggle: (self) => {
-      if (self.isActive) B.kopf.dataset.buehne = "1";
-      else delete B.kopf.dataset.buehne;
-      buehnenStand(self.progress);
-      window.dispatchEvent(new Event("scroll"));
-    },
+  document.addEventListener("zettel", () => {
+    const b = $("[data-dazu]", gerichtEl);
+    if (!b) return;
+    const n = B.zettel.menge(b.dataset.dazu);
+    b.setAttribute("aria-pressed", String(n > 0));
+    b.innerHTML = n ? `${ico("haken")}<span>Im Bestellzettel · ${n}</span>` : `${ico("plus")}<span>Auf den Bestellzettel</span>`;
   });
 
-  // Welches Gericht ist gerade dran? Färbt Kopf und Leiste passend
-  function buehnenStand(p) {
-    const zeit = p * tl.duration();
-    const geflutet = zeit > 0.45;
-    let akt = 0;
-    GERICHTE.forEach((_, i) => { if (zeit >= tl.labels["g" + i] - 0.55) akt = i; });
-    const ton = geflutet ? GERICHTE[akt].ton : "weiss";
-    B.kopf.classList.toggle("is-hell", geflutet && ton === "hell" && !!B.kopf.dataset.buehne);
-    leiste.dataset.ton = ton === "dunkel" ? "dunkel" : "hell";
-    leisteLi.forEach((li, i) => {
-      li.classList.toggle("is-aktiv", i === akt);
-      const a = tl.labels["g" + i], von = i === 0 ? 0.6 : tl.labels["g" + (i - 1)];
-      li.style.setProperty("--f", Math.max(0, Math.min(1, (zeit - von) / (a - von))).toFixed(3));
-    });
-  }
-  buehnenStand(0);
+  /* ── Der Wechsel ──
+     von: Punkt im Fenster, von dem aus die Farbe wächst
+     richtung: +1 vorwärts, -1 zurück (bestimmt die Drehrichtung) */
+  function zeige(neu, von, richtung) {
+    neu = (neu + GERICHTE.length) % GERICHTE.length;
+    if (neu === akt) return;
+    if (laeuft) laeuft.progress(1).kill();
+    const alt = akt;
+    akt = neu;
+    const g = GERICHTE[neu];
+    richtung = richtung || (neu > alt ? 1 : -1);
+    if (!gewechselt) { gewechselt = true; hinweisWeg(); }
 
-  /* ── Überschriften Zeile für Zeile ── */
+    tabs.forEach((t, i) => { t.setAttribute("aria-selected", String(i === neu)); t.tabIndex = i === neu ? 0 : -1; });
+    lichtSetzen(false);
+
+    const altS = schalen[alt], neuS = schalen[neu];
+    const textNeu = () => { gerichtEl.innerHTML = gerichtHTML(g); };
+
+    if (ruhig || !gsap) {
+      altS.classList.remove("is-aktiv"); neuS.classList.add("is-aktiv");
+      feld.style.background = g.farbe; tonSetzen(g); textNeu();
+      return;
+    }
+
+    // Farbe wächst als Kreis vom Ausgangspunkt
+    const r = buehne.getBoundingClientRect();
+    const x = (von ? von.x : r.left + r.width / 2) - r.left;
+    const y = (von ? von.y : r.top + r.height / 2) - r.top;
+    const R = Math.hypot(Math.max(x, r.width - x), Math.max(y, r.height - y)) + 4;
+    const flut = document.createElement("div");
+    flut.className = "feld-neu";
+    flut.style.background = g.farbe;
+    feld.after(flut);
+
+    const alteZeilen = $$(".gericht-name, .gericht-satz, .gericht-handeln, .gericht-herkunft", gerichtEl);
+    neuS.classList.add("is-aktiv");
+    gsap.set(neuS, { autoAlpha: 0 });
+
+    laeuft = gsap.timeline({
+      defaults: { overwrite: "auto" },
+      onComplete: () => { feld.style.background = g.farbe; flut.remove(); altS.classList.remove("is-aktiv"); gsap.set(altS, { clearProps: "all" }); laeuft = null; },
+      onInterrupt: () => { feld.style.background = g.farbe; flut.remove(); altS.classList.remove("is-aktiv"); gsap.set(altS, { clearProps: "all" }); },
+    });
+    laeuft
+      .fromTo(flut, { clipPath: `circle(0px at ${x}px ${y}px)` }, { clipPath: `circle(${R}px at ${x}px ${y}px)`, duration: 0.85, ease: "power3.inOut" }, 0)
+      .call(() => tonSetzen(g), null, 0.32)
+      // die alte Schale dreht sich in Laufrichtung hinaus
+      .to(altS, { rotation: 70 * richtung, xPercent: -22 * richtung, scale: 0.78, autoAlpha: 0, duration: 0.5, ease: "power2.in" }, 0)
+      // die neue kommt von der anderen Seite und dreht sich an ihren Platz
+      .fromTo(neuS, { rotation: -80 * richtung, xPercent: 26 * richtung, scale: 0.82, autoAlpha: 0 },
+        { rotation: 0, xPercent: 0, scale: 1, autoAlpha: 1, duration: 0.95, ease: "expo.out" }, 0.3)
+      .to(rangoli, { rotation: `+=${45 * richtung}`, duration: 1.2, ease: "power3.inOut" }, 0)
+      .to(alteZeilen, { y: -14, autoAlpha: 0, duration: 0.26, stagger: 0.03, ease: "power2.in" }, 0)
+      .call(textNeu, null, 0.36)
+      .add(() => {
+        const z = $$(".gericht-name, .gericht-satz, .gericht-handeln, .gericht-herkunft", gerichtEl);
+        gsap.fromTo(z, { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.05, ease: "expo.out" });
+      }, 0.37);
+  }
+
+  const mitte = (el) => { const b = el.getBoundingClientRect(); return { x: b.left + b.width / 2, y: b.top + b.height / 2 }; };
+
+  waehler.addEventListener("click", (e) => {
+    const t = e.target.closest(".waehler-tab");
+    if (t) zeige(+t.dataset.i, mitte($("img", t)));
+  });
+  // Pfeiltasten im Wähler (Tabs nach WAI-ARIA)
+  waehler.addEventListener("keydown", (e) => {
+    const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+    if (e.key === "Home" || e.key === "End") { e.preventDefault(); const i = e.key === "Home" ? 0 : tabs.length - 1; zeige(i, mitte(tabs[i]), i > akt ? 1 : -1); tabs[i].focus(); return; }
+    if (!d) return;
+    e.preventDefault();
+    const i = (akt + d + tabs.length) % tabs.length;
+    zeige(i, mitte(tabs[i]), d);
+    tabs[i].focus();
+  });
+  $$("[data-schritt]", tafel).forEach((b) => b.addEventListener("click", () => {
+    const d = +b.dataset.schritt;
+    zeige(akt + d, mitte(b), d);
+  }));
+
+  /* ── Die Schale zur Seite ziehen ──
+     Sie folgt dem Finger mit Widerstand und dreht sich mit; ab einer
+     kleinen Strecke (oder mit Schwung) kommt das nächste Gericht. */
+  if (gsap && !ruhig) {
+    let start = null;
+    const drehZu = gsap.quickTo(rangoli, "rotation", { duration: 0.6, ease: "power3.out" });
+    let ringBasis = 0;
+    tafel.addEventListener("pointerdown", (e) => {
+      if (e.target.closest("button") || laeuft) return;
+      start = { x: e.clientX, y: e.clientY, t: performance.now(), id: e.pointerId, quer: null };
+      ringBasis = gsap.getProperty(rangoli, "rotation");
+    });
+    tafel.addEventListener("pointermove", (e) => {
+      if (!start || e.pointerId !== start.id) return;
+      const dx = e.clientX - start.x, dy = e.clientY - start.y;
+      if (start.quer === null && Math.hypot(dx, dy) > 8) {
+        start.quer = Math.abs(dx) > Math.abs(dy);
+        if (start.quer) { tafel.setPointerCapture(e.pointerId); tafel.classList.add("is-zieht"); }
+      }
+      if (!start.quer) return;
+      const s = schalen[akt];
+      gsap.set(s, { x: dx * 0.35, rotation: dx * 0.22 });
+      drehZu(ringBasis + dx * 0.1);
+    });
+    const los = (e) => {
+      if (!start || e.pointerId !== start.id) return;
+      const dx = e.clientX - start.x;
+      const v = dx / Math.max(1, performance.now() - start.t);
+      const quer = start.quer;
+      start = null;
+      tafel.classList.remove("is-zieht");
+      if (!quer) return;
+      const s = schalen[akt];
+      if (Math.abs(dx) > 70 || Math.abs(v) > 0.55) {
+        const d = dx < 0 ? 1 : -1;
+        gsap.set(s, { x: 0 });
+        zeige(akt + d, { x: e.clientX, y: e.clientY }, d);
+      } else {
+        gsap.to(s, { x: 0, rotation: 0, duration: 0.7, ease: "elastic.out(1, 0.55)" });
+        drehZu(ringBasis);
+      }
+    };
+    tafel.addEventListener("pointerup", los);
+    tafel.addEventListener("pointercancel", los);
+  }
+
+  /* ── Hinweis: einmal zeigen, wie es geht ── */
+  function hinweisWeg() {
+    if (!hinweis) return;
+    hinweis.classList.remove("is-da");
+    hinweis.classList.add("is-weg");
+    speicher.schreib("bombay-hinweis", 1);
+  }
+  if (hinweis) {
+    $("[data-hinweis-text]", hinweis).textContent = fein ? "Klicken Sie ein Gericht an" : "Antippen oder zur Seite wischen";
+    if (!speicher.lies("bombay-hinweis", 0)) {
+      setTimeout(() => {
+        if (gewechselt) return;
+        hinweis.classList.add("is-da");
+        // das nächste Schälchen nickt einmal kurz
+        if (gsap && !ruhig) gsap.fromTo($("img", tabs[1]), { y: 0 }, { y: -7, duration: 0.28, ease: "power2.out", yoyo: true, repeat: 3, delay: 0.6 });
+      }, ruhig ? 300 : 2200);
+    }
+  }
+
+  /* ── Auftritt beim Laden ── */
+  if (gsap && !ruhig) {
+    const titelZeilen = B.zeilen($("[data-intro-titel]"));
+    gsap.timeline({ defaults: { ease: "expo.out" } })
+      .from(rangoli, { scale: 0.6, rotation: -60, autoAlpha: 0, duration: 1.8 }, 0)
+      .from(schalen[0], { scale: 0.7, rotation: -50, autoAlpha: 0, duration: 1.5 }, 0.12)
+      .from(titelZeilen, { yPercent: 108, duration: 1.2, stagger: 0.09 }, 0.15)
+      .from([".intro-rest", gerichtEl, ".waehler-zeile"], { y: 26, autoAlpha: 0, duration: 1, stagger: 0.1 }, 0.5);
+  }
+
+  /* ── Alles unter der Bühne ── */
+  if (!gsap || !ST || ruhig) return;
+
+  // Überschriften Zeile für Zeile
   $$("[data-zeilen]").forEach((h) => {
     const z = B.zeilen(h);
     gsap.from(z, { yPercent: 108, duration: 1.2, stagger: 0.08, ease: "expo.out", scrollTrigger: { trigger: h, start: "top 86%" } });
   });
+  gsap.set("[data-auf]", { autoAlpha: 0 });
   ST.batch("[data-auf]", {
     start: "top 90%",
     onEnter: (els) => gsap.fromTo(els, { y: 28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1, stagger: 0.08, ease: "expo.out", overwrite: true }),
   });
-  gsap.set("[data-auf]", { autoAlpha: 0 });
 
-  /* ── Lehmofen: das Bild dreht sich leicht ins Licht ── */
+  // Lehmofen: das Bild dreht sich leicht ins Licht
   const ofenBild = $("[data-ofen-bild] img");
-  gsap.fromTo(ofenBild, { scale: 1.14, rotation: -7 }, { scale: 1, rotation: 0, ease: "none", scrollTrigger: { trigger: "[data-ofen-bild]", start: "top bottom", end: "bottom 40%", scrub: 1 } });
+  if (ofenBild) gsap.fromTo(ofenBild, { scale: 1.14, rotation: -7 }, { scale: 1, rotation: 0, ease: "none", scrollTrigger: { trigger: "[data-ofen-bild]", start: "top bottom", end: "bottom 40%", scrub: 1 } });
 
-  /* ── Raum: das Fenster öffnet sich ── */
-  const fenster = $("[data-raum-fenster]");
-  const rund = window.innerWidth > 860 ? 28 : 0;
-  gsap.fromTo(fenster, { clipPath: `inset(16% 12% 16% 12% round ${rund + 40}px)` }, { clipPath: `inset(0% 0% 0% 0% round ${rund}px)`, ease: "none", scrollTrigger: { trigger: fenster, start: "top 95%", end: "top 15%", scrub: 1 } });
-  gsap.fromTo($("img", fenster), { scale: 1.28, yPercent: -6 }, { scale: 1, yPercent: 4, ease: "none", scrollTrigger: { trigger: fenster, start: "top bottom", end: "bottom top", scrub: 1 } });
+  // Verzierungen zeichnen sich, wenn sie ins Bild kommen
+  $$("[data-zeichnen]").forEach((svg) => {
+    const pfade = $$("path:not(.punkte), circle:not(.punkte), line", svg);
+    pfade.forEach((p) => { const l = p.getTotalLength ? p.getTotalLength() : 200; p.style.strokeDasharray = l; p.style.strokeDashoffset = l; });
+    gsap.to(pfade, { strokeDashoffset: 0, duration: 2.2, stagger: 0.04, ease: "power2.inOut", scrollTrigger: { trigger: svg, start: "top 85%" } });
+  });
 
-  /* ── Gänge: das passende Gericht folgt dem Zeiger ── */
+  /* ── Laternen: hängen still und schwingen, wenn gescrollt wird ──
+     Ein gedämpftes Pendel je Laterne; lange Schnüre schwingen langsamer. */
+  const laternen = $$("[data-laterne]");
+  if (laternen.length) {
+    const pendel = laternen.map((el) => ({ el, w: 0, v: 0, k: 24 / (+el.dataset.laenge || 160) }));
+    let letzteY = window.scrollY, sicht = false;
+    ST.create({ trigger: "[data-laternen]", start: "top bottom", end: "bottom top", onToggle: (s) => (sicht = s.isActive) });
+    gsap.ticker.add((zeit, dt) => {
+      const y = window.scrollY, dy = y - letzteY;
+      letzteY = y;
+      if (!sicht) return;
+      const t = Math.min(dt, 40) / 16.7;
+      pendel.forEach((p) => {
+        p.v += (-p.k * 0.06 * p.w - 0.06 * p.v + dy * 0.016) * t;
+        p.w = Math.max(-11, Math.min(11, p.w + p.v * t));
+        p.el.style.transform = `rotate(${p.w.toFixed(2)}deg)`;
+      });
+    });
+  }
+
+  // Gänge: das passende Gericht folgt dem Zeiger
   const gangBild = $("[data-gang-bild]");
   const zurKarte = gangBild && gangBild.closest("section");
   if (gangBild && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
