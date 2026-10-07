@@ -132,7 +132,7 @@
     const y = (von ? von.y : r.top + r.height / 2) - r.top;
     const R = Math.hypot(Math.max(x, r.width - x), Math.max(y, r.height - y)) + 4;
     const flut = document.createElement("div");
-    flut.className = "feld-neu";
+    flut.className = "buehne-feld-neu";
     flut.style.background = g.farbe;
     feld.after(flut);
 
