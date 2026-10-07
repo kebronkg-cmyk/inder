@@ -35,13 +35,13 @@
   /* ── Texte der Gerichte ── */
   gerichteEl.innerHTML = GERICHTE.map((g, i) => `
     <article class="gericht" data-i="${i}" data-ton="${g.ton}" aria-labelledby="g-${g.nr}">
-      <p class="gericht-kopf"><span>${esc(g.herkunft)}</span><span class="tab">Nr. ${g.nr}</span></p>
       <h2 class="gericht-name" id="g-${g.nr}">${esc(g.name)}</h2>
       <p class="gericht-satz">${esc(g.satz)}</p>
       <div class="gericht-handeln">
         <span class="gericht-preis tab">${euro(g.preis)}</span>
         <button type="button" class="pille pille--hell" data-dazu="${g.nr}" aria-pressed="false">${ico("plus")}<span>Auf den Bestellzettel</span></button>
       </div>
+      <p class="gericht-herkunft"><span class="tab">Nr. ${g.nr}</span> · ${esc(g.herkunft)}</p>
     </article>`).join("");
   leiste.innerHTML = GERICHTE.map((g) => `<li>${esc(g.name)}</li>`).join("");
   const artikel = $$(".gericht", gerichteEl);
@@ -73,10 +73,18 @@
   /* ── Geometrie, je nach Bildschirm ── */
   function geo() {
     const W = flaeche.clientWidth, H = flaeche.clientHeight, schmal = W < 861;
-    const g = schmal
-      ? { cx: W * 0.66, cy: H * 0.3, r: Math.min(W * 0.44, H * 0.23), sx: W * 0.5, sy: H * 0.29, T: Math.min(W * 0.84, H * 0.4) }
-      : { cx: W * 0.735, cy: H * 0.53, r: Math.min(H * 0.39, W * 0.25), sx: W * 0.7, sy: H * 0.5, T: Math.min(H * 0.8, W * 0.45) };
-    g.T0 = g.r * 2 * (schmal ? 0.94 : 0.9);
+    let g;
+    if (schmal) {
+      // Die Schale füllt genau den Raum zwischen Kopfzeile und dem höchsten Gerichtstext
+      const oben = B.kopf ? B.kopf.offsetHeight : 64;
+      const unten = Math.min(...artikel.map((a) => a.offsetTop)) || H * 0.62;
+      const T = Math.max(160, Math.min(W * 0.96, (unten - oben) * 0.94));
+      g = { cx: W * 0.66, cy: H * 0.3, r: Math.min(W * 0.44, H * 0.23), sx: W * 0.5, sy: (oben + unten) / 2, T };
+    } else {
+      // Die Scheibe läuft rechts aus dem Bild
+      g = { cx: W * 0.765, cy: H * 0.53, r: Math.min(H * 0.43, W * 0.29), sx: W * 0.7, sy: H * 0.5, T: Math.min(H * 0.8, W * 0.45) };
+    }
+    g.T0 = g.r * 2 * (schmal ? 0.94 : 0.84);
     g.R = Math.hypot(Math.max(g.cx, W - g.cx), Math.max(g.cy, H - g.cy)) + 20;
     g.W = W; g.H = H;
     return g;
@@ -92,7 +100,7 @@
 
   /* ── Auftritt beim Laden ── */
   const titelZeilen = B.zeilen($("[data-intro-titel]"));
-  const introRest = [$(".intro-status", intro), $(".intro-unter", intro), $(".intro-handeln", intro)];
+  const introRest = [$(".intro-unter", intro), $(".intro-handeln", intro), $(".intro-status", intro)];
   gsap.set(flut, { clipPath: kreis(G.r) });
   gsap.set(teller, { x: G.cx, y: G.cy, scale: G.T0 / G.T });
   const auftritt = gsap.timeline({ defaults: { ease: "expo.out" } });
@@ -117,7 +125,7 @@
 
   /* ── Die Bühne beim Scrollen ── */
   const zeilenJe = artikel.map((a) => B.zeilen($(".gericht-name", a)));
-  const restJe = artikel.map((a) => [$(".gericht-kopf", a), $(".gericht-satz", a), $(".gericht-handeln", a)]);
+  const restJe = artikel.map((a) => [$(".gericht-satz", a), $(".gericht-handeln", a), $(".gericht-herkunft", a)]);
   gsap.set(artikel, { autoAlpha: 0 });
   gsap.set(schalen.slice(1), { autoAlpha: 0 });
 
@@ -206,7 +214,8 @@
 
   /* ── Raum: das Fenster öffnet sich ── */
   const fenster = $("[data-raum-fenster]");
-  gsap.fromTo(fenster, { clipPath: "inset(14% 9% 14% 9% round 32px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", ease: "none", scrollTrigger: { trigger: fenster, start: "top 95%", end: "top 15%", scrub: 1 } });
+  const rund = window.innerWidth > 860 ? 28 : 0;
+  gsap.fromTo(fenster, { clipPath: `inset(16% 12% 16% 12% round ${rund + 40}px)` }, { clipPath: `inset(0% 0% 0% 0% round ${rund}px)`, ease: "none", scrollTrigger: { trigger: fenster, start: "top 95%", end: "top 15%", scrub: 1 } });
   gsap.fromTo($("img", fenster), { scale: 1.28, yPercent: -6 }, { scale: 1, yPercent: 4, ease: "none", scrollTrigger: { trigger: fenster, start: "top bottom", end: "bottom top", scrub: 1 } });
 
   /* ── Gänge: das passende Gericht folgt dem Zeiger ── */

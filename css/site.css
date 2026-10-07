@@ -56,6 +56,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
 button { background: none; border: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 h1, h2, h3 { font-family: var(--display); font-weight: 500; letter-spacing: -0.02em; line-height: 0.98; text-wrap: balance; }
 p { text-wrap: pretty; }
+/* Bodoni hat eine Optik-Achse: groß gesetzt werden die Haarstriche sonst
+   unsichtbar („141“ als „1 1“). Eine feste, kräftigere Optik für alle Größen. */
+h1, h2, h3, blockquote, .posten-name, .karte-leer strong, .menu-flaeche a, .zettel-leer strong,
+.formular-titel, .summe b, .gericht-preis, .fakten dt, .gang-name, .res-frage, .res-tag b, .res-karte strong {
+  font-optical-sizing: none; font-variation-settings: "opsz" 28;
+}
+
 ::selection { background: var(--rani); color: #fff; }
 :focus-visible { outline: 2px solid var(--rani); outline-offset: 3px; border-radius: 4px; }
 .tab { font-variant-numeric: tabular-nums; }
@@ -134,8 +141,9 @@ p { text-wrap: pretty; }
 @media (max-width: 860px) {
   :root { --kopf: 64px; }
   .kopf-nav, .kopf-status { display: none; }
-  .kopf-menu { display: block; margin-left: auto; }
-  .kopf .pille { min-height: 40px; padding: 0 1em; font-size: .9rem; }
+  .kopf-menu { display: block; margin-left: 4px; }
+  .kopf-zeile { gap: 12px; }
+  .kopf .pille { margin-left: auto; min-height: 40px; padding: 0 1em; font-size: .9rem; }
   .marke { width: 100px; }
   .kopf.is-menu { background: var(--weiss); color: var(--tinte); }
   .kopf.is-menu .marke { color: var(--rani); }
@@ -167,12 +175,12 @@ p { text-wrap: pretty; }
 .schublade-panel {
   position: absolute; top: 10px; right: 10px; bottom: 10px; width: min(460px, calc(100% - 20px));
   display: grid; grid-template-rows: auto 1fr auto; background: var(--weiss); border-radius: 22px; overflow: hidden;
-  transform: translateX(calc(100% + 20px)); transition: transform .55s var(--schublade);
+  transform: translateX(calc(100% + 20px)); visibility: hidden; transition: transform .55s var(--schublade), visibility 0s linear .55s;
   box-shadow: 0 30px 80px -20px rgba(23, 17, 14, .45);
 }
 .schublade.is-offen { pointer-events: auto; }
 .schublade.is-offen .schublade-schleier { opacity: 1; }
-.schublade.is-offen .schublade-panel { transform: none; }
+.schublade.is-offen .schublade-panel { transform: none; visibility: visible; transition: transform .55s var(--schublade); }
 .schublade-kopf { display: flex; align-items: center; justify-content: space-between; padding: 22px 24px 14px; }
 .schublade-kopf h2 { font-size: 2rem; }
 .rund-zu { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--porzellan); transition: transform .18s var(--aus); }
@@ -226,7 +234,7 @@ p { text-wrap: pretty; }
 .fuss { background: var(--tinte); color: #fff; padding: clamp(64px, 9vw, 120px) 0 calc(36px + env(safe-area-inset-bottom)); }
 .fuss-raster { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; align-items: start; }
 .fuss-marke { width: min(320px, 70%); color: #fff; }
-.fuss h2 { font-family: var(--text); font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 12px; line-height: 1.2; }
+.fuss h2 { font-family: var(--text); font-size: 1rem; font-weight: 600; letter-spacing: 0; color: #fff; margin-bottom: 10px; line-height: 1.3; }
 .fuss p, .fuss li { color: rgba(255,255,255,.86); }
 .fuss ul { list-style: none; display: grid; gap: 6px; }
 .fuss a { text-decoration: none; }

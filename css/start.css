@@ -11,7 +11,7 @@
 .js .schale:not([data-schale="0"]) { opacity: 0; }
 
 .intro { position: absolute; left: var(--rand); top: 52%; transform: translateY(-50%); width: min(600px, 44vw); z-index: 2; }
-.intro-status { font-size: .95rem; color: var(--tinte-2); margin-bottom: 22px; }
+.intro-status { font-size: .95rem; color: var(--tinte-2); margin-top: 22px; }
 .intro-titel { font-size: clamp(3.2rem, 6.4vw, 7rem); font-weight: 500; letter-spacing: -0.03em; line-height: .95; }
 .intro-unter { margin-top: 26px; max-width: 42ch; font-size: 1.12rem; color: var(--tinte-2); }
 .intro-handeln { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
@@ -20,7 +20,7 @@
 .gericht { position: absolute; left: var(--rand); top: 50%; transform: translateY(-50%); width: min(620px, 46vw); color: #fff; pointer-events: auto; }
 .js .gericht { visibility: hidden; }
 .gericht[data-ton="dunkel"] { color: var(--tinte); }
-.gericht-kopf { display: flex; gap: 14px; align-items: baseline; font-size: .95rem; opacity: .85; margin-bottom: 18px; }
+.gericht-herkunft { margin-top: 18px; font-size: .95rem; opacity: .8; }
 .gericht-name { font-size: clamp(3.4rem, 8.2vw, 9.4rem); font-weight: 500; letter-spacing: -0.035em; line-height: .9; }
 .gericht-satz { margin-top: 24px; max-width: 40ch; font-size: 1.1rem; line-height: 1.55; opacity: .92; }
 .gericht-handeln { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 30px; }
@@ -38,10 +38,10 @@
 .leiste[data-ton="dunkel"] { color: var(--tinte); }
 
 /* ── Aus dem Lehmofen ── */
-.ofen { background: var(--porzellan); padding: clamp(90px, 12vw, 170px) 0; overflow: hidden; }
+.ofen { background: var(--weiss); padding: clamp(90px, 12vw, 170px) 0; overflow: hidden; }
 .ofen-raster { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(32px, 6vw, 100px); align-items: center; }
-.ofen-bild { position: relative; margin-left: calc(var(--rand) * -1); }
-.ofen-bild img { width: 100%; -webkit-mask-image: radial-gradient(closest-side, #000 76%, transparent); mask-image: radial-gradient(closest-side, #000 76%, transparent); }
+.ofen-bild { position: relative; aspect-ratio: 1; border-radius: 28px; overflow: hidden; isolation: isolate; }
+.ofen-bild img { width: 100%; height: 100%; object-fit: cover; }
 .ofen-text h2 { font-size: clamp(2.8rem, 5.6vw, 5.8rem); }
 .ofen-unter { margin-top: 22px; max-width: 46ch; font-size: 1.1rem; color: var(--tinte-2); }
 .fakten { margin-top: 40px; display: grid; }
@@ -67,10 +67,12 @@
 
 /* ── Besuch ── */
 .besuch { padding-bottom: clamp(90px, 11vw, 150px); }
-.raum { position: relative; }
-.raum-fenster { position: relative; height: min(82vh, 62vw); overflow: hidden; }
-.raum-fenster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
-.raum figcaption { margin-top: 14px; font-size: .9rem; color: var(--tinte-2); }
+.raum { position: relative; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 100px); align-items: end; }
+.raum-text { display: grid; gap: 18px; padding-bottom: 8px; }
+.raum-satz { font-family: var(--display); font-optical-sizing: none; font-variation-settings: "opsz" 28; font-size: clamp(1.9rem, 3.3vw, 3.2rem); line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; }
+.raum-klein { color: var(--tinte-2); }
+.raum-fenster { position: relative; aspect-ratio: 845 / 1012; max-height: 88vh; justify-self: end; width: 100%; border-radius: 28px; overflow: hidden; }
+.raum-fenster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; }
 .besuch-raster { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 100px); margin-top: clamp(56px, 7vw, 100px); align-items: start; }
 .besuch h2 { font-size: clamp(2.8rem, 5.4vw, 5.6rem); }
 .adresse { font-style: normal; font-size: 1.35rem; line-height: 1.45; margin-top: 22px; }
@@ -110,7 +112,7 @@
 .res-tag { flex: none; scroll-snap-align: start; display: grid; justify-items: center; align-content: center; gap: 2px; width: 70px; height: 84px; border-radius: 18px; padding: 0; }
 .res-tag b { font-family: var(--display); font-size: 1.6rem; font-weight: 500; line-height: 1; }
 .res-tag small { font-size: .74rem; font-weight: 500; opacity: .85; }
-.res-gruppe { font-size: .82rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+.res-gruppe { font-size: .95rem; font-weight: 600; color: rgba(255,255,255,.85); }
 .res .feld span { color: rgba(255,255,255,.85); }
 .res .feld input, .res .feld textarea { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.35); color: #fff; }
 .res .feld input::placeholder, .res .feld textarea::placeholder { color: rgba(255,255,255,.6); }
@@ -128,9 +130,9 @@
 /* ── Stimmen ── */
 .stimmen { padding: clamp(90px, 11vw, 150px) 0; }
 .stimmen-titel { font-family: var(--text); font-size: 1.05rem; font-weight: 600; letter-spacing: 0; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.sterne { color: var(--safran); letter-spacing: 2px; font-size: 1.2rem; }
-.sterne .halb { display: inline-block; width: .5em; overflow: hidden; vertical-align: bottom; }
-.zitate { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 56px); margin-top: 38px; }
+.sterne { display: inline-flex; gap: 2px; color: var(--safran); vertical-align: -0.12em; margin-right: .3em; }
+.sterne .ico { width: 1.05em; height: 1.05em; }
+.zitate { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(24px, 4vw, 56px); margin-top: 38px; }
 .zitate blockquote { font-family: var(--display); font-size: clamp(1.5rem, 2.3vw, 2.1rem); line-height: 1.25; letter-spacing: -0.015em; }
 
 /* ── Mobil ── */
@@ -138,7 +140,7 @@
   .flut { clip-path: circle(34vw at 72% 30%); }
   .teller { width: 64vw; }
   .intro { top: auto; bottom: calc(26px + env(safe-area-inset-bottom)); transform: none; width: auto; right: var(--rand); }
-  .intro-status { margin-bottom: 14px; }
+  .intro-status { margin-top: 16px; }
   .intro-titel { font-size: clamp(2.5rem, 10.5vw, 3.6rem); }
   .intro-unter { margin-top: 14px; font-size: 1rem; }
   .intro-handeln { margin-top: 22px; }
@@ -146,18 +148,20 @@
   .gericht { top: auto; bottom: calc(48px + env(safe-area-inset-bottom)); transform: none; width: auto; right: var(--rand); }
   .gericht-name { font-size: clamp(2.8rem, 13vw, 4.2rem); }
   .gericht-satz { margin-top: 12px; font-size: .98rem; }
-  .gericht-kopf { margin-bottom: 10px; }
+  .gericht-herkunft { margin-top: 12px; font-size: .88rem; }
   .gericht-handeln { margin-top: 18px; gap: 14px; }
   .gericht-preis { font-size: 1.8rem; }
   .leiste { gap: 6px; bottom: calc(22px + env(safe-area-inset-bottom)); }
   .leiste li { flex: 1; font-size: 0; padding-top: 0; height: 2px; }
   .ofen-raster, .besuch-raster, .res-raster { grid-template-columns: 1fr; }
-  .ofen-bild { margin: 0 calc(var(--rand) * -1); }
+  .ofen-bild { margin: 0 calc(var(--rand) * -1); border-radius: 0; }
   .fakten > div { grid-template-columns: 1fr; }
   .gaenge a { grid-template-columns: 1fr auto; }
   .gang-info { display: none; }
   .zitate { grid-template-columns: 1fr; }
-  .raum-fenster { height: 56svh; }
+  .raum { grid-template-columns: 1fr; gap: 22px; width: 100%; }
+  .raum-text { order: 2; padding-inline: var(--rand); }
+  .raum-fenster { order: 1; aspect-ratio: auto; height: 78svh; border-radius: 0; }
 }
 @media (max-width: 860px) and (max-height: 700px) {
   .intro-unter { display: none; }

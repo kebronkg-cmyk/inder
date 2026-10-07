@@ -86,10 +86,12 @@
     }
   }
   B.lenis = lenis;
+  let sprungBis = 0;
   const kopfH = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--kopf")) || 70;
   B.scrollZu = (ziel) => {
     const el = typeof ziel === "string" ? $(ziel) : ziel;
     if (!el) return;
+    sprungBis = Date.now() + 1600; // ein Sprung blendet Kopf und Knöpfe nicht aus
     if (lenis) lenis.scrollTo(el, { offset: -kopfH() + 1, duration: 1.2 });
     else el.scrollIntoView({ behavior: ruhig ? "auto" : "smooth" });
   };
@@ -110,11 +112,15 @@
   function kopfScroll() {
     if (!kopf) return;
     const y = window.scrollY;
+    if (Date.now() < sprungBis) { kopf.classList.toggle("is-fest", y > 40 && !kopf.dataset.buehne); letzte = y; return; }
     kopf.classList.toggle("is-fest", y > 40 && !kopf.dataset.buehne);
     kopf.classList.toggle("is-weg", y > 600 && y > letzte + 2 && !kopf.classList.contains("is-menu"));
     if (y < letzte - 2) kopf.classList.remove("is-weg");
+    // Schwebende Knöpfe (Gänge, Bestellzettel) weichen beim Lesen nach unten aus
+    document.body.classList.toggle("is-runter", kopf.classList.contains("is-weg"));
     letzte = y;
   }
+  document.addEventListener("zettel", () => document.body.classList.remove("is-runter"));
   window.addEventListener("scroll", kopfScroll, { passive: true });
   kopfScroll();
   B.kopf = kopf;

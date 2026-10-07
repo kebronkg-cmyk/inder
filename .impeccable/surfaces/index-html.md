@@ -19,6 +19,7 @@ THESIS: Ein Food-Magazin in Bewegung: jedes Lieblingsgericht bekommt seinen eige
 OWN-WORLD: Reines Weiß als Grund, satte Vollflächen in Pfauenblau, Safran, Rani-Pink und Kardamomgrün, Tinte für Text und Handlungen, Rani aus dem Logo als Markenfarbe. Bodoni Moda groß und ruhig, Hanken Grotesk für alles Lesbare. Freigestellte Schalen mit echtem Schattenwurf, runde Scheiben, Pillenknöpfe in Tinte.
 STORY: Appetit zuerst, dann die vier Lieblinge, dann Handwerk, Raum, Zeiten; jederzeit Bestellen oder Tisch.
 FIRST VIEWPORT: Links Titel in Bodoni, Heute-Status, Tinten-Pille „Bestellen“ und „Tisch reservieren“; rechts eine große pfauenblaue Scheibe angeschnitten, darauf das Butter Chicken. Beim Scrollen flutet die Scheibe den Bildschirm und wird die Bühne der Lieblinge.
+ANPASSUNG (Build): Auf der Scheibe liegt Karahi Paneer statt Butter Chicken. Grund: Das Butter-Chicken-Foto ist das einzige schräge 3/4-Foto mit angeschnittenem Rand; als erstes Bild bricht es das „die Schale bleibt“-Motiv. Butter Chicken steht deshalb als viertes Gericht am Ende der Folge. Der Heute-Status steht unter den Knöpfen statt als Zeile über dem Titel.
 FORM: Safran-Editorial, vom Nutzer gewählt (überstimmt Seed 7241da69, zugewiesen war Platz 7).
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
