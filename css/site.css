@@ -227,7 +227,8 @@ h1, h2, h3, blockquote, .posten-name, .karte-leer strong, .menu-flaeche a, .zett
 .summe b { font-family: var(--display); font-size: 1.7rem; font-weight: 500; font-variant-numeric: tabular-nums; }
 .hinweis { font-size: .82rem; color: var(--tinte-3); line-height: 1.45; }
 .knopf-reihe { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.pille--wa { background: #1f8a4c; color: #fff; }
+.pille--wa { background: #177a41; color: #fff; }
+.menge .ico, .stepper .ico { width: 18px; height: 18px; }
 @media (hover: hover) { .pille--wa:hover { background: #18713e; } }
 
 /* ═══════════ Fuß ═══════════ */

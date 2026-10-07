@@ -239,7 +239,7 @@
         <span class="zettel-preis">${euro(p.preis * v.menge)}</span>
         <span class="zettel-zeile2">
           ${p.speise ? `<span class="schaerfe-wahl" role="group" aria-label="Schärfe für ${esc(p.name)}">${B.SCHAERFE.map((s) => `<button type="button" data-z-scharf="${esc(k)}" data-s="${s}" aria-pressed="${v.scharf === s}">${s}</button>`).join("")}</span>` : "<span></span>"}
-          <span class="menge"><button type="button" data-z-minus="${esc(k)}" aria-label="Eins weniger">−</button><output>${v.menge}</output><button type="button" data-z-plus="${esc(k)}" aria-label="Eins mehr">+</button></span>
+          <span class="menge"><button type="button" data-z-minus="${esc(k)}" aria-label="Eins weniger">${ico("minus")}</button><output>${v.menge}</output><button type="button" data-z-plus="${esc(k)}" aria-label="Eins mehr">${ico("plus")}</button></span>
         </span></li>`;
     }).join("")}</ul>
     <form class="formular" data-zettel-form novalidate>

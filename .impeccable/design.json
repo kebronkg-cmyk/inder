@@ -1,0 +1,550 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T03:41:13+00:00",
+  "title": "Design System: Bombay Freising",
+  "extensions": {
+    "colorMeta": {
+      "weiss": {
+        "role": "neutral",
+        "displayName": "Reinweiß",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(25% 0.000 89.9)",
+          "oklch(35% 0.000 89.9)",
+          "oklch(45% 0.000 89.9)",
+          "oklch(55% 0.000 89.9)",
+          "oklch(68% 0.000 89.9)",
+          "oklch(82% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "porzellan": {
+        "role": "neutral",
+        "displayName": "Porzellan",
+        "canonical": "#f3f3f5",
+        "oklch": "oklch(96.5% 0.003 286.3)",
+        "tonalRamp": [
+          "oklch(15% 0.003 286.3)",
+          "oklch(25% 0.003 286.3)",
+          "oklch(35% 0.003 286.3)",
+          "oklch(45% 0.003 286.3)",
+          "oklch(55% 0.003 286.3)",
+          "oklch(68% 0.003 286.3)",
+          "oklch(82% 0.003 286.3)",
+          "oklch(95% 0.003 286.3)"
+        ]
+      },
+      "tinte": {
+        "role": "neutral",
+        "displayName": "Tinte",
+        "canonical": "#17110e",
+        "oklch": "oklch(18.4% 0.012 48.1)",
+        "tonalRamp": [
+          "oklch(15% 0.012 48.1)",
+          "oklch(25% 0.012 48.1)",
+          "oklch(35% 0.012 48.1)",
+          "oklch(45% 0.012 48.1)",
+          "oklch(55% 0.012 48.1)",
+          "oklch(68% 0.012 48.1)",
+          "oklch(82% 0.012 48.1)",
+          "oklch(95% 0.012 48.1)"
+        ]
+      },
+      "tinte-2": {
+        "role": "neutral",
+        "displayName": "Tinte 68 %",
+        "canonical": "rgba(23, 17, 14, 0.68)",
+        "tonalRamp": [
+          "oklch(15% 0.012 48.1)",
+          "oklch(25% 0.012 48.1)",
+          "oklch(35% 0.012 48.1)",
+          "oklch(45% 0.012 48.1)",
+          "oklch(55% 0.012 48.1)",
+          "oklch(68% 0.012 48.1)",
+          "oklch(82% 0.012 48.1)",
+          "oklch(95% 0.012 48.1)"
+        ]
+      },
+      "tinte-3": {
+        "role": "neutral",
+        "displayName": "Tinte 50 %",
+        "canonical": "rgba(23, 17, 14, 0.5)",
+        "tonalRamp": [
+          "oklch(15% 0.012 48.1)",
+          "oklch(25% 0.012 48.1)",
+          "oklch(35% 0.012 48.1)",
+          "oklch(45% 0.012 48.1)",
+          "oklch(55% 0.012 48.1)",
+          "oklch(68% 0.012 48.1)",
+          "oklch(82% 0.012 48.1)",
+          "oklch(95% 0.012 48.1)"
+        ]
+      },
+      "linie": {
+        "role": "neutral",
+        "displayName": "Linie",
+        "canonical": "rgba(23, 17, 14, 0.12)",
+        "tonalRamp": [
+          "oklch(15% 0.012 48.1)",
+          "oklch(25% 0.012 48.1)",
+          "oklch(35% 0.012 48.1)",
+          "oklch(45% 0.012 48.1)",
+          "oklch(55% 0.012 48.1)",
+          "oklch(68% 0.012 48.1)",
+          "oklch(82% 0.012 48.1)",
+          "oklch(95% 0.012 48.1)"
+        ]
+      },
+      "rani": {
+        "role": "primary",
+        "displayName": "Rani (Logo-Magenta)",
+        "canonical": "#c4145d",
+        "oklch": "oklch(53.4% 0.206 4.9)",
+        "tonalRamp": [
+          "oklch(15% 0.099 4.9)",
+          "oklch(25% 0.133 4.9)",
+          "oklch(35% 0.167 4.9)",
+          "oklch(45% 0.201 4.9)",
+          "oklch(55% 0.206 4.9)",
+          "oklch(68% 0.191 4.9)",
+          "oklch(82% 0.143 4.9)",
+          "oklch(95% 0.099 4.9)"
+        ],
+        "textOn": "weiss"
+      },
+      "pfau": {
+        "role": "secondary",
+        "displayName": "Pfauenblau",
+        "canonical": "#0d5a60",
+        "oklch": "oklch(42.8% 0.069 203.2)",
+        "tonalRamp": [
+          "oklch(15% 0.053 203.2)",
+          "oklch(25% 0.064 203.2)",
+          "oklch(35% 0.069 203.2)",
+          "oklch(45% 0.069 203.2)",
+          "oklch(55% 0.069 203.2)",
+          "oklch(68% 0.069 203.2)",
+          "oklch(82% 0.068 203.2)",
+          "oklch(95% 0.053 203.2)"
+        ],
+        "textOn": "weiss",
+        "dish": "Karahi Paneer (Scheibe und erste Fläche)"
+      },
+      "safran": {
+        "role": "secondary",
+        "displayName": "Safran",
+        "canonical": "#f3a11b",
+        "oklch": "oklch(77.2% 0.160 71.6)",
+        "tonalRamp": [
+          "oklch(15% 0.083 71.6)",
+          "oklch(25% 0.110 71.6)",
+          "oklch(35% 0.137 71.6)",
+          "oklch(45% 0.160 71.6)",
+          "oklch(55% 0.160 71.6)",
+          "oklch(68% 0.155 71.6)",
+          "oklch(82% 0.118 71.6)",
+          "oklch(95% 0.083 71.6)"
+        ],
+        "textOn": "tinte",
+        "dish": "Dal Makhni"
+      },
+      "kardamom": {
+        "role": "secondary",
+        "displayName": "Kardamomgrün",
+        "canonical": "#2c6b45",
+        "oklch": "oklch(47.6% 0.090 154.5)",
+        "tonalRamp": [
+          "oklch(15% 0.060 154.5)",
+          "oklch(25% 0.075 154.5)",
+          "oklch(35% 0.090 154.5)",
+          "oklch(45% 0.090 154.5)",
+          "oklch(55% 0.090 154.5)",
+          "oklch(68% 0.090 154.5)",
+          "oklch(82% 0.079 154.5)",
+          "oklch(95% 0.060 154.5)"
+        ],
+        "textOn": "weiss",
+        "dish": "Jheenga Curry"
+      },
+      "pink": {
+        "role": "secondary",
+        "displayName": "Rani-Pink",
+        "canonical": "#d42f73",
+        "oklch": "oklch(58.4% 0.205 1.5)",
+        "tonalRamp": [
+          "oklch(15% 0.098 1.5)",
+          "oklch(25% 0.132 1.5)",
+          "oklch(35% 0.167 1.5)",
+          "oklch(45% 0.201 1.5)",
+          "oklch(55% 0.205 1.5)",
+          "oklch(68% 0.190 1.5)",
+          "oklch(82% 0.143 1.5)",
+          "oklch(95% 0.098 1.5)"
+        ],
+        "textOn": "weiss",
+        "dish": "Butter Chicken"
+      },
+      "gruen-ok": {
+        "role": "status",
+        "displayName": "Offen-Grün",
+        "canonical": "#1f8a4c",
+        "oklch": "oklch(56.0% 0.134 152.5)",
+        "tonalRamp": [
+          "oklch(15% 0.075 152.5)",
+          "oklch(25% 0.097 152.5)",
+          "oklch(35% 0.119 152.5)",
+          "oklch(45% 0.134 152.5)",
+          "oklch(55% 0.134 152.5)",
+          "oklch(68% 0.134 152.5)",
+          "oklch(82% 0.103 152.5)",
+          "oklch(95% 0.075 152.5)"
+        ]
+      },
+      "fehler": {
+        "role": "status",
+        "displayName": "Fehlerrot",
+        "canonical": "#b3123f",
+        "oklch": "oklch(49.4% 0.189 14.3)",
+        "tonalRamp": [
+          "oklch(15% 0.093 14.3)",
+          "oklch(25% 0.124 14.3)",
+          "oklch(35% 0.156 14.3)",
+          "oklch(45% 0.187 14.3)",
+          "oklch(55% 0.189 14.3)",
+          "oklch(68% 0.178 14.3)",
+          "oklch(82% 0.134 14.3)",
+          "oklch(95% 0.093 14.3)"
+        ]
+      },
+      "veg-grund": {
+        "role": "status",
+        "displayName": "Veg-Tönung",
+        "canonical": "#e6f2e9",
+        "oklch": "oklch(95.0% 0.017 153.6)",
+        "tonalRamp": [
+          "oklch(15% 0.017 153.6)",
+          "oklch(25% 0.017 153.6)",
+          "oklch(35% 0.017 153.6)",
+          "oklch(45% 0.017 153.6)",
+          "oklch(55% 0.017 153.6)",
+          "oklch(68% 0.017 153.6)",
+          "oklch(82% 0.017 153.6)",
+          "oklch(95% 0.017 153.6)"
+        ]
+      },
+      "veg-text": {
+        "role": "status",
+        "displayName": "Veg-Text",
+        "canonical": "#1f6b3a",
+        "oklch": "oklch(46.9% 0.108 151.4)",
+        "tonalRamp": [
+          "oklch(15% 0.066 151.4)",
+          "oklch(25% 0.084 151.4)",
+          "oklch(35% 0.102 151.4)",
+          "oklch(45% 0.108 151.4)",
+          "oklch(55% 0.108 151.4)",
+          "oklch(68% 0.108 151.4)",
+          "oklch(82% 0.089 151.4)",
+          "oklch(95% 0.066 151.4)"
+        ]
+      },
+      "scharf-grund": {
+        "role": "status",
+        "displayName": "Scharf-Tönung",
+        "canonical": "#fde8e4",
+        "oklch": "oklch(94.7% 0.024 30.5)",
+        "tonalRamp": [
+          "oklch(15% 0.024 30.5)",
+          "oklch(25% 0.024 30.5)",
+          "oklch(35% 0.024 30.5)",
+          "oklch(45% 0.024 30.5)",
+          "oklch(55% 0.024 30.5)",
+          "oklch(68% 0.024 30.5)",
+          "oklch(82% 0.024 30.5)",
+          "oklch(95% 0.024 30.5)"
+        ]
+      },
+      "scharf-text": {
+        "role": "status",
+        "displayName": "Scharf-Text",
+        "canonical": "#b3261b",
+        "oklch": "oklch(50.1% 0.179 29.4)",
+        "tonalRamp": [
+          "oklch(15% 0.090 29.4)",
+          "oklch(25% 0.119 29.4)",
+          "oklch(35% 0.149 29.4)",
+          "oklch(45% 0.179 29.4)",
+          "oklch(55% 0.179 29.4)",
+          "oklch(68% 0.170 29.4)",
+          "oklch(82% 0.128 29.4)",
+          "oklch(95% 0.090 29.4)"
+        ]
+      },
+      "wa-gruen": {
+        "role": "action",
+        "displayName": "WhatsApp-Grün",
+        "canonical": "#177a41",
+        "textOn": "weiss",
+        "note": "Nur die Pille „Per WhatsApp senden“; weißer Text 5,4:1."
+      }
+    },
+    "typographyMeta": {
+      "display-buehne": {
+        "displayName": "Display-Bühne",
+        "purpose": "Gerichtsnamen auf der Farbbühne; Titel der Speisekarte (clamp(3.6rem, 11vw, 10rem), -0.04em)."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Intro-Titel der Startseite und große Sektionsaussagen."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Sektionstitel (Lehmofen, Besuch, Reservieren), Rechtsseiten-H1."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Postennamen der Karte, Formulartitel."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Lauftext."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Unterzeilen unter Sektionstiteln, 40–54ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Feld-Labels, kleine Hinweise."
+      },
+      "knopf": {
+        "displayName": "Knopf",
+        "purpose": "Pillen-Beschriftung."
+      },
+      "opszRule": "Bodoni Moda immer mit font-optical-sizing: none; font-variation-settings: 'opsz' 28."
+    },
+    "shadows": [
+      {
+        "name": "schale-buehne",
+        "value": "drop-shadow(0 34px 34px rgba(10,30,32,.38)) drop-shadow(0 8px 10px rgba(10,30,32,.2))",
+        "purpose": "Freigestellte Schale auf der Farbfläche (filter)."
+      },
+      {
+        "name": "schale-klein",
+        "value": "drop-shadow(0 24px 30px rgba(23,17,14,.3))",
+        "purpose": "Schalen-Vorschau in der Gänge-Liste (filter); Gang-Kopf der Karte 0 18px 18px / .25."
+      },
+      {
+        "name": "schwebend",
+        "value": "0 18px 40px -14px rgba(23,17,14,.5)",
+        "purpose": "Schwebender Bestellzettel-Knopf."
+      },
+      {
+        "name": "schublade",
+        "value": "0 30px 80px -20px rgba(23,17,14,.45)",
+        "purpose": "Schublade über Schleier rgba(23,17,14,.38)."
+      },
+      {
+        "name": "gleiter",
+        "value": "0 2px 8px -2px rgba(23,17,14,.2)",
+        "purpose": "Weißer Gleiter im Segment."
+      },
+      {
+        "name": "kopf-fest",
+        "value": "0 1px 0 rgba(23,17,14,.12)",
+        "purpose": "Unterkante des festen Kopfs, mit backdrop-filter saturate(1.6) blur(14px)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "aus",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Antworten: Pillen, Pfeile, Gleiter, Kopf, Knopf-Einfahrt, Stepper."
+      },
+      {
+        "name": "schublade",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "Schublade (.55s) und Bodenblätter (.5s)."
+      },
+      {
+        "name": "zeilen-enthuellung",
+        "value": "yPercent 108 → 0, 1.2s, stagger .08, expo.out",
+        "purpose": "Überschriften mit data-zeilen steigen zeilenweise aus ihrer Maske."
+      },
+      {
+        "name": "auf",
+        "value": "y 28 → 0, autoAlpha, 1s, stagger .08, expo.out",
+        "purpose": "Einblenden von data-auf-Elementen."
+      },
+      {
+        "name": "buehne",
+        "value": "ScrollTrigger pin, 5.2 × Bildschirmhöhe, scrub .9, snap auf Gerichts-Labels",
+        "purpose": "Scheibe flutet per clip-path circle, Farbwechsel je Gericht, Schale dreht weg/herein."
+      },
+      {
+        "name": "lenis",
+        "value": "lerp .11",
+        "purpose": "Weiches Scrollen, nur feiner Zeiger und ohne reduzierte Bewegung."
+      },
+      {
+        "name": "ohne-bewegung",
+        "value": ".ohne-bewegung",
+        "purpose": "Bühne als ruhige Liste mit je einer Farbfläche pro Gericht; Übergänge 0.01ms."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "blatt",
+        "value": "600px"
+      },
+      {
+        "name": "schmal",
+        "value": "860px"
+      },
+      {
+        "name": "niedrig",
+        "value": "860px × 700px Höhe"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Pille voll",
+      "kind": "button",
+      "refersTo": "pille-voll",
+      "description": "Primäre Handlung auf Weiß: Bestellen, Route, Ganze Speisekarte.",
+      "html": "<button class=\"ds-pille ds-pille--voll\"><svg class=\"ds-ico\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg>Bestellen</button>",
+      "css": ".ds-pille{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:52px;padding:0 1.55em;border-radius:999px;font-family:var(--text,'Hanken Grotesk',sans-serif);font-weight:600;font-size:1rem;letter-spacing:.005em;white-space:nowrap;border:0;cursor:pointer;transition:transform .18s cubic-bezier(.23,1,.32,1),background-color .25s ease,color .25s ease}.ds-pille:active{transform:scale(.97)}.ds-pille:focus-visible{outline:2px solid #c4145d;outline-offset:3px}.ds-ico{width:1.1em;height:1.1em}.ds-pille--voll{background:#17110e;color:#fff}.ds-pille--voll:hover{background:#33261f}"
+    },
+    {
+      "name": "Pille Rand",
+      "kind": "button",
+      "refersTo": "pille-rand",
+      "description": "Zweite Handlung neben der vollen Pille (Tisch reservieren, Anrufen).",
+      "html": "<button class=\"ds-pille-rand\">Tisch reservieren</button>",
+      "css": ".ds-pille-rand{display:inline-flex;align-items:center;min-height:52px;padding:0 1.55em;border-radius:999px;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:1rem;background:transparent;color:#17110e;border:0;box-shadow:inset 0 0 0 1.5px currentColor;cursor:pointer;transition:transform .18s cubic-bezier(.23,1,.32,1),background-color .25s ease}.ds-pille-rand:hover{background:rgba(23,17,14,.06)}.ds-pille-rand:active{transform:scale(.97)}.ds-pille-rand:focus-visible{outline:2px solid #c4145d;outline-offset:3px}"
+    },
+    {
+      "name": "Pille hell auf Gerichtsfläche",
+      "kind": "button",
+      "refersTo": "pille-hell",
+      "description": "Auf den Bestellzettel, auf pfauenblauer, kardamomgrüner oder pinker Fläche.",
+      "html": "<div class=\"ds-flaeche\"><button class=\"ds-pille-hell\" aria-pressed=\"false\">Auf den Bestellzettel</button></div>",
+      "css": ".ds-flaeche{background:#0d5a60;color:#fff;padding:32px}.ds-pille-hell{min-height:52px;padding:0 1.55em;border-radius:999px;border:0;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:1rem;background:#fff;color:#17110e;cursor:pointer;transition:background-color .25s ease,transform .18s cubic-bezier(.23,1,.32,1)}.ds-pille-hell:hover{background:rgba(255,255,255,.88)}.ds-pille-hell:active{transform:scale(.97)}.ds-pille-hell[aria-pressed=true]{background:rgba(255,255,255,.18);color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}.ds-pille-hell:focus-visible{outline:2px solid #fff;outline-offset:3px}"
+    },
+    {
+      "name": "Feld",
+      "kind": "input",
+      "refersTo": "feld",
+      "description": "Formularfeld im Bestellzettel; Label darüber, Fokus mit Tinten-Halo.",
+      "html": "<label class=\"ds-feld\"><span>Name</span><input placeholder=\"Ihr Name\"></label>",
+      "css": ".ds-feld{display:grid;gap:5px;font-family:'Hanken Grotesk',sans-serif}.ds-feld span{font-size:.85rem;font-weight:600;color:rgba(23,17,14,.68)}.ds-feld input{min-height:50px;padding:.7em 1em;border-radius:14px;border:1px solid rgba(23,17,14,.12);background:#fff;font:inherit;color:#17110e;transition:border-color .2s ease,box-shadow .2s ease}.ds-feld input::placeholder{color:rgba(23,17,14,.5)}.ds-feld input:focus{outline:none;border-color:#17110e;box-shadow:0 0 0 4px rgba(23,17,14,.08)}"
+    },
+    {
+      "name": "Segment",
+      "kind": "custom",
+      "refersTo": "segment",
+      "description": "Abholen / Liefern: Porzellan-Mulde mit weißem Gleiter.",
+      "html": "<div class=\"ds-segment\" data-wert=\"abholen\"><span class=\"ds-gleiter\"></span><button aria-pressed=\"true\">Abholen</button><button aria-pressed=\"false\">Liefern</button></div>",
+      "css": ".ds-segment{display:grid;grid-template-columns:1fr 1fr;background:#f3f3f5;border-radius:999px;padding:4px;position:relative;font-family:'Hanken Grotesk',sans-serif;width:320px}.ds-segment button{position:relative;z-index:1;min-height:42px;border:0;background:none;border-radius:999px;font:inherit;font-weight:600;cursor:pointer}.ds-segment button:focus-visible{outline:2px solid #c4145d;outline-offset:3px}.ds-gleiter{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:#fff;box-shadow:0 2px 8px -2px rgba(23,17,14,.2);transition:transform .45s cubic-bezier(.23,1,.32,1)}.ds-segment:hover .ds-gleiter{transform:translateX(100%)}"
+    },
+    {
+      "name": "Filter-Chip",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "Filter der Speisekarte (Vegetarisch, Vegan).",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"false\">Vegetarisch</button> <button class=\"ds-chip\" aria-pressed=\"true\">Vegan</button>",
+      "css": ".ds-chip{min-height:44px;padding:0 1.1em;border-radius:999px;border:0;background:none;color:#17110e;box-shadow:inset 0 0 0 1.5px rgba(23,17,14,.12);font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:.95rem;cursor:pointer;transition:background-color .2s ease,color .2s ease,box-shadow .2s ease,transform .15s cubic-bezier(.23,1,.32,1)}.ds-chip:hover{box-shadow:inset 0 0 0 1.5px #17110e}.ds-chip:active{transform:scale(.96)}.ds-chip[aria-pressed=true]{background:#17110e;color:#fff;box-shadow:none}.ds-chip:focus-visible{outline:2px solid #c4145d;outline-offset:3px}"
+    },
+    {
+      "name": "Plus-Knopf",
+      "kind": "button",
+      "refersTo": "plus",
+      "description": "Gericht auf den Bestellzettel legen (Speisekarte).",
+      "html": "<button class=\"ds-plus\" aria-label=\"Hinzufügen\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M12 5v14M5 12h14\"/></svg></button>",
+      "css": ".ds-plus{width:44px;height:44px;border-radius:50%;border:0;display:grid;place-items:center;background:#17110e;color:#fff;cursor:pointer;transition:transform .2s cubic-bezier(.23,1,.32,1),background-color .2s ease}.ds-plus svg{width:20px;height:20px}.ds-plus:hover{background:#c4145d}.ds-plus:active{transform:scale(.9)}.ds-plus:focus-visible{outline:2px solid #c4145d;outline-offset:3px}"
+    },
+    {
+      "name": "Kopf",
+      "kind": "nav",
+      "refersTo": "kopf",
+      "description": "Fester Kopf im Zustand is-fest: Weiß mit Blur, Text-Pillen-Navigation, Status, Bestellen.",
+      "html": "<header class=\"ds-kopf\"><span class=\"ds-marke\">Bombay</span><nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Start</a><a href=\"#\">Speisekarte</a><a href=\"#\">Besuch</a></nav><span class=\"ds-status\"><i></i>Heute offen bis 22:00</span><a class=\"ds-kopf-pille\" href=\"#\">Bestellen</a></header>",
+      "css": ".ds-kopf{display:flex;align-items:center;gap:32px;height:76px;padding:0 32px;background:rgba(255,255,255,.86);backdrop-filter:saturate(1.6) blur(14px);box-shadow:0 1px 0 rgba(23,17,14,.12);font-family:'Hanken Grotesk',sans-serif;color:#17110e}.ds-marke{font-family:'Bodoni Moda',serif;font-variation-settings:'opsz' 28;color:#c4145d;font-size:1.6rem}.ds-nav{display:flex;gap:2px;margin-left:auto}.ds-nav a{padding:.5em .9em;border-radius:999px;font-size:.97rem;font-weight:500;color:inherit;text-decoration:none;transition:background-color .2s ease}.ds-nav a:hover{background:rgba(23,17,14,.06)}.ds-nav a[aria-current=page]{font-weight:700}.ds-nav a:focus-visible,.ds-kopf-pille:focus-visible{outline:2px solid #c4145d;outline-offset:3px}.ds-status{display:inline-flex;align-items:center;gap:.55em;font-size:.9rem;color:rgba(23,17,14,.68)}.ds-status i{width:8px;height:8px;border-radius:50%;background:#1f8a4c}.ds-kopf-pille{min-height:42px;padding:0 1.15em;display:inline-flex;align-items:center;border-radius:999px;background:#17110e;color:#fff;font-weight:600;font-size:.94rem;text-decoration:none}.ds-kopf-pille:hover{background:#33261f}"
+    },
+    {
+      "name": "Res-Chip auf Rani",
+      "kind": "chip",
+      "refersTo": "res-chip-aktiv",
+      "description": "Personenzahl und Uhrzeit im Reservier-Assistenten auf der Rani-Fläche.",
+      "html": "<div class=\"ds-rani\"><button class=\"ds-res\" aria-pressed=\"false\">2</button><button class=\"ds-res\" aria-pressed=\"true\">4</button><button class=\"ds-res\" disabled>6</button></div>",
+      "css": ".ds-rani{background:#c4145d;color:#fff;padding:28px;display:flex;gap:8px}.ds-res{min-width:56px;min-height:52px;padding:0 1.1em;border-radius:999px;border:0;background:none;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.45);font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-variant-numeric:tabular-nums;cursor:pointer;transition:background-color .2s ease,color .2s ease,box-shadow .2s ease,transform .16s cubic-bezier(.23,1,.32,1)}.ds-res:not([disabled]):hover{box-shadow:inset 0 0 0 1.5px #fff}.ds-res:active{transform:scale(.95)}.ds-res[aria-pressed=true]{background:#fff;color:#c4145d;box-shadow:none}.ds-res[disabled]{opacity:.35;cursor:not-allowed}.ds-res:focus-visible{outline:2px solid #fff;outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Die Schale bleibt, die Welt wechselt die Farbe",
+    "overview": "**Creative North Star: \"Die Schale bleibt, die Welt wechselt die Farbe\"**\n\nSafran-Editorial ist ein Food-Magazin in Bewegung. Reines Weiß ist der Grund, Tinte trägt Text und Handlungen, und jedes Lieblingsgericht bekommt eine eigene satte Vollfläche. Auf der Startseite liegt Karahi Paneer als freigestellte Schale auf einer angeschnittenen pfauenblauen Scheibe; beim Scrollen flutet die Scheibe den ganzen Bildschirm, die Schale bleibt stehen, und mit jedem Gericht wechselt die Fläche: Pfauenblau (Karahi Paneer), Safran (Dal Makhni), Kardamom (Jheenga Curry), Rani-Pink (Butter Chicken). Im Richtungsvertrag lag Butter Chicken auf der Scheibe; gebaut ist Karahi Paneer, weil das Butter-Chicken-Foto als einziges schräg und angeschnitten ist und das Motiv der stehenden Schale bricht. Butter Chicken schließt die Folge ab.\n\nDie Seite ist ruhig und groß gesetzt: wenige Elemente pro Bildschirm, Bodoni Moda in Plakatgröße, Hanken Grotesk für alles Lesbare, runde Pillen in Tinte. Das Essen ist der Hauptdarsteller; die Gestaltung rahmt es. Verworfen sind die dunkle Restaurant-Bühne, das Fotoraster, Ornament-Kitsch, Kupfer, Gewürzdose, Bögen und staubige Farben.",
+    "keyCharacteristics": [
+      "Weißer Grund, Tinte (#17110e) für Text und Knöpfe, Rani (#c4145d) aus dem Logo als Markenfarbe.",
+      "Vier satte Gerichtsflächen, je eine pro Bildschirm, immer vollflächig.",
+      "Bodoni Moda mit fester Optik-Achse (opsz 28), Hanken Grotesk für Lauftext, Labels und kleine Überschriften.",
+      "Freigestellte Schalen mit echtem Schattenwurf statt Fotokacheln; nur zwei echte Fotos.",
+      "Alles Bedienbare ist rund: Pillen, Kreise, Scheiben.",
+      "Bewegung ist weich und körperlich (GSAP, ScrollTrigger, Lenis) und fällt ohne Bewegung zu einer ruhigen Liste zusammen."
+    ],
+    "rules": [
+      {
+        "name": "Die Ein-Feld-Regel",
+        "body": "Pro Bildschirm herrscht höchstens eine Gerichtsfläche, und sie füllt die volle Breite. Gerichtsfarben werden nie zu Kacheln, Rahmen oder Textfarben auf Weiß.",
+        "section": "colors"
+      },
+      {
+        "name": "Die Ton-Regel",
+        "body": "Safran trägt Tinte, Pfauenblau, Kardamom und Rani-Pink tragen Weiß. Der Kopf folgt dem Ton (`is-hell`).",
+        "section": "colors"
+      },
+      {
+        "name": "Die Tinte-handelt-Regel",
+        "body": "Auf Weiß ist jede Handlung Tinte. Rani markiert die Marke und Zustände (Zähler, Heute, Fokus), ist aber auf weißem Grund keine Knopffüllung.",
+        "section": "colors"
+      },
+      {
+        "name": "Die Opsz-28-Regel",
+        "body": "Bodoni wird immer mit `font-optical-sizing: none; font-variation-settings: \"opsz\" 28` gesetzt. Die automatische Optik-Achse macht die Haarstriche in Plakatgröße unsichtbar („141“ las sich als „1 1“); eine feste, kräftigere Optik gilt für alle Größen. Jede neue Bodoni-Klasse kommt in die opsz-Liste in `site.css`.",
+        "section": "typography"
+      },
+      {
+        "name": "Die Zwei-Stimmen-Regel",
+        "body": "Bodoni für Namen, Überschriften, Zitate und Zahlen von Gewicht; Hanken für alles andere. Keine Versalien mit Sperrung, keine Überzeilen über Titeln: Ergänzende Zeilen (Herkunft, Status) stehen unter dem Titel oder den Knöpfen.",
+        "section": "typography"
+      },
+      {
+        "name": "Die Gegenstand-Regel",
+        "body": "Nur was man greifen oder essen kann, wirft Schatten. Keine harten Versatzschatten, keine Schatten auf Text oder Sektionen.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** Weiß (#ffffff) als Grund und Tinte (#17110e) für Text und Knöpfe verwenden.",
+      "**Do** Gerichte als freigestellte Schalen mit weichem Schlagschatten zeigen; Fotos sparsam (heute zwei: Chicken Tikka, Gastraum) und in 28px-Rundung.",
+      "**Do** Bodoni immer mit opsz 28 setzen und neue Bodoni-Klassen in die opsz-Liste aufnehmen.",
+      "**Do** ergänzende Zeilen (Herkunft, Nummer, Status) unter Titel oder Knöpfe stellen.",
+      "**Do** Icons als Inline-SVG aus dem Sprite (`#i-…`) setzen, auch Sterne.",
+      "**Do** jede Bühne mit einer ruhigen Fassung für reduzierte Bewegung bauen.",
+      "**Do** die Speisekarte auf ihrer eigenen Seite halten; Bestellen und Reservieren sind auf jedem Bildschirm einen Daumen weit entfernt."
+    ],
+    "donts": [
+      "**Don't** Kupfer, Messing oder metallische Töne verwenden.",
+      "**Don't** Gewürzdose, Thali-Platte oder andere Klischee-Requisiten als Bildmotiv einsetzen.",
+      "**Don't** Bögen, Rippen, Kuppelformen oder geometrische Bildmasken (auch keine Radialverläufe als Maske) bauen; die Kuppel bleibt dem Logo vorbehalten.",
+      "**Don't** staubige, entsättigte Farben einführen; Flächen sind satt.",
+      "**Don't** Überzeilen/Kicker in Versalien über Titel setzen.",
+      "**Don't** Unicode-Zeichen als Icons verwenden (Sterne, Pfeile, Häkchen).",
+      "**Don't** eine klebende In-Page-Navigation quer über den Inhalt legen; auf der Karte nur Seitennavigation (Desktop) oder Knopf mit Blatt (mobil).",
+      "**Don't** Gerichtsfarben als Kacheln, Rahmen oder Textfarbe auf Weiß nutzen.",
+      "**Don't** Fotos zu Rastern oder Galerien stapeln; keine dunkle Restaurant-Bühne."
+    ]
+  }
+}

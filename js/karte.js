@@ -34,7 +34,7 @@
   function tun(p) {
     const n = B.zettel.menge(p.key);
     return n
-      ? `<span class="stepper" role="group" aria-label="${esc(p.name)} im Bestellzettel"><button type="button" data-weg="${esc(p.key)}" aria-label="Eins weniger">−</button><output aria-live="polite">${n}</output><button type="button" data-dazu="${esc(p.key)}" aria-label="Eins mehr">+</button></span>`
+      ? `<span class="stepper" role="group" aria-label="${esc(p.name)} im Bestellzettel"><button type="button" data-weg="${esc(p.key)}" aria-label="Eins weniger">${ico("minus")}</button><output aria-live="polite">${n}</output><button type="button" data-dazu="${esc(p.key)}" aria-label="Eins mehr">${ico("plus")}</button></span>`
       : `<button type="button" class="plus" data-dazu="${esc(p.key)}" aria-label="${esc(p.name)} zum Bestellzettel">${ico("plus")}</button>`;
   }
 
