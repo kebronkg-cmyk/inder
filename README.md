@@ -54,5 +54,7 @@ Deployment: GitHub Pages über `.github/workflows/deploy-pages.yml` (bei Push au
 
 - **WhatsApp-Nummer** in `js/site.js` (`BOMBAY.cfg.whatsapp`): vorläufig die Festnetznummer 08161 4965102. Mit dem Restaurant klären, ob dort WhatsApp Business läuft, sonst eine Handynummer eintragen.
 - Impressum und Datenschutz (gelb markierte Stellen).
+- Laternenbild: stammt aus einem Gästefoto (siehe `img/QUELLEN.md`); Einwilligung einholen oder eine Laterne im Restaurant selbst fotografieren.
+- Weitere echte Bewertungen: Das Bewertungsband (`index.html`, Abschnitt „Stimmen“) nimmt beliebig viele Karten auf; nur belegte Zitate eintragen.
 - Bewertungszahl und Zitate mit dem aktuellen Google-Profil abgleichen.
 - Preise und Speisekarte mit der aktuellen Karte abgleichen (Stand Oktober 2026).
