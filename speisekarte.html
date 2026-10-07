@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Speisekarte · Bombay Freising</title>
+  <meta name="description" content="Die ganze Speisekarte des Restaurants Bombay in Freising: Currys, Tandoori, Biryani, vegetarische Gerichte und Naan. Direkt bestellen per WhatsApp oder Telefon.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/karte.css">
+</head>
+<body data-seite="karte">
+<a class="skip" href="#karte">Zur Speisekarte springen</a>
+<!--ICONS-->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-tasche" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M5 8.5h14l-1.1 11.5H6.1L5 8.5z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/></symbol>
+  <symbol id="i-telefon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M5.2 3.8h3.4l1.7 4.4-2.2 1.3a10.5 10.5 0 0 0 6.4 6.4l1.3-2.2 4.4 1.7v3.4a1.5 1.5 0 0 1-1.6 1.5A16.3 16.3 0 0 1 3.7 5.4a1.5 1.5 0 0 1 1.5-1.6z"/></symbol>
+  <symbol id="i-pfeil" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15M13.5 6l6 6-6 6"/></symbol>
+  <symbol id="i-zu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+  <symbol id="i-haken" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-bluete" viewBox="0 0 24 24"><g fill="var(--blatt, none)" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><path transform="rotate(0 12 12)" d="M12 2.6 C14.2 4.8 14.2 8 12 10 C9.8 8 9.8 4.8 12 2.6Z"/><path transform="rotate(45 12 12)" d="M12 2.6 C14.2 4.8 14.2 8 12 10 C9.8 8 9.8 4.8 12 2.6Z"/><path transform="rotate(90 12 12)" d="M12 2.6 C14.2 4.8 14.2 8 12 10 C9.8 8 9.8 4.8 12 2.6Z"/><path transform="rotate(135 12 12)" d="M12 2.6 C14.2 4.8 14.2 8 12 10 C9.8 8 9.8 4.8 12 2.6Z"/><path transform="rotate(180 12 12)" d="M12 2.6 C14.2 4.8 14.2 8 12 10 C9.8 8 9.8 4.8 12 2.6Z"/><path transform="rotate(225 12 12)" d="M12 2.6 C14.2 4.8 14.2 8 12 10 C9.8 8 9.8 4.8 12 2.6Z"/><path transform="rotate(270 12 12)" d="M12 2.6 C14.2 4.8 14.2 8 12 10 C9.8 8 9.8 4.8 12 2.6Z"/><path transform="rotate(315 12 12)" d="M12 2.6 C14.2 4.8 14.2 8 12 10 C9.8 8 9.8 4.8 12 2.6Z"/></g><circle cx="12" cy="12" r="1.8" fill="currentColor"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M5.5 12h13"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 5.5v13M5.5 12h13"/></symbol>
+  <symbol id="i-kopie" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-width="1.7" d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M12 21s6.8-6 6.8-11.5a6.8 6.8 0 0 0-13.6 0C5.2 15 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.3" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-lupe" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M15.2 15.2l4.6 4.6"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6A9.4 9.4 0 0 0 3.9 16.8L2.7 21.3l4.6-1.2A9.4 9.4 0 1 0 12 2.6zm0 17.1a7.7 7.7 0 0 1-3.9-1.1l-.3-.2-2.7.7.7-2.6-.2-.3A7.7 7.7 0 1 1 12 19.7zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.3 6.3 0 0 1-3.1-2.7c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.8 3 .6a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.2c-.1-.1-.3-.2-.5-.3z"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 7l8 6 8-6"/></symbol>
+  <symbol id="i-stern" viewBox="0 0 24 24"><path fill="currentColor" d="M12.00 2.40 L14.53 9.12 L21.70 9.45 L16.09 13.93 L18.00 20.85 L12.00 16.90 L6.00 20.85 L7.91 13.93 L2.30 9.45 L9.47 9.12Z"/></symbol>
+  <symbol id="i-stern-halb" viewBox="0 0 24 24"><path fill="currentColor" opacity=".28" d="M12.00 2.40 L14.53 9.12 L21.70 9.45 L16.09 13.93 L18.00 20.85 L12.00 16.90 L6.00 20.85 L7.91 13.93 L2.30 9.45 L9.47 9.12Z"/><path fill="currentColor" d="M12.00 2.40 L9.47 9.12 L2.30 9.45 L7.91 13.93 L6.00 20.85 L12.00 16.90Z"/></symbol>
+</svg>
+<!--/ICONS-->
+
+<header class="kopf" data-kopf>
+  <div class="wrap kopf-zeile">
+    <a class="marke" href="index.html" aria-label="Bombay, Startseite" data-logo>Bombay</a>
+    <nav class="kopf-nav" aria-label="Hauptnavigation">
+      <a href="speisekarte.html" aria-current="page">Speisekarte</a>
+      <a href="index.html#lieblinge">Lieblinge</a>
+      <a href="index.html#reservieren">Reservieren</a>
+      <a href="index.html#besuch">Besuch</a>
+    </nav>
+    <span class="kopf-status" data-status></span>
+    <button class="pille pille--voll pille--klein" type="button" data-zettel-oeffnen><svg class="ico" aria-hidden="true"><use href="#i-tasche"/></svg>Bestellzettel <span class="zahl" data-zettel-zahl>0</span></button>
+    <button class="kopf-menu" type="button" data-menu aria-expanded="false" aria-controls="menu"><i></i><i></i><span class="sr">Menü</span></button>
+  </div>
+</header>
+<nav class="menu-flaeche" id="menu" data-menu-flaeche aria-label="Menü">
+  <a href="index.html">Start</a>
+  <a href="speisekarte.html">Speisekarte</a>
+  <a href="index.html#reservieren">Reservieren</a>
+  <a href="index.html#besuch">Besuch</a>
+  <div class="menu-fuss"><span data-status="lang"></span><a href="tel:+4981614965102">08161 4965102</a><span>Obere Hauptstraße 67, Freising</span></div>
+</nav>
+
+<main id="karte" class="karte">
+  <header class="karte-kopf wrap">
+    <img class="karte-schale" data-karte-schale src="img/gerichte/butter-chicken-1100.webp" srcset="img/gerichte/butter-chicken-640.webp 640w, img/gerichte/butter-chicken-1100.webp 1100w" sizes="36vw" alt="" width="1100" height="1079" fetchpriority="high" aria-hidden="true">
+    <h1 class="karte-titel" data-titel>Speisekarte</h1>
+    <p class="karte-unter">Jedes Gericht gibt es <b>mild, pikant, scharf oder sehr scharf</b>. Ihre Auswahl schicken Sie per WhatsApp oder geben sie am Telefon durch.</p>
+    <div class="schnell-zeile">
+      <p class="schnell-frage" id="schnell-frage">Worauf haben Sie Lust?</p>
+      <nav class="schnell" aria-labelledby="schnell-frage" data-schnell></nav>
+    </div>
+    <div class="werkzeug">
+      <label class="suche"><svg class="ico" aria-hidden="true"><use href="#i-lupe"/></svg><span class="sr">Speisekarte durchsuchen</span>
+        <input id="suche" type="search" placeholder="Gericht, Zutat oder Nummer" autocomplete="off" enterkeyhint="search" data-suche>
+        <button type="button" class="suche-leeren" data-suche-leeren aria-label="Suche leeren" hidden><svg class="ico" aria-hidden="true"><use href="#i-zu"/></svg></button></label>
+      <div class="filter" role="group" aria-label="Filter">
+        <button type="button" class="filter-chip" data-filter="veg" aria-pressed="false">Vegetarisch</button>
+        <button type="button" class="filter-chip" data-filter="vegan" aria-pressed="false">Vegan möglich</button>
+        <button type="button" class="filter-chip" data-filter="scharf" aria-pressed="false">Scharf</button>
+      </div>
+      <p class="treffer" data-treffer aria-live="polite"></p>
+    </div>
+  </header>
+
+  <div class="wrap karte-liste" data-liste></div>
+</main>
+
+<!--FUSS-->
+<footer class="fuss">
+  <svg class="fuss-jali" aria-hidden="true" focusable="false"><defs><pattern id="jali" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M20.00 3.00 L23.64 11.22 L32.02 7.98 L28.78 16.36 L37.00 20.00 L28.78 23.64 L32.02 32.02 L23.64 28.78 L20.00 37.00 L16.36 28.78 L7.98 32.02 L11.22 23.64 L3.00 20.00 L11.22 16.36 L7.98 7.98 L16.36 11.22Z" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="20" cy="20" r="3" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="0" cy="0" r="2" fill="currentColor"/><circle cx="40" cy="0" r="2" fill="currentColor"/><circle cx="0" cy="40" r="2" fill="currentColor"/><circle cx="40" cy="40" r="2" fill="currentColor"/></pattern></defs><rect width="100%" height="100%" fill="url(#jali)"/></svg>
+  <div class="wrap">
+    <div class="fuss-raster">
+      <div><span class="fuss-marke" data-logo>Bombay</span></div>
+      <div>
+        <h2>Besuch</h2>
+        <p>Restaurant Bombay<br>Obere Hauptstraße 67<br>85354 Freising</p>
+        <p style="margin-top:12px"><a href="tel:+4981614965102">08161 4965102</a><br><a href="mailto:arunmunich@yahoo.com">arunmunich@yahoo.com</a></p>
+      </div>
+      <div>
+        <h2>Zeiten</h2>
+        <p>Mo, Mi–So<br>11:30–14:00 und 17:30–22:00<br>Dienstag Ruhetag</p>
+        <ul style="margin-top:12px">
+          <li><a href="speisekarte.html">Speisekarte und Bestellen</a></li>
+          <li><a href="https://apps.apple.com/de/app/bombay-restaurant-freising/id6504758170" target="_blank" rel="noopener">App für iPhone</a> · <a href="https://play.google.com/store/apps/details?id=com.de.bombay.resto" target="_blank" rel="noopener">Android</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fuss-unten">
+      <span>© <span data-jahr>2026</span> Restaurant Bombay Freising</span>
+      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+<!--/FUSS-->
+
+<script src="js/vendor/lenis.min.js"></script>
+<script src="menu-data.js"></script>
+<script src="js/logo.js"></script>
+<script src="js/site.js"></script>
+<script src="js/karte.js"></script>
+</body>
+</html>

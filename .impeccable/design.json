@@ -1,0 +1,792 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T12:00:00+00:00",
+  "title": "Design System: Bombay Freising",
+  "extensions": {
+    "colorMeta": {
+      "weiss": {
+        "role": "neutral",
+        "displayName": "Reinweiß",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(25% 0.000 89.9)",
+          "oklch(35% 0.000 89.9)",
+          "oklch(45% 0.000 89.9)",
+          "oklch(55% 0.000 89.9)",
+          "oklch(68% 0.000 89.9)",
+          "oklch(82% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "porzellan": {
+        "role": "neutral",
+        "displayName": "Porzellan",
+        "canonical": "#f3f3f5",
+        "oklch": "oklch(96.5% 0.003 286.3)",
+        "tonalRamp": [
+          "oklch(15% 0.003 286.3)",
+          "oklch(25% 0.003 286.3)",
+          "oklch(35% 0.003 286.3)",
+          "oklch(45% 0.003 286.3)",
+          "oklch(55% 0.003 286.3)",
+          "oklch(68% 0.003 286.3)",
+          "oklch(82% 0.003 286.3)",
+          "oklch(95% 0.003 286.3)"
+        ]
+      },
+      "tinte": {
+        "role": "primary",
+        "displayName": "Tinte",
+        "canonical": "#17110e",
+        "oklch": "oklch(18.4% 0.012 48.1)",
+        "tonalRamp": [
+          "oklch(15% 0.012 48.1)",
+          "oklch(25% 0.012 48.1)",
+          "oklch(35% 0.012 48.1)",
+          "oklch(45% 0.012 48.1)",
+          "oklch(55% 0.012 48.1)",
+          "oklch(68% 0.012 48.1)",
+          "oklch(82% 0.012 48.1)",
+          "oklch(95% 0.012 48.1)"
+        ],
+        "textOn": "weiss"
+      },
+      "tinte-2": {
+        "role": "neutral",
+        "displayName": "Tinte 78 %",
+        "canonical": "rgba(23, 17, 14, 0.78)",
+        "tonalRamp": [
+          "oklch(15% 0.012 48.1)",
+          "oklch(25% 0.012 48.1)",
+          "oklch(35% 0.012 48.1)",
+          "oklch(45% 0.012 48.1)",
+          "oklch(55% 0.012 48.1)",
+          "oklch(68% 0.012 48.1)",
+          "oklch(82% 0.012 48.1)",
+          "oklch(95% 0.012 48.1)"
+        ]
+      },
+      "tinte-3": {
+        "role": "neutral",
+        "displayName": "Tinte 60 %",
+        "canonical": "rgba(23, 17, 14, 0.6)",
+        "tonalRamp": [
+          "oklch(15% 0.012 48.1)",
+          "oklch(25% 0.012 48.1)",
+          "oklch(35% 0.012 48.1)",
+          "oklch(45% 0.012 48.1)",
+          "oklch(55% 0.012 48.1)",
+          "oklch(68% 0.012 48.1)",
+          "oklch(82% 0.012 48.1)",
+          "oklch(95% 0.012 48.1)"
+        ]
+      },
+      "linie": {
+        "role": "neutral",
+        "displayName": "Linie",
+        "canonical": "rgba(23, 17, 14, 0.12)",
+        "tonalRamp": [
+          "oklch(15% 0.012 48.1)",
+          "oklch(25% 0.012 48.1)",
+          "oklch(35% 0.012 48.1)",
+          "oklch(45% 0.012 48.1)",
+          "oklch(55% 0.012 48.1)",
+          "oklch(68% 0.012 48.1)",
+          "oklch(82% 0.012 48.1)",
+          "oklch(95% 0.012 48.1)"
+        ]
+      },
+      "rani": {
+        "role": "primary",
+        "displayName": "Rani (Logo-Magenta)",
+        "canonical": "#c4145d",
+        "oklch": "oklch(53.4% 0.206 4.9)",
+        "tonalRamp": [
+          "oklch(15% 0.103 4.9)",
+          "oklch(25% 0.128 4.9)",
+          "oklch(35% 0.154 4.9)",
+          "oklch(45% 0.180 4.9)",
+          "oklch(55% 0.206 4.9)",
+          "oklch(68% 0.172 4.9)",
+          "oklch(82% 0.136 4.9)",
+          "oklch(95% 0.103 4.9)"
+        ],
+        "textOn": "weiss"
+      },
+      "pink": {
+        "role": "secondary",
+        "displayName": "Rani-Pink",
+        "canonical": "#d42f73",
+        "oklch": "oklch(58.4% 0.205 1.5)",
+        "tonalRamp": [
+          "oklch(15% 0.102 1.5)",
+          "oklch(25% 0.128 1.5)",
+          "oklch(35% 0.154 1.5)",
+          "oklch(45% 0.179 1.5)",
+          "oklch(55% 0.205 1.5)",
+          "oklch(68% 0.172 1.5)",
+          "oklch(82% 0.136 1.5)",
+          "oklch(95% 0.102 1.5)"
+        ],
+        "textOn": "weiss",
+        "dish": "Butter Chicken (erste Fläche)"
+      },
+      "pfau": {
+        "role": "secondary",
+        "displayName": "Pfauenblau",
+        "canonical": "#0d5a60",
+        "oklch": "oklch(42.8% 0.069 203.2)",
+        "tonalRamp": [
+          "oklch(15% 0.034 203.2)",
+          "oklch(25% 0.043 203.2)",
+          "oklch(35% 0.052 203.2)",
+          "oklch(45% 0.060 203.2)",
+          "oklch(55% 0.069 203.2)",
+          "oklch(68% 0.058 203.2)",
+          "oklch(82% 0.046 203.2)",
+          "oklch(95% 0.034 203.2)"
+        ],
+        "textOn": "weiss",
+        "dish": "Karahi Paneer"
+      },
+      "safran": {
+        "role": "secondary",
+        "displayName": "Safran (klares Orange)",
+        "canonical": "#ff8a1c",
+        "oklch": "oklch(74.8% 0.176 55.7)",
+        "tonalRamp": [
+          "oklch(15% 0.088 55.7)",
+          "oklch(25% 0.110 55.7)",
+          "oklch(35% 0.132 55.7)",
+          "oklch(45% 0.154 55.7)",
+          "oklch(55% 0.176 55.7)",
+          "oklch(68% 0.148 55.7)",
+          "oklch(82% 0.117 55.7)",
+          "oklch(95% 0.088 55.7)"
+        ],
+        "textOn": "tinte",
+        "dish": "Dal Makhni"
+      },
+      "kardamom": {
+        "role": "secondary",
+        "displayName": "Kardamomgrün",
+        "canonical": "#2c6b45",
+        "oklch": "oklch(47.6% 0.090 154.5)",
+        "tonalRamp": [
+          "oklch(15% 0.045 154.5)",
+          "oklch(25% 0.056 154.5)",
+          "oklch(35% 0.067 154.5)",
+          "oklch(45% 0.079 154.5)",
+          "oklch(55% 0.090 154.5)",
+          "oklch(68% 0.075 154.5)",
+          "oklch(82% 0.059 154.5)",
+          "oklch(95% 0.045 154.5)"
+        ],
+        "textOn": "weiss",
+        "dish": "Jheenga Curry"
+      },
+      "nacht": {
+        "role": "neutral",
+        "displayName": "Nacht",
+        "canonical": "#140d0a",
+        "oklch": "oklch(16.4% 0.014 45.0)",
+        "tonalRamp": [
+          "oklch(15% 0.014 45.0)",
+          "oklch(25% 0.014 45.0)",
+          "oklch(35% 0.014 45.0)",
+          "oklch(45% 0.014 45.0)",
+          "oklch(55% 0.014 45.0)",
+          "oklch(68% 0.014 45.0)",
+          "oklch(82% 0.014 45.0)",
+          "oklch(95% 0.014 45.0)"
+        ],
+        "textOn": "weiss",
+        "use": "Nur das Laternen-Band; die eine bewusste dunkle Fläche neben dem Fuß."
+      },
+      "gruen-ok": {
+        "role": "status",
+        "displayName": "Offen-Grün",
+        "canonical": "#1f8a4c",
+        "oklch": "oklch(56.0% 0.134 152.5)",
+        "tonalRamp": [
+          "oklch(15% 0.067 152.5)",
+          "oklch(25% 0.083 152.5)",
+          "oklch(35% 0.100 152.5)",
+          "oklch(45% 0.117 152.5)",
+          "oklch(55% 0.134 152.5)",
+          "oklch(68% 0.112 152.5)",
+          "oklch(82% 0.088 152.5)",
+          "oklch(95% 0.067 152.5)"
+        ]
+      },
+      "wa-gruen": {
+        "role": "status",
+        "displayName": "WhatsApp-Grün",
+        "canonical": "#177a41",
+        "oklch": "oklch(51.1% 0.125 152.3)",
+        "tonalRamp": [
+          "oklch(15% 0.062 152.3)",
+          "oklch(25% 0.078 152.3)",
+          "oklch(35% 0.093 152.3)",
+          "oklch(45% 0.109 152.3)",
+          "oklch(55% 0.125 152.3)",
+          "oklch(68% 0.104 152.3)",
+          "oklch(82% 0.083 152.3)",
+          "oklch(95% 0.062 152.3)"
+        ],
+        "textOn": "weiss"
+      },
+      "fehler": {
+        "role": "status",
+        "displayName": "Fehler-Rot",
+        "canonical": "#b3123f",
+        "oklch": "oklch(49.4% 0.189 14.3)",
+        "tonalRamp": [
+          "oklch(15% 0.094 14.3)",
+          "oklch(25% 0.118 14.3)",
+          "oklch(35% 0.142 14.3)",
+          "oklch(45% 0.165 14.3)",
+          "oklch(55% 0.189 14.3)",
+          "oklch(68% 0.158 14.3)",
+          "oklch(82% 0.125 14.3)",
+          "oklch(95% 0.094 14.3)"
+        ]
+      },
+      "veg-grund": {
+        "role": "status",
+        "displayName": "Veg-Grund",
+        "canonical": "#e6f2e9",
+        "oklch": "oklch(95.0% 0.017 153.6)",
+        "tonalRamp": [
+          "oklch(15% 0.017 153.6)",
+          "oklch(25% 0.017 153.6)",
+          "oklch(35% 0.017 153.6)",
+          "oklch(45% 0.017 153.6)",
+          "oklch(55% 0.017 153.6)",
+          "oklch(68% 0.017 153.6)",
+          "oklch(82% 0.017 153.6)",
+          "oklch(95% 0.017 153.6)"
+        ]
+      },
+      "veg-text": {
+        "role": "status",
+        "displayName": "Veg-Text",
+        "canonical": "#1f6b3a",
+        "oklch": "oklch(46.9% 0.108 151.4)",
+        "tonalRamp": [
+          "oklch(15% 0.054 151.4)",
+          "oklch(25% 0.067 151.4)",
+          "oklch(35% 0.081 151.4)",
+          "oklch(45% 0.094 151.4)",
+          "oklch(55% 0.108 151.4)",
+          "oklch(68% 0.090 151.4)",
+          "oklch(82% 0.071 151.4)",
+          "oklch(95% 0.054 151.4)"
+        ]
+      },
+      "scharf-grund": {
+        "role": "status",
+        "displayName": "Scharf-Grund",
+        "canonical": "#fde8e4",
+        "oklch": "oklch(94.7% 0.024 30.5)",
+        "tonalRamp": [
+          "oklch(15% 0.012 30.5)",
+          "oklch(25% 0.015 30.5)",
+          "oklch(35% 0.018 30.5)",
+          "oklch(45% 0.021 30.5)",
+          "oklch(55% 0.024 30.5)",
+          "oklch(68% 0.020 30.5)",
+          "oklch(82% 0.016 30.5)",
+          "oklch(95% 0.012 30.5)"
+        ]
+      },
+      "scharf-text": {
+        "role": "status",
+        "displayName": "Scharf-Text",
+        "canonical": "#b3261b",
+        "oklch": "oklch(50.1% 0.179 29.4)",
+        "tonalRamp": [
+          "oklch(15% 0.089 29.4)",
+          "oklch(25% 0.112 29.4)",
+          "oklch(35% 0.134 29.4)",
+          "oklch(45% 0.156 29.4)",
+          "oklch(55% 0.179 29.4)",
+          "oklch(68% 0.150 29.4)",
+          "oklch(82% 0.118 29.4)",
+          "oklch(95% 0.089 29.4)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display-buehne": {
+        "displayName": "Display-Bühne",
+        "purpose": "Intro-Titel auf der Bühne, 340, mit Kursiv-Akzent „frisch“."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titel der Speisekarte, 320; „141 Gerichte“ in 360."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Sektionstitel (Lehmofen, Laternen, Besuch, Reservieren, Stimmen); Grundgewicht aller h1–h3."
+      },
+      "gericht": {
+        "displayName": "Gericht",
+        "purpose": "Gerichtsname auf der Bühne."
+      },
+      "zitat": {
+        "displayName": "Zitat",
+        "purpose": "Stimmen der Gäste, kursiv (Fraunces Italic).",
+        "fontStyle": "italic"
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Gang-Titel der Speisekarte, Fakten, Reservier-Frage."
+      },
+      "gruppe": {
+        "displayName": "Gruppe",
+        "purpose": "Gruppentitel der Karte, kursiv in Tinte mit Rani-Rosette; auch Schnellwahl-Frage, „Dazu passt“, Laternen-Aufforderung.",
+        "fontStyle": "italic"
+      },
+      "preis": {
+        "displayName": "Preis",
+        "purpose": "Preis auf der Bühne, tabellarisch."
+      },
+      "posten": {
+        "displayName": "Posten",
+        "purpose": "Gerichtsnamen in der Karte, 420."
+      },
+      "note": {
+        "displayName": "Note",
+        "purpose": "Große Noten „4,5“ und „4,2“ in Rani in den Stimmen."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Lauftext, Hanken 400, Zeilenhöhe 1.65."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Unterzeilen unter Titeln, 1.08–1.15rem, 40–46ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Feld-Labels und kleine Auszeichnungen."
+      },
+      "knopf": {
+        "displayName": "Knopf",
+        "purpose": "Pillen: Hanken 500, .96rem, +0.015em."
+      }
+    },
+    "fonts": [
+      {
+        "family": "Fraunces",
+        "file": "fonts/fraunces.woff2",
+        "style": "normal",
+        "axes": "opsz, wght 100–900, SOFT",
+        "settings": "font-optical-sizing: auto; font-variation-settings: 'SOFT' 20"
+      },
+      {
+        "family": "Fraunces",
+        "file": "fonts/fraunces-italic.woff2",
+        "style": "italic",
+        "axes": "wght 300–600",
+        "settings": "Kursiv-Akzent: em.akzent (Gewicht geerbt), Gruppentitel, Schnellwahl-Frage, Zitate, „Dazu passt“"
+      },
+      {
+        "family": "Hanken Grotesk",
+        "file": "fonts/hanken-grotesk.woff2",
+        "style": "normal",
+        "axes": "wght 300–700",
+        "settings": "body weight 400, line-height 1.65"
+      }
+    ],
+    "rootFontSize": "clamp(16px, calc(12.4px + .25vw), 19.5px)",
+    "shadows": [
+      {
+        "name": "schale-buehne",
+        "value": "drop-shadow(0 30px 30px rgba(20,12,6,.34)) drop-shadow(0 7px 9px rgba(20,12,6,.2))",
+        "purpose": "Freigestellte Schale auf der Gerichtsfläche (filter)."
+      },
+      {
+        "name": "rand-schale",
+        "value": "drop-shadow(0 24px 24px rgba(20,12,6,.22))",
+        "purpose": "Schale, die auf der Startseite vom rechten Rand hereinschaut (filter)."
+      },
+      {
+        "name": "karte-schale",
+        "value": "drop-shadow(0 30px 30px rgba(20,12,6,.25))",
+        "purpose": "Große Schale hinter dem Kopf der Speisekarte (filter)."
+      },
+      {
+        "name": "schaelchen",
+        "value": "drop-shadow(0 6px 6px rgba(20,12,6,.3))",
+        "purpose": "Mini-Schalen im Wähler (filter)."
+      },
+      {
+        "name": "schaelchen-chip",
+        "value": "drop-shadow(0 3px 4px rgba(20,12,6,.22))",
+        "purpose": "40px-Schälchen in Schnellwahl-Chips (filter)."
+      },
+      {
+        "name": "schale-gang",
+        "value": "drop-shadow(0 10px 10px rgba(20,12,6,.25))",
+        "purpose": "Schale in der Gang-Zeile der Karte (filter)."
+      },
+      {
+        "name": "schale-zeiger",
+        "value": "drop-shadow(0 24px 30px rgba(23,17,14,.3))",
+        "purpose": "Schale, die auf der Startseite dem Zeiger über den Gängen folgt (filter)."
+      },
+      {
+        "name": "laternen-licht",
+        "value": "radial-gradient(closest-side, rgba(255,190,105,.42), rgba(255,150,60,.14) 45%, transparent); mix-blend-mode: screen",
+        "purpose": "Warmer Lichthof hinter jeder Laterne im Nachtband (3,4-fache Laternenbreite), flackert 5s; Licht statt Schatten."
+      },
+      {
+        "name": "schwebend",
+        "value": "0 18px 40px -14px rgba(23,17,14,.5)",
+        "purpose": "Schwebender Bestellzettel-Knopf."
+      },
+      {
+        "name": "schublade",
+        "value": "0 30px 80px -20px rgba(23,17,14,.45)",
+        "purpose": "Panel der Schublade über Schleier rgba(23,17,14,.38)."
+      },
+      {
+        "name": "gleiter",
+        "value": "0 2px 8px -2px rgba(23,17,14,.2)",
+        "purpose": "Weißer Gleiter im Segment."
+      },
+      {
+        "name": "gleiter-klein",
+        "value": "0 1px 3px rgba(23,17,14,.15)",
+        "purpose": "Gewählte Schärfe in der Porzellan-Mulde."
+      },
+      {
+        "name": "kopf-fest",
+        "value": "0 1px 0 rgba(23,17,14,.12)",
+        "purpose": "Unterkante des festen Kopfs (Weiß .97, backdrop-filter saturate(1.4) blur(10px))."
+      }
+    ],
+    "motion": [
+      {
+        "name": "aus",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Antworten: Pillen, Pfeile, Gleiter, Wähler-Strich (.55s), Kopf (.5s), Aufklappen der Gänge (.55s)."
+      },
+      {
+        "name": "schublade",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "Schublade und Blätter (.55s)."
+      },
+      {
+        "name": "farbe-waechst",
+        "value": "clip-path circle(0 → R at Tipppunkt), .85s power3.inOut",
+        "purpose": "Gerichtswechsel auf der Bühne; Ton wechselt nach .32s."
+      },
+      {
+        "name": "schale-rollt",
+        "value": "alt: rotation -=70°·Richtung, .5s power2.in; neu: 80°·Richtung → 0, .95s expo.out ab .3s",
+        "purpose": "Schalen rollen in Laufrichtung hinaus und herein (vorwärts gegen den Uhrzeigersinn)."
+      },
+      {
+        "name": "ring-dreht",
+        "value": "rotation += -45°·Richtung, 1.2s power3.inOut",
+        "purpose": "Rangoli-Ring dreht mit dem Wechsel."
+      },
+      {
+        "name": "warteschlange",
+        "value": "timeScale 2.6",
+        "purpose": "Laufender Wechsel wird beschleunigt beendet, der nächste Wunsch folgt."
+      },
+      {
+        "name": "zeilen",
+        "value": "yPercent 108 → 0, 1.2s, stagger .08, expo.out, ab top 86%",
+        "purpose": "Überschriften steigen zeilenweise aus ihrer Maske."
+      },
+      {
+        "name": "zeichnen",
+        "value": "strokeDashoffset → 0, 2.2s power2.inOut, ab top 85%",
+        "purpose": "Ornamente (Ranke, Paisley) zeichnen sich."
+      },
+      {
+        "name": "pendel",
+        "value": "gedämpftes Pendel: a = -k·.06·w - .035·v + Scroll-Δ·.012, k = 24/(Schnur + 80), max ±16°",
+        "purpose": "Laternen schwingen mit dem Scrollen, einem vorbeistreifenden Zeiger (Stoß vx·.05) und Tippen (Stoß ±2,4); nur solange das Band sichtbar ist."
+      },
+      {
+        "name": "flackern",
+        "value": "Deckkraft .85 → 1 → .9 → .97, 5s ease-in-out infinite alternate, versetzt je Laterne",
+        "purpose": "Lichthof der Laternen."
+      },
+      {
+        "name": "schale-scrollt",
+        "value": "Rand-Schale: rotation 40° → -25°, xPercent 18 → 0, scrub 1; Karten-Schale: -0.06°/px und 0.12px/px bis 900px, Auftritt aus 28° und .9 in 1.4s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Freigestellte Schalen drehen sich mit dem Scrollen."
+      },
+      {
+        "name": "stimmen-ziehen",
+        "value": "Maus ziehen ab 4px, Loslassen rastet smooth auf Kartenbreite; Pfeile scrollen eine Karte",
+        "purpose": "Stimmen-Band."
+      },
+      {
+        "name": "lenis",
+        "value": "lerp 0.11",
+        "purpose": "Weiches Scrollen nur bei feinem Zeiger."
+      },
+      {
+        "name": "ruhig",
+        "value": "prefers-reduced-motion: Übergänge und Flackern 0.01ms, sofortiger Wechsel, kein Pendel, keine Lichtpunkte, keine Schalendrehung",
+        "purpose": "Fassung ohne Bewegung."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobil",
+        "value": "860px"
+      },
+      {
+        "name": "blatt",
+        "value": "600px"
+      },
+      {
+        "name": "buehne-niedrig",
+        "value": "max-height 820px / 800px (Desktop), 720px (mobil)"
+      }
+    ],
+    "ornaments": [
+      {
+        "name": "rangoli",
+        "use": "Ring hinter der Bühnen-Schale, currentColor, Deckkraft .42/.34"
+      },
+      {
+        "name": "rahmen",
+        "use": "Feiner 1px-Rahmen auf der Bühne unter dem Kopf, currentColor .55, Linien enden 26px vor den Ecken; 22px-Rosetten (#i-bluete) in den Ecken"
+      },
+      {
+        "name": "siegel",
+        "use": "Rundes Siegel an der Tafel: zwei Kreise, Kreisschrift „Bombay · Obere Hauptstraße 67 · Freising ·“ (Hanken 500 8.4px, Versalien +.26em), „4,5“ Fraunces 340, „bei Google“"
+      },
+      {
+        "name": "bluete",
+        "use": "#i-bluete, acht Blätter, vor Gruppentiteln der Karte; Linie Rani, Blätter Safran 70 %; ungefüllt als Rahmen-Rosette"
+      },
+      {
+        "name": "ranke",
+        "use": "Linie–Rosette–Linie, 210px Rani, über „141 Gerichte“"
+      },
+      {
+        "name": "paisley",
+        "use": "Wasserzeichen in Reservieren, Weiß .2, zeichnet sich"
+      },
+      {
+        "name": "jali",
+        "use": "Band 40px an der Fuß-Oberkante, Weiß .16"
+      }
+    ],
+    "images": [
+      {
+        "name": "schalen",
+        "use": "Freigestellte Schalen 640/1100px auf der Bühne, im Wähler, als Randschale und im Karten-Kopf"
+      },
+      {
+        "name": "schalen-klein",
+        "use": "Freigestellte 400px-Schalen (mango-chicken, rogan-josh, fisch-chili) für Gang-Zeilen und Schnellwahl-Chips"
+      },
+      {
+        "name": "chicken-tikka",
+        "use": "Einziges Foto, 28px-Rundung auf Weiß, mobil randlos"
+      },
+      {
+        "name": "laterne",
+        "use": "img/laterne-364.webp, freigestellt aus einem Gastfoto des Gastraums, sieben Mal im Nachtband"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Pille voll",
+      "kind": "button",
+      "refersTo": "pille-voll",
+      "description": "Haupthandlung auf Weiß: Tinte, rund, 48px.",
+      "html": "<a class=\"ds-pille ds-pille--voll\" href=\"#\"><svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linejoin=\"round\" d=\"M5 8.5h14l-1.1 11.5H6.1L5 8.5z\"/><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" d=\"M9 10.5V7a3 3 0 0 1 6 0v3.5\"/></svg>Bestellen</a>",
+      "css": ".ds-pille { display:inline-flex; align-items:center; gap:.6em; min-height:48px; padding:0 1.5em; border-radius:999px; font-family:var(--text, 'Hanken Grotesk', sans-serif); font-weight:500; font-size:.96rem; letter-spacing:.015em; text-decoration:none; transition: transform .18s cubic-bezier(.23,1,.32,1), background-color .25s ease; } .ds-ico { width:1.1em; height:1.1em; } .ds-pille--voll { background:#17110e; color:#fff; } .ds-pille--voll:hover { background:#33261f; } .ds-pille:active { transform:scale(.97); } .ds-pille:focus-visible { outline:2px solid #c4145d; outline-offset:3px; }"
+    },
+    {
+      "name": "Pille Rand",
+      "kind": "button",
+      "refersTo": "pille-rand",
+      "description": "Zweite Handlung: Kontur 1px in currentColor.",
+      "html": "<a class=\"ds-pille-rand\" href=\"#\">Tisch reservieren</a>",
+      "css": ".ds-pille-rand { display:inline-flex; align-items:center; min-height:48px; padding:0 1.5em; border-radius:999px; color:#17110e; box-shadow: inset 0 0 0 1px currentColor; font-family:'Hanken Grotesk', sans-serif; font-weight:500; font-size:.96rem; letter-spacing:.015em; text-decoration:none; transition: background-color .25s ease, transform .18s cubic-bezier(.23,1,.32,1); } .ds-pille-rand:hover { background: rgba(23,17,14,.06); } .ds-pille-rand:active { transform:scale(.97); } .ds-pille-rand:focus-visible { outline:2px solid #c4145d; outline-offset:3px; }"
+    },
+    {
+      "name": "Wähler der Bühne",
+      "kind": "custom",
+      "refersTo": "waehler-tab",
+      "description": "Tablist ohne Leiste: Schälchen mit Namen, nicht gewählte bei .8; ein 1.5px-Strich in currentColor gleitet unter die Wahl.",
+      "html": "<div class=\"ds-buehne\"><div class=\"ds-waehler\" role=\"tablist\"><button class=\"ds-tab\" role=\"tab\" aria-selected=\"true\"><span class=\"ds-schale\"></span>Butter Chicken</button><button class=\"ds-tab\" role=\"tab\" aria-selected=\"false\"><span class=\"ds-schale\"></span>Karahi Paneer</button><button class=\"ds-tab\" role=\"tab\" aria-selected=\"false\"><span class=\"ds-schale\"></span>Dal Makhni</button></div></div>",
+      "css": ".ds-buehne { background:#d42f73; color:#fff; padding:32px; } .ds-waehler { display:flex; gap:24px; } .ds-tab { position:relative; display:flex; flex-direction:column; align-items:center; gap:8px; padding:4px 6px 14px; border:0; background:none; color:inherit; font-family:'Hanken Grotesk', sans-serif; font-weight:500; font-size:.86rem; letter-spacing:.02em; opacity:.8; cursor:pointer; transition: opacity .3s ease; } .ds-tab[aria-selected='true'], .ds-tab:hover { opacity:1; } .ds-tab[aria-selected='true']::after { content:''; position:absolute; bottom:0; left:50%; width:36px; margin-left:-18px; height:1.5px; background:currentColor; } .ds-schale { width:58px; height:58px; border-radius:50%; background:radial-gradient(circle at 40% 40%, #f7c06b, #b4521c); filter: drop-shadow(0 6px 6px rgba(20,12,6,.3)); transition: transform .5s cubic-bezier(.23,1,.32,1); } .ds-tab[aria-selected='true'] .ds-schale { transform: translateY(-4px) scale(1.08); } .ds-tab:hover .ds-schale { transform: rotate(-14deg) scale(1.08); } .ds-tab:focus-visible { outline:2px solid #fff; outline-offset:3px; }"
+    },
+    {
+      "name": "Gang zum Aufklappen",
+      "kind": "custom",
+      "refersTo": "gang-zeichen",
+      "description": "Kopfzeile eines Gangs der Speisekarte: Fraunces-Titel, Proben, Anzahl und ab-Preis, 40px-Ring mit Plus, der offen zu Minus wird.",
+      "html": "<button class=\"ds-gang\" aria-expanded=\"false\" onclick=\"this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')!=='true')\"><span class=\"ds-gang-titel\">Hähnchen</span><span class=\"ds-gang-proben\">Butter Chicken, Chicken Korma, Chicken Madras</span><span class=\"ds-gang-meta\"><span>14 Gerichte</span><span>ab 13,90 €</span></span><span class=\"ds-gang-zeichen\"><i></i><i></i></span></button>",
+      "css": ".ds-gang { width:100%; display:grid; grid-template-columns:minmax(0,1fr) auto auto; grid-template-areas:'titel meta zeichen' 'proben meta zeichen'; gap:2px 22px; align-items:center; padding:20px 4px 20px 0; border:0; border-bottom:1px solid rgba(23,17,14,.12); background:none; color:#17110e; text-align:left; cursor:pointer; } .ds-gang-titel { grid-area:titel; font-family:'Fraunces', Georgia, serif; font-optical-sizing:auto; font-variation-settings:'SOFT' 20; font-size:2rem; font-weight:380; letter-spacing:-0.025em; line-height:1.1; transition: transform .45s cubic-bezier(.23,1,.32,1); } .ds-gang-proben { grid-area:proben; color:rgba(23,17,14,.78); font-family:'Hanken Grotesk', sans-serif; font-size:.98rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } .ds-gang-meta { grid-area:meta; display:grid; justify-items:end; font-family:'Hanken Grotesk', sans-serif; font-size:.92rem; font-weight:600; font-variant-numeric:tabular-nums; } .ds-gang-meta span:last-child { color:rgba(23,17,14,.78); font-weight:500; } .ds-gang-zeichen { grid-area:zeichen; position:relative; width:40px; height:40px; border-radius:50%; box-shadow: inset 0 0 0 1px #17110e; transition: background-color .3s ease, transform .5s cubic-bezier(.23,1,.32,1); } .ds-gang-zeichen i { position:absolute; left:50%; top:50%; width:14px; height:1.8px; margin:-.9px 0 0 -7px; border-radius:2px; background:#17110e; transition: transform .45s cubic-bezier(.23,1,.32,1), background-color .3s ease; } .ds-gang-zeichen i:last-child { transform:rotate(90deg); } .ds-gang:hover .ds-gang-titel { transform:translateX(6px); } .ds-gang:hover .ds-gang-zeichen { background:#f3f3f5; } .ds-gang[aria-expanded='true'] .ds-gang-zeichen { background:#17110e; transform:rotate(180deg); } .ds-gang[aria-expanded='true'] .ds-gang-zeichen i { background:#fff; } .ds-gang[aria-expanded='true'] .ds-gang-zeichen i:last-child { transform:rotate(0deg); } .ds-gang:focus-visible { outline:2px solid #c4145d; outline-offset:3px; }"
+    },
+    {
+      "name": "Schnellwahl-Chips",
+      "kind": "chip",
+      "refersTo": "schnell-chip",
+      "description": "„Worauf haben Sie Lust?“ (kursiv): neutrale Pillen, Weiß mit 1px-Linie und Tintentext, einige mit 40px-Schälchen; Hover Kontur Tinte.",
+      "html": "<p class=\"ds-schnell-frage\">Worauf haben Sie Lust?</p><div class=\"ds-schnell\"><button class=\"ds-schnell-chip ds-schnell-chip--bild\"><span class=\"ds-mini\"></span>Curry mit Hähnchen</button><button class=\"ds-schnell-chip ds-schnell-chip--bild\"><span class=\"ds-mini\"></span>Etwas Vegetarisches</button><button class=\"ds-schnell-chip\">Aus dem Tandoor</button></div>",
+      "css": ".ds-schnell-frage { font-family:'Fraunces', Georgia, serif; font-style:italic; font-optical-sizing:auto; font-variation-settings:'SOFT' 20; font-weight:360; font-size:1.8rem; letter-spacing:-0.02em; color:#17110e; margin:0 0 16px; } .ds-schnell { display:flex; flex-wrap:wrap; gap:8px; } .ds-schnell-chip { display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:0 1.25em; border:0; border-radius:999px; background:#fff; color:#17110e; box-shadow: inset 0 0 0 1px rgba(23,17,14,.12); font-family:'Hanken Grotesk', sans-serif; font-weight:500; font-size:.98rem; cursor:pointer; transition: box-shadow .25s ease, transform .2s cubic-bezier(.23,1,.32,1); } .ds-schnell-chip--bild { padding-left:6px; } .ds-mini { width:40px; height:40px; border-radius:50%; background:radial-gradient(circle at 40% 40%, #f7c06b, #b4521c); filter: drop-shadow(0 3px 4px rgba(20,12,6,.22)); transition: transform .5s cubic-bezier(.23,1,.32,1); } .ds-schnell-chip:hover { box-shadow: inset 0 0 0 1px #17110e; } .ds-schnell-chip:hover .ds-mini { transform: rotate(-16deg) scale(1.1); } .ds-schnell-chip:active { transform:scale(.96); } .ds-schnell-chip:focus-visible { outline:2px solid #c4145d; outline-offset:3px; }"
+    },
+    {
+      "name": "Filter-Chip",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "Filter der Speisekarte: Kontur Linie, gewählt Tinte voll.",
+      "html": "<button class=\"ds-filter\" aria-pressed=\"false\" onclick=\"this.setAttribute('aria-pressed', this.getAttribute('aria-pressed')!=='true')\">Vegetarisch</button> <button class=\"ds-filter\" aria-pressed=\"true\" onclick=\"this.setAttribute('aria-pressed', this.getAttribute('aria-pressed')!=='true')\">Scharf</button>",
+      "css": ".ds-filter { min-height:44px; padding:0 1.1em; border:0; border-radius:999px; background:none; color:#17110e; box-shadow: inset 0 0 0 1px rgba(23,17,14,.12); font-family:'Hanken Grotesk', sans-serif; font-weight:600; font-size:.95rem; cursor:pointer; transition: background-color .2s ease, color .2s ease, box-shadow .2s ease, transform .15s cubic-bezier(.23,1,.32,1); } .ds-filter:hover { box-shadow: inset 0 0 0 1px #17110e; } .ds-filter[aria-pressed='true'] { background:#17110e; color:#fff; box-shadow:none; } .ds-filter:active { transform:scale(.96); } .ds-filter:focus-visible { outline:2px solid #c4145d; outline-offset:3px; }"
+    },
+    {
+      "name": "Suche",
+      "kind": "input",
+      "refersTo": "suche",
+      "description": "Porzellan-Pille mit Lupe; bei Fokus weiß mit Tintenkontur.",
+      "html": "<label class=\"ds-suche\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"/><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" d=\"M15.2 15.2l4.6 4.6\"/></svg><input type=\"search\" placeholder=\"Gericht, Zutat oder Nummer\"></label>",
+      "css": ".ds-suche { display:flex; align-items:center; gap:10px; max-width:520px; min-height:54px; padding:0 20px; border-radius:999px; background:#f3f3f5; color:#17110e; transition: box-shadow .2s ease, background-color .2s ease; } .ds-suche:focus-within { background:#fff; box-shadow: 0 0 0 1.5px #17110e, 0 0 0 6px rgba(23,17,14,.06); } .ds-suche input { flex:1; min-width:0; min-height:52px; border:0; background:transparent; outline:none; font-family:'Hanken Grotesk', sans-serif; font-size:1.02rem; color:inherit; } .ds-suche input::placeholder { color:rgba(23,17,14,.78); }"
+    },
+    {
+      "name": "Feld",
+      "kind": "input",
+      "refersTo": "feld",
+      "description": "Formularfeld im Bestellzettel: Label darüber, 14px, Tinten-Fokus mit Halo.",
+      "html": "<label class=\"ds-feld\"><span>Telefon für Rückfragen</span><input type=\"tel\" placeholder=\"0151 …\"></label>",
+      "css": ".ds-feld { display:grid; gap:5px; font-family:'Hanken Grotesk', sans-serif; } .ds-feld span { font-size:.85rem; font-weight:600; color:rgba(23,17,14,.78); } .ds-feld input { min-height:50px; padding:.7em 1em; border-radius:14px; border:1px solid rgba(23,17,14,.12); background:#fff; color:#17110e; font:inherit; transition: border-color .2s ease, box-shadow .2s ease; } .ds-feld input:focus { outline:none; border-color:#17110e; box-shadow:0 0 0 4px rgba(23,17,14,.08); } .ds-feld input::placeholder { color:rgba(23,17,14,.6); }"
+    },
+    {
+      "name": "Plus",
+      "kind": "button",
+      "refersTo": "plus",
+      "description": "44px-Tintenkreis mit SVG-Plus; Hover Rani.",
+      "html": "<button class=\"ds-plus\" aria-label=\"Auf den Bestellzettel\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" aria-hidden=\"true\"><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" d=\"M12 5.5v13M5.5 12h13\"/></svg></button>",
+      "css": ".ds-plus { width:44px; height:44px; display:grid; place-items:center; border:0; border-radius:50%; background:#17110e; color:#fff; cursor:pointer; transition: transform .2s cubic-bezier(.23,1,.32,1), background-color .2s ease; } .ds-plus:hover { background:#c4145d; } .ds-plus:active { transform:scale(.9); } .ds-plus:focus-visible { outline:2px solid #c4145d; outline-offset:3px; }"
+    },
+    {
+      "name": "Kopf-Navigation",
+      "kind": "nav",
+      "refersTo": "pille-klein",
+      "description": "Fester Kopf: Rani-Logo, Text-Pillen, aktuelle Seite fett, kleine Tintenpille.",
+      "html": "<nav class=\"ds-kopf\"><span class=\"ds-marke\">Bombay</span><a href=\"#\" aria-current=\"page\">Speisekarte</a><a href=\"#\">Reservieren</a><a href=\"#\">Besuch</a><a class=\"ds-kopf-pille\" href=\"#\">Bestellen</a></nav>",
+      "css": ".ds-kopf { display:flex; align-items:center; gap:2px; height:76px; padding:0 24px; background:rgba(255,255,255,.97); box-shadow:0 1px 0 rgba(23,17,14,.12); font-family:'Hanken Grotesk', sans-serif; color:#17110e; } .ds-marke { margin-right:auto; color:#c4145d; font-family:'Fraunces', Georgia, serif; font-weight:360; font-size:1.6rem; } .ds-kopf a { padding:.5em .9em; border-radius:999px; font-size:.97rem; font-weight:500; text-decoration:none; color:inherit; transition: background-color .2s ease; } .ds-kopf a:hover { background:rgba(23,17,14,.06); } .ds-kopf a[aria-current='page'] { font-weight:600; } .ds-kopf a.ds-kopf-pille { margin-left:24px; min-height:42px; display:inline-flex; align-items:center; padding:0 1.15em; background:#17110e; color:#fff; font-weight:500; letter-spacing:.015em; } .ds-kopf a.ds-kopf-pille:hover { background:#33261f; } .ds-kopf a:focus-visible { outline:2px solid #c4145d; outline-offset:3px; }"
+    },
+    {
+      "name": "Stimmen-Karte",
+      "kind": "card",
+      "refersTo": "stimme-karte",
+      "description": "Karte im waagrechten Stimmen-Band: kursives Zitat, Quelle darunter; Noten-Karte in Porzellan mit Rani-Note.",
+      "html": "<ul class=\"ds-band\"><li class=\"ds-stimme ds-stimme--note\"><p class=\"ds-zahl\">4,5</p><p class=\"ds-quelle\"><b>Google</b> · über 400 Bewertungen</p></li><li class=\"ds-stimme\"><blockquote>„Sehr gutes Essen, kurze Wartezeiten, Bedienung sehr freundlich und zuvorkommend.“</blockquote><p class=\"ds-quelle\"><b>Google</b> · Gast</p></li></ul>",
+      "css": ".ds-band { list-style:none; display:flex; gap:20px; margin:0; padding:6px 0 18px; overflow-x:auto; scroll-snap-type:x mandatory; } .ds-stimme { flex:none; width:340px; min-height:280px; scroll-snap-align:start; display:flex; flex-direction:column; justify-content:space-between; gap:28px; padding:30px; border-radius:22px; background:#fff; box-shadow: inset 0 0 0 1px rgba(23,17,14,.12); color:#17110e; font-family:'Hanken Grotesk', sans-serif; } .ds-stimme blockquote { margin:0; font-family:'Fraunces', Georgia, serif; font-style:italic; font-optical-sizing:auto; font-variation-settings:'SOFT' 20; font-weight:340; font-size:1.7rem; line-height:1.25; letter-spacing:-0.012em; } .ds-stimme--note { background:#f3f3f5; box-shadow:none; justify-content:flex-start; } .ds-zahl { margin:0; font-family:'Fraunces', Georgia, serif; font-weight:300; font-size:6rem; line-height:.85; letter-spacing:-0.05em; color:#c4145d; } .ds-stimme--note .ds-quelle { margin-top:auto; } .ds-quelle { margin:0; font-size:.9rem; color:rgba(23,17,14,.78); } .ds-quelle b { font-weight:600; color:#17110e; }"
+    },
+    {
+      "name": "Laternen-Band",
+      "kind": "custom",
+      "refersTo": "laternen-band",
+      "description": "Die eine Nachtfläche: Laternen an Lichtschnüren mit warmem, flackerndem Lichthof (screen).",
+      "html": "<div class=\"ds-nacht\"><span class=\"ds-decke\"></span><span class=\"ds-laterne\"><span class=\"ds-licht\"></span><span class=\"ds-koerper\"></span></span><p class=\"ds-spiel\">Stupsen Sie eine an.</p></div>",
+      "css": ".ds-nacht { position:relative; isolation:isolate; overflow:hidden; min-height:320px; padding:24px 32px; background:#140d0a; color:#fff; display:flex; align-items:flex-end; justify-content:flex-end; } .ds-decke { position:absolute; left:0; right:0; top:0; height:10px; background:linear-gradient(#2a1d15, #140d0a); box-shadow:0 1px 0 rgba(255,210,150,.12); } .ds-laterne { position:absolute; top:8px; left:20%; transform-origin:50% 0; animation: ds-pendel 3.2s ease-in-out infinite alternate; } .ds-laterne::before { content:''; display:block; width:1px; height:90px; margin:0 auto; background:linear-gradient(rgba(255,220,170,.15), rgba(255,220,170,.5)); } .ds-koerper { display:block; width:70px; height:100px; border-radius:40% 40% 30% 30%; background:linear-gradient(#c4145d, #5aa9ff); opacity:.9; } .ds-licht { position:absolute; z-index:-1; left:50%; top:150px; width:240px; aspect-ratio:1; transform:translate(-50%,-50%); border-radius:50%; background:radial-gradient(closest-side, rgba(255,190,105,.42), rgba(255,150,60,.14) 45%, transparent); mix-blend-mode:screen; animation: ds-flackern 5s ease-in-out infinite alternate; } .ds-spiel { margin:0; font-family:'Fraunces', Georgia, serif; font-style:italic; font-optical-sizing:auto; font-variation-settings:'SOFT' 20; font-weight:360; font-size:1.2rem; color:#ffcf8a; } @keyframes ds-flackern { 0% { opacity:.85; } 40% { opacity:1; } 55% { opacity:.9; } 100% { opacity:.97; } } @keyframes ds-pendel { from { transform:rotate(-4deg); } to { transform:rotate(4deg); } } @media (prefers-reduced-motion: reduce) { .ds-laterne, .ds-licht { animation:none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Die Schale bleibt, die Welt wechselt die Farbe",
+    "overview": "Safran-Editorial ist ein Food-Magazin zum Antippen. Reines Weiß ist der Grund, Tinte trägt Text und Handlungen, Rani aus dem Logo ist die Markenfarbe, und jedes der vier Lieblingsgerichte besitzt eine eigene satte Vollfläche. Auf der Startseite liegt die freigestellte Schale auf einem fein gezeichneten Rangoli-Ring, mitten in ihrer Farbe: Butter Chicken in Rani-Pink, Karahi Paneer in Pfauenblau, Dal Makhni in Safran, Jheenga Curry in Kardamom. Ein feiner Rahmen mit Rosetten in den Ecken fasst die Fläche wie eine Speisekarte, ein rundes Siegel trägt die Google-Note. Gewechselt wird nur, wenn der Gast es will; dann wächst die neue Farbe als Kreis von der Stelle aus, an der er getippt hat.\n\nDie Seite ist ruhig, groß und leicht gesetzt: wenige Elemente pro Bildschirm, Fraunces in leichten Schnitten (320–420) mit sanft weichen Enden (SOFT 20) für Titel, Namen, Zitate und Preise, dazu ein kursiver Akzent aus der Fraunces Italic für einzelne Worte; Hanken Grotesk 400 für alles Lesbare; Konturen und Linien 1px; runde Pillen in Tinte. Das Essen ist der Hauptdarsteller: freigestellte Schalen liegen auf der Bühne, schauen vom Rand herein und drehen sich mit dem Scrollen. Der indische Ton kommt aus selbst gezeichneter feiner Linienarbeit (Rangoli, Rahmen mit Rosetten, Siegel, Blüte, Ranke, Paisley, Jali) und aus den echten Laternen des Gastraums, nie aus Requisiten, Metallglanz oder Bogenrahmen.\n\nVerworfen sind die dunkle Restaurant-Bühne, Fotoraster, Kupfer und Messing, Gewürzdose und Thali-Platte, Bögen und Masken sowie staubige Farben. Die eine bewusste Ausnahme vom weißen Grund ist das Laternen-Band: ein schmales Nachtband, in dem die freigestellten Laternen aus dem Gastraum leuchten.",
+    "keyCharacteristics": [
+      "Weißer Grund, Tinte (#17110e) für Text und Knöpfe, Rani (#c4145d) aus dem Logo als Markenfarbe.",
+      "Vier satte Gerichtsflächen, je eine pro Bildschirm, immer vollflächig; Safran (#ff8a1c) ist ein klares Orange.",
+      "Fraunces leicht (320–420) mit automatischer Optik-Achse und SOFT 20; Fraunces Italic als Akzent; Hanken Grotesk 400 mit Zeilenhöhe 1.65.",
+      "Freigestellte Schalen mit weichem Schlagschatten statt Fotokacheln; ein echtes Foto (Chicken Tikka) und die freigestellte Laterne aus einem Gastfoto.",
+      "Ornamente als feine, selbst gezeichnete Inline-SVG-Linien in currentColor oder Palettenfarben; Konturen 1px.",
+      "Alles Bedienbare ist rund: Pillen, Kreise, Ringe.",
+      "Eine einzige dunkle Fläche neben dem Fuß: das Laternen-Band in Nacht (#140d0a).",
+      "Bewegung antwortet auf den Gast (Tippen, Wischen, Scrollen, Zeiger) und fällt ohne Bewegung zu sofortigen Wechseln zusammen."
+    ],
+    "rules": [
+      {
+        "name": "Die Ein-Feld-Regel",
+        "body": "Pro Bildschirm herrscht höchstens eine Gerichtsfläche, und sie füllt die volle Breite. Gerichtsfarben werden nie zu Kacheln, Chips, Rahmen oder Textfarben auf Weiß; erlaubt sind nur Sterne und die Blütenblätter der Rosette.",
+        "section": "colors"
+      },
+      {
+        "name": "Die Ton-Regel",
+        "body": "Safran trägt Tinte; Rani-Pink, Pfauenblau und Kardamom tragen Weiß. Kopf, Pillen, Rahmen, Siegel, Wähler-Strich und Pfeile folgen dem Ton (`data-ton`, `is-hell`, sonst `currentColor`).",
+        "section": "colors"
+      },
+      {
+        "name": "Die Tinte-handelt-Regel",
+        "body": "Auf Weiß ist jede Handlung Tinte. Rani markiert Marke und Zustände (Zähler, Heute, Fokus, Noten), ist aber auf weißem Grund keine Knopffüllung. Chips auf Weiß sind neutral: Weiß mit 1px-Linie und Tintentext.",
+        "section": "colors"
+      },
+      {
+        "name": "Die Eine-Nacht-Regel",
+        "body": "Weiß ist der Grund. Die einzige dunkle Sektion neben dem Fuß ist das Laternen-Band in Nacht (#140d0a), weil Laternen nur im Dunkeln leuchten. Keine weiteren dunklen Bänder; die Bühne bleibt immer Farbfläche.",
+        "section": "colors"
+      },
+      {
+        "name": "Die Leichte-Fraunces-Regel",
+        "body": "Fraunces steht immer mit `font-optical-sizing: auto` und `font-variation-settings: \"SOFT\" 20`; jede neue Fraunces-Klasse kommt in die SOFT-Liste in `site.css`. Größe trägt, nicht Gewicht: je größer, desto leichter. Display 320–340, Headline und Gericht 360, Gang und Preis 380, Posten 420; nur kleine Zahlen und der Handschrift-Hinweis gehen bis 500. Laufweite -0.022em bis -0.035em, große Noten -0.05em.",
+        "section": "typography"
+      },
+      {
+        "name": "Die Kursiv-Akzent-Regel",
+        "body": "Die Kursive ist ein bewusster Akzent aus der echten Fraunces Italic, nie eine schräg gerechnete Aufrechte. Sie steht für höchstens ein Wort in einem Titel (`<em class=\"akzent\">`, Gewicht geerbt), für Gruppentitel, Schnellwahl-Frage, „Dazu passt“, die Laternen-Aufforderung und die Zitate der Gäste. Nie ganze Absätze, nie Lauftext, nie Knöpfe.",
+        "section": "typography"
+      },
+      {
+        "name": "Die Zwei-Stimmen-Regel",
+        "body": "Fraunces für Namen, Überschriften, Zitate und Zahlen von Gewicht; Hanken für alles andere. Keine Überzeilen über Titeln: Ergänzende Zeilen (Herkunft, Nummer, Status, Quelle) stehen unter dem Titel oder den Knöpfen. Versalien mit Sperrung gibt es nur in der Kreisschrift des Siegels, wie auf einem Prägestempel, nie als Zeile im Satz.",
+        "section": "typography"
+      },
+      {
+        "name": "Die Gegenstand-Regel",
+        "body": "Nur was man greifen, essen oder aufhängen kann, wirft Schatten oder Licht. Keine harten Versatzschatten, keine Schatten auf Text, Ornamenten, Karten oder Sektionen; Stimmen-Karten trennen sich über eine 1px-Linie.",
+        "section": "elevation"
+      },
+      {
+        "name": "Die Ein-Pixel-Regel",
+        "body": "Konturen, Ringe und Trennlinien sind 1px: Pillen-Rand, Pfeilringe, Gang-Ring, Chips, Karten, Gericht- und Gruppenlinie, Rahmen. Einzige stärkere Linie ist der 1.5px-Strich unter dem gewählten Gericht im Wähler, weil er eine Wahl markiert und keine Kante zieht.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** Weiß (#ffffff) als Grund und Tinte (#17110e) für Text und Knöpfe verwenden.",
+      "**Do** Gerichte als freigestellte Schalen mit weichem Schlagschatten zeigen, auch vom Rand hereinschauend und mit dem Scrollen drehend; Fotos sparsam (heute: Chicken Tikka in 28px-Rundung auf Weiß, die freigestellte Laterne aus einem Gastfoto).",
+      "**Do** Fraunces immer mit automatischer Optik-Achse und SOFT 20 setzen, leicht: Titel 320–380, Posten 420.",
+      "**Do** den Kursiv-Akzent bewusst einsetzen: ein Wort pro Titel (`em.akzent`), Gruppentitel, Fragen, Zitate; immer aus der Fraunces Italic.",
+      "**Do** Konturen, Ringe und Linien in 1px ziehen.",
+      "**Do** Ornamente als feine, selbst gezeichnete Inline-SVG-Linien in currentColor oder Palettenfarben bauen (Rangoli, Rahmen mit Rosetten, Siegel, Blüte, Ranke, Paisley, Jali).",
+      "**Do** ergänzende Zeilen (Herkunft, Nummer, Status, Quelle) unter Titel oder Knöpfe stellen.",
+      "**Do** Icons als Inline-SVG aus dem Sprite (`#i-…`) setzen, auch Sterne, Plus, Minus und Kreuz.",
+      "**Do** Bewegung nur auf Eingabe des Gastes (Tippen, Ziehen, Scrollen, Zeiger) auslösen und jede Bewegung mit einer sofortigen Fassung für reduzierte Bewegung bauen.",
+      "**Do** lange Listen kompakt halten: Gänge klappen auf, immer nur einer offen, ohne Layoutsprung.",
+      "**Do** in den Stimmen nur belegte Zitate und Noten mit Quelle zeigen."
+    ],
+    "donts": [
+      "**Don't** Kupfer, Messing oder metallische Töne verwenden.",
+      "**Don't** Gewürzdose, Thali-Platte oder andere Klischee-Requisiten als Bildmotiv einsetzen.",
+      "**Don't** Bögen, Rippen, Kuppelformen oder geometrische Bildmasken (auch keine Radialverläufe als Maske) bauen; die Kuppel bleibt dem Logo vorbehalten.",
+      "**Don't** staubige, entsättigte Farben einführen; Flächen sind satt.",
+      "**Don't** Überzeilen/Kicker in Versalien über Titel setzen.",
+      "**Don't** Unicode-Zeichen als Icons verwenden (Sterne, Pfeile, Häkchen, Plus).",
+      "**Don't** eine klebende In-Page-Navigation über den Inhalt legen.",
+      "**Don't** auf der Bühne Scroll-Jacking, Pinning, Einrasten oder selbstständiges Drehen einsetzen.",
+      "**Don't** Gerichtsfarben als Kacheln, Chips, Rahmen oder Textfarbe auf Weiß nutzen.",
+      "**Don't** Fotos zu Rastern oder Galerien stapeln; keine dunkle Restaurant-Bühne (das Laternen-Band ist die eine bewusste Nachtfläche, keine Vorlage für weitere)."
+    ]
+  }
+}
